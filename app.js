@@ -4,6 +4,7 @@ const app = express();
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const bodyParser = require('body-parser');
+const passport = require('passport');
 
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -13,9 +14,12 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-    res.send("Hello Olive")
-});
+// app.get("/", (req, res) => {
+//     res.send("Hello Olive")
+// });
+
+app.use(passport.initialize());
+require('./config/passport')(passport);
 
 app.use("/api/users", users);
 const port = process.env.PORT || 5000;
