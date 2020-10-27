@@ -1,18 +1,18 @@
 const Validator = require('validator');
-const validText = require('./valid-text');
+const validText = require('./valid_text');
 
 module.exports = function validateRegisterInput(data) {
   let errors = {};
 
-  data.handle = validText(data.handle) ? data.handle : '';
+  data.username = validText(data.username) ? data.username : '';
   data.email = validText(data.email) ? data.email : '';
   data.password = validText(data.password) ? data.password : '';
   data.password2 = validText(data.password2) ? data.password2 : '';
 
-  if(!Validator.isLength(data.handle, { min: 2, max:30 }))
+  if(!Validator.isLength(data.username, { min: 2, max:30 }))
 
-  if (Validator.isEmpty(data.handle)) {
-    errors.handle = 'Handle field is required';
+  if (Validator.isEmpty(data.username)) {
+    errors.username = 'username field is required';
   }
 
   if (Validator.isEmpty(data.email)) {
