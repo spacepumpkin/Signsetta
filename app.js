@@ -6,6 +6,7 @@ const users = require("./routes/api/users");
 const cards = require("./routes/api/cards");
 const bodyParser = require('body-parser');
 const passport = require('passport');
+const categories = require('./routes/api/categories');
 
 mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 // app.get("/", (req, res) => {
 //     res.send("Hello Olive")
 // });
+app.use('/api/categories',categories);
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
