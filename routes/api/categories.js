@@ -11,8 +11,10 @@ router.get('/', (res, req) => {
 
 router.get('/:id', (res, req) => {
     Category
-        .find({},{id: req.id})
+        .find({},{id: req.params.id})
+        .then(category => res.json({cards: category.cards}))
         .catch(err => render.json(err))
 })
+
 
 module.exports = router;
