@@ -16,6 +16,9 @@ const UserSchema = new Schema({
     },
     cards: {
         type: Array
+    },
+    profilePicture: {
+        type: String
     }
 }, {
     timestamps: true
