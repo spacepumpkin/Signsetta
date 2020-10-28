@@ -24,9 +24,10 @@ mongoose
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// app.get("/", (req, res) => {
-//     res.send("Hello Olive")
-// });
+app.get("/", (req, res) => {
+    res.send("Hello Olive")
+});
+
 app.use('/api/categories', categories);
 
 app.use(passport.initialize());
