@@ -18,13 +18,33 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     });
 })
 
+router.get('/:user_id', (req, res) => {
+    User.findOne({ email: req.body.email })
+        .then(user => {
+            if (user) {
+                return res.json( {
+                   username: user.username,
+                   email: user.email
+                } )
+            } else {
+                return res.status(404).json({err: "No user found"})
+            }
+        })
+});
+
 // api/user/:user_id/cards
 router.get('/:user_id/cards', (req, res) => {
     User
-        .findOne( {username: req.body.username} )
-        .then(res.json({
-            cards: res.body.cards
-        }))
+        .findOne( {email: req.body.email} )
+        .then(user => {
+            if (user.cards.length !== 0) {
+                return res.json( {
+                    cards: user.cards
+                })
+            } else {
+                return res.status(404).json({ msg: "No cards found" })
+            }
+        })
         // .then(email = res.json(email))
         // .catch(err => res.status(404).json({ nocardsfound: 'No cards found for that user' }))
 })
