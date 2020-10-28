@@ -11,21 +11,22 @@ const Card = require('../../models/Card');
 //         .then(tweets => res.json(tweets))
 //         .catch(err => res.status(404).json({ notweetsfound: 'No tweets found' }));
 // });
+// api/cards/user/:user_id
+// api/user/:user_id/cards
+// router.get('/user/:user_id', (req, res) => {
+//     Card.find({ user: req.params.user_id })
+//         .then(cards => res.json(cards))
+//         .catch(err =>
+//             res.status(404).json({ nocardsfound: 'No cards found for that user' }
+//             )
+//         );
+// });
 
-router.get('/user/:user_id', (req, res) => {
-    Card.find({ user: req.params.user_id })
-        .then(cards => res.json(cards))
-        .catch(err =>
-            res.status(404).json({ nocardsfound: 'No cards found for that user' }
-            )
-        );
-});
-
-router.get('/cards/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     Card.findById(req.params.id)
         .then(card => res.json(card))
         .catch(err =>
-            res.status(404).json({ notcardfound: 'No card found with that ID' })
+            res.status(404).json({ nocardfound: 'No card found with that ID' })
         );
 });
 

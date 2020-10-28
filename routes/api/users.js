@@ -18,6 +18,17 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     });
 })
 
+// api/user/:user_id/cards
+router.get('/:user_id/cards', (req, res) => {
+    User
+        .findOne( {username: req.body.username} )
+        .then(res.json({
+            cards: res.body.cards
+        }))
+        // .then(email = res.json(email))
+        // .catch(err => res.status(404).json({ nocardsfound: 'No cards found for that user' }))
+})
+
 router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
 
