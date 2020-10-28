@@ -5,6 +5,13 @@ const Card = require('../../models/Card');
 // const passport = require('passport');
 // const validateTweetInput = require('../../validation/tweets');
 
+router.get('/', (req, res) => {
+    Card.find()
+        .sort({ category: -1})
+        .then(cards => res.json(cards))
+        .catch(err => res.status(404).json({nocardsfound: 'no cards found'}));
+});
+
 // router.get('/', (req, res) => {
 //     Tweet.find()
 //         .sort({ date: -1 })
