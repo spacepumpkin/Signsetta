@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 // app.get("/", (req, res) => {
 //     res.send("Hello Olive")
 // });
-app.use('/api/categories',categories);
+// app.use('/api/categories', categories);
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
