@@ -14,3 +14,5 @@ router.get('/:id', (res, req) => {
         .find({},{id: req.id})
         .catch(err => render.json(err))
 })
+
+module.exports = router;
