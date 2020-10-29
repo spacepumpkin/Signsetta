@@ -1,6 +1,6 @@
 // import { getCard, getUserCards } from '../util/cards_util';
 import * as CardUtil from "../util/cards_util";
-
+import { getCategoryCards } from '../util/categories_util';
 
 export const RECEIVE_CARDS = "RECEIVE_CARDS";
 export const RECEIVE_CARD = "RECEIVE_CARD";
@@ -64,7 +64,7 @@ export const fetchUserCards = userId => {
 
 export const fetchCategoryCards = (cards) => {
     return dispatch => {
-        return CategoriesUtil.getCategoryCards(cards)
+        return getCategoryCards(cards)
             .then(catCards => {
                 return dispatch(receiveCategoryCards(catCards))
             })
