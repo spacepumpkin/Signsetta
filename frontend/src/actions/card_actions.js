@@ -27,9 +27,9 @@ export const receiveUserCards = userCards => {
     }
 }
 
-export const fetchCards = cards => {
+export const fetchCards = () => {
     return dispatch => {
-        return CardUtil.getCards(cards)
+        return CardUtil.getCards()
             .then(fetchedCards => {
                 return dispatch(receiveCards(fetchedCards))
             }) 

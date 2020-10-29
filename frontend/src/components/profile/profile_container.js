@@ -1,3 +1,4 @@
+
 import { connect } from 'react-redux';
 import { fetchUserCards } from '../../actions/card_actions';
 import Profile from './profile';
@@ -15,5 +16,6 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+
+// export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 
