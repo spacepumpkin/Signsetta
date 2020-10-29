@@ -1,19 +1,21 @@
-// import { connect } from 'react-redux';
-// import { fetchUserCards } from '../../actions/card_actions';
-// import Profile from './profile';
 
-// const mapStateToProps = (state) => {
-//     return {
-//         tweets: Object.values(state.tweets.user),
-//         currentUser: state.session.user
-//     };
-// };
+import { connect } from 'react-redux';
+import { fetchUserCards } from '../../actions/card_actions';
+import Profile from './profile';
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//         fetchUserTweets: id => dispatch(fetchUserTweets(id))
-//     };
-// };
+const mapStateToProps = (state) => {
+    return {
+        cards: Object.values(state.entities.cards),
+        currentUser: state.session.userId
+    };
+};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+const mapDispatchToProps = dispatch => {
+    return {
+        fetchUserCards: userId => dispatch(fetchUserCards(userId))
+    };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 

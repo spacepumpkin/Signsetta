@@ -5,6 +5,7 @@ import * as CardUtil from "../util/cards_util";
 export const RECEIVE_CARDS = "RECEIVE_CARDS";
 export const RECEIVE_CARD = "RECEIVE_CARD";
 export const RECEIVE_USER_CARDS = "RECEIVE_USER_CARDS";
+export const RECEIVE_CATEGORY_CARDS = 'RECEIVE_CATEGORY_CARDS';
 
 export const receiveCards = cards => {
     return {
@@ -27,6 +28,13 @@ export const receiveUserCards = userCards => {
     }
 }
 
+export const receiveCategoryCards = (cards) => {
+    return {
+        type: RECEIVE_CATEGORY_CARDS,
+        cards
+    }
+}
+
 export const fetchCards = () => {
     return dispatch => {
         return CardUtil.getCards()
@@ -45,11 +53,20 @@ export const fetchCard = cardId => {
     }
 };
 
-export const fetchUserCards = cardsId => {
+export const fetchUserCards = userId => {
     return dispatch => {
-        return CardUtil.getUserCards(cardsId)
+        return CardUtil.getUserCards(userId)
             .then(userCards => {
                 return dispatch(receiveUserCards(userCards))
+            })
+    }
+};
+
+export const fetchCategoryCards = (cards) => {
+    return dispatch => {
+        return CategoriesUtil.getCategoryCards(cards)
+            .then(catCards => {
+                return dispatch(receiveCategoryCards(catCards))
             })
     }
 };
