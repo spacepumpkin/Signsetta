@@ -9,7 +9,6 @@ const entitiesReducer = combineReducers({
     cards: cardsReducer,
     categories: categoriesReducer,
     users: usersReducer
-    
 });
 
 export default entitiesReducer;

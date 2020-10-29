@@ -12,12 +12,12 @@ export const getCards = () => {
     return axios.get(`/api/cards`)
 }
 
-export const getCard = id => {
-    return axios.get(`/api/cards/${id}`)
+export const getCard = cardId => {
+    return axios.get(`/api/cards/${cardId}`)
 }
 
-export const getUserCards = id => {
-    return axios.get(`/api/users/${id}/cards`)
+export const getUserCards = userId => {
+    return axios.get(`/api/users/${userId}/cards`)
 };
 
 // export const getCategoryCards = catId => {
