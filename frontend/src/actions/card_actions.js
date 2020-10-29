@@ -23,7 +23,7 @@ export const receiveCard = card => {
 export const receiveUserCards = userCards => {
     return {
         type: RECEIVE_USER_CARDS,
-        cards
+        userCards
     }
 }
 
@@ -45,9 +45,9 @@ export const fetchCard = cardId => {
     }
 };
 
-export const fetchUserCards = cardsId => {
+export const fetchUserCards = userId => {
     return dispatch => {
-        return CardUtil.getUserCards(cardsId)
+        return CardUtil.getUserCards(userId)
             .then(userCards => {
                 return dispatch(receiveUserCards(userCards))
             })
