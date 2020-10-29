@@ -1,19 +1,21 @@
-import React,{ useState } from 'react';
+import React from 'react';
+import './card_index.css';
+import '../../reset.css'
 
 const CardBox = props => {
-    const [flip, setFlip] = useState(true)
+    const [flip, setFlip] = React.useState(true)
     return(
-            <div onClick={() => setFlip(!flip)}>
+            <li className="cardbox-card" onClick={() => setFlip(!flip)}>
                 {
                     (flip) ? (
-                    <img src={props.frontside}/>
+                    <img className="cardbox-image" src={props.frontside}/>
                         // <img>{props.frontside}</img>
                     ) : (
                         props.backside
                     )
 
                 }
-            </div>
+            </li>
     );
 }
 

@@ -1,6 +1,8 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom'
-import CardBox from './cardbox'
+import { withRouter } from 'react-router-dom';
+import CardBox from './cardbox';
+import './card_index.css';
+import '../../reset.css';
 
 class CardIndex extends React.Component {
     constructor(props) {
@@ -23,9 +25,11 @@ class CardIndex extends React.Component {
         return (
             <div>
                 <h2>These are all the cards</h2>
-                {this.props.cards.map(card => (
+                <ul className="card-index-cards">
+                    {this.props.cards.map(card => (
                     <CardBox key={card._id} frontside={card.frontside} backside={card.backside}/>
-                ))} 
+                    ))} 
+                </ul>
             </div>
         );
     }
