@@ -3,10 +3,11 @@ import React,{ useState } from 'react';
 const CardBox = props => {
     const [flip, setFlip] = useState(true)
     return(
-            <div onClick={setFlip(!flip)}>
+            <div onClick={() => setFlip(!flip)}>
                 {
                     (flip) ? (
-                        <h3>{props.frontside}</h3>
+                    <img src={props.frontside}/>
+                        // <img>{props.frontside}</img>
                     ) : (
                         props.backside
                     )
