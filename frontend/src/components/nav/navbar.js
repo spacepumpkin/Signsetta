@@ -21,6 +21,7 @@ class NavBar extends React.Component {
                 <div>
                     <Link to={'/categories'}>Return to all categories</Link>
                     <Link to={'/profile'}>Profile</Link>
+                    <Link to={'/cards'}>Cards</Link>
                     <button onClick={this.logoutUser}>Logout</button>
                 </div>
             );
