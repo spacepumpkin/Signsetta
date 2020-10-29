@@ -1,13 +1,19 @@
-import React from 'react';
+import React,{ useState } from 'react';
 
-class CardBox extends React.Component {
-    render() {
-        return (
-            <div>
-                <h3>{this.props.frontside}</h3>
+const CardBox = props => {
+    const [flip, setFlip] = useState(true)
+    return(
+            <div onClick={setFlip(!flip)}>
+                {
+                    (flip) ? (
+                        <h3>{props.frontside}</h3>
+                    ) : (
+                        props.backside
+                    )
+
+                }
             </div>
-        );
-    }
+    );
 }
 
 export default CardBox;

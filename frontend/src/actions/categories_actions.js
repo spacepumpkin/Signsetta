@@ -1,19 +1,23 @@
 import * as CategoriesUtil from '../util/categories_util';
 
-export const RECEIVE_CATEGORY_CARDS = 'RECEIVE_CATEGORY_CARDS';
 
-export const receiveCategoryCards = (cards) => {
+export const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES';
+
+
+
+export const recieveCategories = ( categories ) => {
     return {
-        type: RECEIVE_CATEGORY_CARDS,
-        cards
+       type: RECEIVE_CATEGORIES,
+        categories  
     }
+   
 }
 
-export const fetchCategoryCards = (cards) => {
+export const fetchCategories = () => {
     return dispatch => {
-        return CategoriesUtil.getCategoryCards(cards)
-            .then(catCards => {
-                return dispatch(receiveCategoryCards(catCards))
+        return CategoriesUtil.getCategories()
+            .then(categories => {
+                return dispatch(recieveCategories(categories))
             })
-    }
-};
+        }
+}
