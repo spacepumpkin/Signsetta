@@ -17,7 +17,7 @@ class CardIndex extends React.Component {
             <div>
                 <h2>These are all the cards</h2>
                 {this.state.cards.map(card => (
-                    <CardBox key={card.id} frontside={card.frontside} />
+                    <CardBox key={card.id} frontside={card.frontside} backside={card.backside}/>
                 ))} 
             </div>
         );
