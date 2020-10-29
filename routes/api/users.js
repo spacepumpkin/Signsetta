@@ -18,6 +18,19 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     });
 })
 
+router.get("/all", (req, res) => {
+    User.find()
+        .then(users => {
+            const payload = {};
+            users.forEach(user => {
+                payload[user.id] = user;
+            });
+            res.json(payload);
+        })
+        .catch(err => res.status(400).json(err));
+});
+
+
 router.get('/:user_id', (req, res) => {
     User.findOne({ email: req.body.email })
         .then(user => {
