@@ -3,7 +3,7 @@ import image from '../../images/splash-image.jpg';
 
 import SearchContainer from '../search/search_container';
 
-const Splash = state => {
+const Splash = (state) => {
     return (
         <div>
             <div className="description">SignSetta is an application designed to help 
