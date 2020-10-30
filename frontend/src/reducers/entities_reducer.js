@@ -6,7 +6,7 @@ import usersReducer from './users_reducer'
 
 const entitiesReducer = combineReducers({
     cards: cardsReducer,
-    // categories: categoriesReducer,
+    categories: categoriesReducer,
     users: usersReducer
 });
 
