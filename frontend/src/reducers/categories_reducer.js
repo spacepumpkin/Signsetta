@@ -1,4 +1,4 @@
-import { RECEIVE_CATEGORIES } from '../actions/categories_actions';
+import { RECEIVE_CATEGORIES, RECEIVE_CATEGORY } from '../actions/categories_actions';
 
 const CategoriesReducer = (state = {}, action) => {
     
@@ -8,6 +8,9 @@ const CategoriesReducer = (state = {}, action) => {
         case RECEIVE_CATEGORIES:
             newState = action.categories
             return newState;
+        case RECEIVE_CATEGORY:
+            newState = action.category
+            return newState    
         default: 
             return state;
     }
