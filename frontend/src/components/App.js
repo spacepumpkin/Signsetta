@@ -11,20 +11,22 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import ProfileContainer from './profile/profile_container';
 import CategoriesIndex from './categories/categories_index_container';
+import CardShowContainer from './card/card_show_container';
+import SplashComponent from './splash/splash';
 
 // import TweetComposeContainer from './tweets/tweets_compose_container';
 
 const App = () => (
   <div>
     <NavBarContainer />
+      <AuthRoute exact path="/" component={SplashComponent} />
     <Switch>
-      {/* <AuthRoute exact path="/" component={MainPage} /> */}
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/categories" component={CategoriesIndex}/>
       
+      <ProtectedRoute exact path="/cards/${cardId}" component={CardShowContainer}/>
       <ProtectedRoute exact path="/cards" component={CardIndexContainer}/>
-      {/* <ProtectedRoute exact path="/cards/${cardId}" component={CardShowContainer}/> */}
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
     </Switch>
   </div>
