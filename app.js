@@ -4,9 +4,9 @@ const app = express();
 const db = require('./config/keys').mongoURI;
 const users = require("./routes/api/users");
 const cards = require("./routes/api/cards");
+const categories = require('./routes/api/categories');
 const bodyParser = require('body-parser');
 const passport = require('passport');
-const categories = require('./routes/api/categories');
 const path = require('path');
 
 if (process.env.NODE_ENV === 'production') {
@@ -28,11 +28,11 @@ app.get("/", (req, res) => {
     res.send("Hello Olive")
 });
 
-app.use('/api/categories', categories);
 
 app.use(passport.initialize());
 require('./config/passport')(passport);
 
+app.use("/api/categories", categories);
 app.use("/api/users", users);
 app.use("/api/cards", cards);
 const port = process.env.PORT || 5000;

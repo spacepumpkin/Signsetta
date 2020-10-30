@@ -5,12 +5,8 @@ const CategorySchema = new Schema({
     name: {
         type: String,
         required: true
-    },
-    cards: {
-        type: Array,
-        required: true
     }
 })
 
-const Category = mongoose.model('Category', CategorySchema);
+const Category = mongoose.model('category', CategorySchema);
 module.exports = Category;

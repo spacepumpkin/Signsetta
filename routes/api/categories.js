@@ -1,12 +1,13 @@
-const express = require("express");
-const Category = require("../../models/Category");
+const express = require('express');
 const router = express.Router();
+const Category = require("../../models/Category");
 
 router.get("/test", (req, res) => res.json({ msg: "This is the categories route" }));
 
+
 router.get('/', (req, res) => {
     Category.find()
-        .sort({ name: -1 })
+        .sort({ name: 1 })
         .then(categories => res.json(categories))
         .catch(err => res.status(404).json({ nocategoriesfound: 'no categories found' }));
 });

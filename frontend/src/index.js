@@ -10,8 +10,6 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import 'semantic-ui-css/semantic.min.css';
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
   let store;
 
@@ -26,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (decodedUser.exp < currentTime){
       store.dispatch(logout());
       window.location.href = '/login';
-
     }
   } else {
     store = configureStore({});

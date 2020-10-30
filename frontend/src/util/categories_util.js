@@ -5,5 +5,6 @@ export const getCategoryCards = catId => {
 }
 
 export const getCategories = () => {
+
     return axios.get('/api/categories')
 }
