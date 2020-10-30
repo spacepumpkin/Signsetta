@@ -31,6 +31,7 @@ export const fetchCategories = () => {
 }
 
 export const fetchCategory = catId => {
+    debugger;
     return dispatch => {
         return CategoriesUtil.getCategory(catId)
             .then(category => {
