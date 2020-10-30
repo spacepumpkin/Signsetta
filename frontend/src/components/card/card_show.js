@@ -20,7 +20,7 @@ class CardShow extends React.Component{
                     <div className="cardbox-card" onClick={() => this.setState({flip: !this.state.flip})}>
                         {
                             (this.state.flip) ? (
-                                <img className="cardbox-image" src={card.frontside} />
+                                <img className="cardbox-image" src={card.frontside} alt="card-img"/>
                             ) : (
                                     <p className="cardbox-card-backside">{card.backside}</p>
                                 )

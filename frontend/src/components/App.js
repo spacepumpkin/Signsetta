@@ -10,20 +10,26 @@ import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import ProfileContainer from './profile/profile_container';
 
+import CategoriesIndex from './categories/categories_index_container';
+import CardShowContainer from './card/card_show_container';
+import SplashComponent from './splash/splash';
 import FSGameContainer from './card/fs_game_container';
+
 
 const App = () => (
   <div>
-     
-      <NavBarContainer />
-    <Switch> 
-      {/* <AuthRoute exact path="/" component={MainPage} /> */}
+
+    <NavBarContainer />
+      <AuthRoute exact path="/" component={SplashComponent} />
+    <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
-      <Route exact path="/fingerspelling-game" component={FSGameContainer}/>
+      <ProtectedRoute exact path="/categories" component={CategoriesIndex}/>
+      <Route exact path="/fingerspelling-game" component={FSGameContainer} />
+
+      <ProtectedRoute exact path="/cards/${cardId}" component={CardShowContainer}/>
       <ProtectedRoute exact path="/cards" component={CardIndexContainer}/>
-      <ProtectedRoute exact path ="/categories" component={CategoryIndexContainer} />
-      
+
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
     </Switch>
   </div>
