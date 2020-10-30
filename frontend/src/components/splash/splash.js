@@ -12,7 +12,7 @@ const Splash = state => {
             signs before moving onto more difficult and specific topics in sign language.</div>
 
 
-            <div className="search-bar">Search Study Cards by Category: <SearchContainer /> </div>
+            <div className="search-bar">Search:<SearchContainer /> </div>
 
             <div className="splash-img">
                 <img src={image} className="image" alt="image" />
