@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import logo from '../../images/mern-logo-1.png';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -8,7 +9,8 @@ class LoginForm extends React.Component {
     this._nullUser = {
       email: "",
       password: "",
-      errors: {}
+      errors: {},
+      submitted: false
     };
 
     this.state = Object.assign({}, this._nullUser);
@@ -32,14 +34,17 @@ class LoginForm extends React.Component {
   }
 
   renderErrors() {
+    if (this.state.submitted === true) {
+      this.setState({ submitted: false })
+    }
     return (
-      <ul>
+      <div className="list">
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
+          <div key={`error-${i}`}>
             {this.state.errors[error]}
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     );
   }
 
@@ -50,30 +55,62 @@ class LoginForm extends React.Component {
       password: this.state.password
     }
     this.props.login(user);
+    this.setState({ errors: {}, submitted: true });
   }
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <br />
-            <input type="email"
-              value={this.state.email}
-              onChange={this.update('email')}
-              placeholder="Email"
-            />
-            <br />
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-              placeholder="Password"
-            />
-            <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+      <div className="ui middle aligned center aligned grid" >
+        <div className="column five wide">
+          <div className="image">
+            <img src={logo} className="image" alt="logo" />
           </div>
-        </form>
+          <div class="ui divider"></div>
+          <h1 className="ui teal header">Log In</h1>
+          <form className="ui large form" onSubmit={this.handleSubmit}>
+            <div className="ui stacked segment">
+              <div className="field">
+                <div className="ui left icon input">
+                  <i className="icon envelope"></i>
+                  <input type="email"
+                    value={this.state.email}
+                    onChange={this.update('email')}
+                    placeholder="Email"
+                  />
+                </div>
+              </div>
+              <div className="field">
+                <div className="ui left icon input">
+                  <i className="icon lock"></i>
+                  <input type="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                    placeholder="Password"
+                  />
+                </div>
+              </div>
+              <button
+                className={`ui button teal ${this.state.submitted && 'loading'}`}
+                disabled={this.state.submitted}
+                type="submit">
+                Submit
+                </button>
+            </div>
+          </form>
+          {
+            (Object.keys(this.state.errors).length >= 1)
+            &&
+            (
+              <div className="ui error message">
+                { this.renderErrors()}
+              </div>
+            )
+          }
+          <div className="ui message ">
+            New user?
+            <Link to="/signup"> Sign Up </Link>
+          </div>
+        </div>
       </div>
     )
   }
