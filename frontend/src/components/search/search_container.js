@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
-import Search from './search';
-import { fetchCategories } from '../../actions/category_actions';
+import { withRouter } from "react-router-dom";
+import CategorySearch from './search';
+import { fetchCategories } from '../../actions/categories_actions';
 
-const mSTP= state => {
-
-}
-
-const mDTP= dispatch => {
+const mSTP= (state, ownProps) => {
     return{
-        fetchCategories: () => dispatch(fetchCategories()),
+        categories: state.entities.categories,
+        category: state.entities.categories[ownProps.match.params.categoryId]
     }
 }
 
-export default connect(mSTP, mDTP)(Search)
+const mDTP= (dispatch) => {
+    return{
+        fetchCategories: () => dispatch(fetchCategories()),
+    };
+};
+
+export default withRouter(connect(mSTP, mDTP)(CategorySearch));
