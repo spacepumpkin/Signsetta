@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container.js';
 // import TweetsContainer from './tweets/tweets_container';
 // import MainPage from './main/main_page';
@@ -12,7 +12,7 @@ import SignupFormContainer from './session/signup_form_container';
 import ProfileContainer from './profile/profile_container';
 import CategoriesIndex from './categories/categories_index_container';
 
-// import TweetComposeContainer from './tweets/tweets_compose_container';
+import FSGameContainer from './card/fs_game_container';
 
 const App = () => (
   <div>
@@ -22,7 +22,7 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <ProtectedRoute exact path="/categories" component={CategoriesIndex}/>
-      
+      <Route exact path="/fingerspelling-game" component={FSGameContainer}/>
       <ProtectedRoute exact path="/cards" component={CardIndexContainer}/>
       {/* <ProtectedRoute exact path="/cards/${cardId}" component={CardShowContainer}/> */}
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
