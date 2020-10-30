@@ -48,14 +48,23 @@ class LoginForm extends React.Component {
     );
   }
 
+  demoLogin() {
+    return (evt) => {
+      this.props.login({
+        email: "test@test.com",
+        password: "password"
+      })
+    };
+  }
+
   handleSubmit(evt) {
     evt.preventDefault();
     let user = {
       email: this.state.email,
       password: this.state.password
     }
-    this.props.login(user);
     this.setState({ errors: {}, submitted: true });
+    this.props.login(user);
   }
 
   render() {
@@ -65,7 +74,7 @@ class LoginForm extends React.Component {
           <div className="image">
             <img src={logo} className="image" alt="logo" />
           </div>
-          <div class="ui divider"></div>
+          <div className="ui divider"></div>
           <h1 className="ui teal header">Log In</h1>
           <form className="ui large form" onSubmit={this.handleSubmit}>
             <div className="ui stacked segment">
@@ -107,8 +116,18 @@ class LoginForm extends React.Component {
             )
           }
           <div className="ui message ">
-            New user?
+            <div>
+              New user?
             <Link to="/signup"> Sign Up </Link>
+            or log in with a &nbsp;
+            <button
+                className="ui button small pink"
+                disabled={this.state.submitted}
+                onClick={this.demoLogin()}
+                type="button">
+                DEMO
+              </button>
+            </div>
           </div>
         </div>
       </div>

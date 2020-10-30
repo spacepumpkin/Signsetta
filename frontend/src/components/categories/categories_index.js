@@ -4,7 +4,7 @@ const CategoriesIndex = props => {
     const { categories, getCategories } = props;
 
     const colors = ['red', 'orange', 'yellow', 'olive', 'green', 'blue', 'violet', 'purple']
-    debugger
+    
     
     return (
         <div className="ui inverted segment">

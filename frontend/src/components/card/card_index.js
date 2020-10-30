@@ -21,7 +21,7 @@ class CardIndex extends React.Component {
     // }
 
     render() {
-        // debugger;
+        // ;
         return (
             <div className="card-index">
                 <h2 className="card-index-title">These are all the cards</h2>
