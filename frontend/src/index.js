@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'semantic-ui-css/semantic.min.css';
 import axios from 'axios';
 import Root from './components/Root';
 import configureStore from './store/store';
@@ -8,7 +9,6 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import 'semantic-ui-css/semantic.min.css';
-
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;

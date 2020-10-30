@@ -23,10 +23,9 @@ class NavBar extends React.Component {
                 <Segment inverted >
                         <Link to={'/categories'}><Button color='red'>Return to all categories</Button></Link>
                         <Link to={'/profile'}><Button color='yellow'>Profile</Button></Link>
-                        
+                        <Link to={'/cards'}>Cards</Link>
                         <Button color='violet' onClick={this.logoutUser}>Logout</Button>
                 </Segment>
-                        
             );
         } else {
             return (

@@ -1,9 +1,10 @@
 import React from 'react';
+import CardBox from '../card/cardbox'
 
 class Profile extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     this.props.fetchUserCards(this.props.currentUser);
   }
@@ -11,9 +12,13 @@ class Profile extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          Temporary User Profile for {this.props.currentUser}
+        <h1>Welcome, {this.props.currentUser.username}</h1>
+        <div> This is where the cards go
+          {this.props.cards.map(card => (
+            <CardBox key={card._id} frontside={card.frontside} backside={card.backside} />
+          ))} 
         </div>
+        
       </div>
     )
   }
