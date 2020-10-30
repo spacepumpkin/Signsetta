@@ -1,25 +1,5 @@
-.card-index {
-    padding: 20px;
-    /* background-color: #02a091; */
-}
-
-.card-index-title {
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-}
-
 .cardbox-card {
     padding: 15px;
-}
-
-.cardbox-card-backside {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    height: 100px;
-    width: 100px;
 }
 
 .cardbox-image {
