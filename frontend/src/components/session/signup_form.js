@@ -60,8 +60,8 @@ class SignupForm extends React.Component {
     }
     // let that = this;
     // setTimeout(() => that.props.signup(user), 1500);
-    this.props.signup(user);
     this.setState({ errors: {}, submitted: true });
+    this.props.signup(user);
   }
 
   render() {
@@ -71,7 +71,7 @@ class SignupForm extends React.Component {
           <div className="image">
             <img src={logo} className="image" alt="logo" />
           </div>
-          <div class="ui divider"></div>
+          <div className="ui divider"></div>
           <h1 className="ui teal header">Sign Up</h1>
           <form className="ui large form" onSubmit={this.handleSubmit}>
             <div className="ui stacked segment">

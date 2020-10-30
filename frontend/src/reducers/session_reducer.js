@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     isAuthenticated: false,
-    userId: {}
+    user: undefined
 };
 
 export default function sessionReducer (state = initialState, action) {
@@ -15,13 +15,10 @@ export default function sessionReducer (state = initialState, action) {
             return {
                 ...state,
                 isAuthenticated: !!action.currentUser,
-                userId: action.currentUser._id
+                user: action.currentUser
             };
         case RECEIVE_USER_LOGOUT:
-            return {
-                isAuthenticated: false,
-                userId: undefined
-            };
+            return initialState;
         case RECEIVE_USER_SIGN_IN:
             return {
                 ...state,
