@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import logo from '../../images/mern-logo-1.png';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -10,7 +11,8 @@ class SignupForm extends React.Component {
       password: "",
       username: "",
       password2: "",
-      errors: {}
+      errors: {},
+      submitted: false
     };
 
     this.state = Object.assign({}, this._nullUser);
@@ -34,14 +36,17 @@ class SignupForm extends React.Component {
   }
 
   renderErrors() {
+    if (this.state.submitted === true) {
+      this.setState({ submitted: false })
+    }
     return (
-      <ul>
+      <div className="list">
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
+          <div key={`error-${i}`}>
             {this.state.errors[error]}
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     );
   }
 
@@ -53,44 +58,84 @@ class SignupForm extends React.Component {
       password: this.state.password,
       password2: this.state.password2
     }
-    this.props.signup(user, this.props.history);
+    // let that = this;
+    // setTimeout(() => that.props.signup(user), 1500);
+    this.props.signup(user);
+    this.setState({ errors: {}, submitted: true });
   }
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <br />
-            <input type="email"
-              value={this.state.email}
-              onChange={this.update('email')}
-              placeholder="Email"
-            />
-            <br />
-            <input type="text"
-              value={this.state.username}
-              onChange={this.update('username')}
-              placeholder="Username"
-            />
-            <br />
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update('password')}
-              placeholder="Password"
-            />
-            <br />
-            <input type="password"
-              value={this.state.password2}
-              onChange={this.update('password2')}
-              placeholder="Confirm Password"
-            />
-            <br />
-            <input type="submit" value="Submit" />
-            {this.renderErrors()}
+      <div className="ui middle aligned center aligned grid" >
+        <div className="column five wide">
+          <div className="image">
+            <img src={logo} className="image" alt="logo" />
           </div>
-        </form>
-      </div>
+          <div class="ui divider"></div>
+          <h1 className="ui teal header">Sign Up</h1>
+          <form className="ui large form" onSubmit={this.handleSubmit}>
+            <div className="ui stacked segment">
+              <div className="field">
+                <div className="ui left icon input">
+                  <i className="icon envelope"></i>
+                  <input type="email"
+                    value={this.state.email}
+                    onChange={this.update('email')}
+                    placeholder="Email"
+                  />
+                </div>
+              </div>
+              <div className="field">
+                <div className="ui left icon input">
+                  <i className="icon user"></i>
+                  <input type="text"
+                    value={this.state.username}
+                    onChange={this.update('username')}
+                    placeholder="Username"
+                  />
+                </div>
+              </div>
+              <div className="field">
+                <div className="ui left icon input">
+                  <i className="icon lock"></i>
+                  <input type="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                    placeholder="Password"
+                  />
+                </div>
+              </div>
+              <div className="field">
+                <div className="input"></div>
+                <input type="password"
+                  value={this.state.password2}
+                  onChange={this.update('password2')}
+                  placeholder="Confirm Password"
+                />
+              </div>
+              <button
+                className={`ui button teal ${this.state.submitted && 'loading'}`}
+                disabled={this.state.submitted}
+                type="submit">
+                Submit
+                </button>
+            </div>
+          </form>
+          {
+            (Object.keys(this.state.errors).length >= 1)
+            &&
+            (
+              <div className="ui error message">
+                { this.renderErrors()}
+              </div>
+            )
+          }
+          <div className="ui message ">
+            Already have an account?
+            <Link to="/login"> Log In </Link>
+          </div>
+        </div>
+      </div >
     )
   }
 }
