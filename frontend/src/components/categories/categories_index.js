@@ -14,13 +14,10 @@ class CategoriesIndex extends React.Component {
         
         const { categories, getCategories } = this.props;
         
-
-    const colors = ['red', 'orange', 'yellow', 'olive', 'green', 'blue', 'violet', 'purple']
-
     
         return (
-            <div className="ui inverted segment">
-                <div className="ui inverted segment grid center aligned">
+           
+                <div className="ui grid center aligned">
                     {
                         categories.map((category,idx) => {
                            
@@ -33,16 +30,17 @@ class CategoriesIndex extends React.Component {
                         })
                     }
                 </div>
-            </div>
         )
     }
 }
 
 const CategoryBox = props => { 
-    const colors = ['red', 'yellow', 'olive', 'green', 'blue', 'violet', 'purple']
+    const colors = [  'teal',  'violet', 'pink', 'yellow', 'green', 'blue']
     
     return (
-        <Button color={colors[(props.idx % colors.length)]} >{props.category.name}</Button>
+        <div className="doubling three wide column">
+            <Button color={colors[(props.idx % colors.length)]} >{props.category.name}</Button>
+        </div>
     )
 }
 
