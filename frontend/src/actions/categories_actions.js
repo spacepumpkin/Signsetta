@@ -4,7 +4,6 @@ import * as CategoriesUtil from '../util/categories_util';
 export const RECEIVE_CATEGORIES = 'RECEIVE_CATEGORIES';
 
 
-
 export const recieveCategories = ( categories ) => {
     return {
        type: RECEIVE_CATEGORIES,

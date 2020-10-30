@@ -9,10 +9,14 @@ class CategoriesIndex extends React.Component {
         this.props.getCategories();
     }
 
+
     render(){
         
         const { categories, getCategories } = this.props;
         
+
+    const colors = ['red', 'orange', 'yellow', 'olive', 'green', 'blue', 'violet', 'purple']
+
     
         return (
             <div className="ui inverted segment">
