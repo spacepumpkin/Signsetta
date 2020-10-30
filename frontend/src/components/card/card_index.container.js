@@ -3,8 +3,9 @@ import { fetchCards, fetchCard } from '../../actions/card_actions'
 import { connect } from 'react-redux';
 
 const MSTP = (state, ownProps) => {
+    // debugger;
     return {
-        cards: state.entities.cards
+        cards: Object.values(state.entities.cards.all)
     };
 };
 
