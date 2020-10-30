@@ -1,30 +1,44 @@
-import React,{ useEffect } from 'react';
+import React from 'react';
+import {Button} from 'semantic-ui-react';
 
-const CategoriesIndex = props => {
-    const { categories, getCategories } = props;
+class CategoriesIndex extends React.Component {
+    constructor(props){
+        super(props)
+    }
+    componentDidMount(){
+        this.props.getCategories();
+    }
 
-    const colors = ['red', 'orange', 'yellow', 'olive', 'green', 'blue', 'violet', 'purple']
-    debugger
+    render(){
+        
+        const { categories, getCategories } = this.props;
+        
     
-    return (
-        <div className="ui inverted segment">
-            <div className="ui massive inverted animated divided list horizontal">
-                {
-                    categories.map(category => {
-                        return <CategoryBox 
-                                    key={category.id} 
-                                    category={category} 
-                                    className={`ui ${colors[(category.id % colors.length)]} button`}/> //link to category showpage
-                    })
-                }
+        return (
+            <div className="ui inverted segment">
+                <div className="ui inverted segment grid center aligned">
+                    {
+                        categories.map((category,idx) => {
+                           
+                            return <CategoryBox 
+                                        key={category.id} 
+                                        category={category} 
+                                        idx={idx}
+                                        
+                                    />
+                        })
+                    }
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
-const CategoryBox = props => {
+const CategoryBox = props => { 
+    const colors = ['red', 'yellow', 'olive', 'green', 'blue', 'violet', 'purple']
+    
     return (
-        <h3 className="item">{props.category.name}</h3>
+        <Button color={colors[(props.idx % colors.length)]} >{props.category.name}</Button>
     )
 }
 

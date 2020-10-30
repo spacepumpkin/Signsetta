@@ -14,7 +14,6 @@ import CategoriesIndex from './categories/categories_index_container'
 
 const App = () => (
   <div>
-    hello
     <NavBarContainer />
     <Switch>
       {/* <AuthRoute exact path="/" component={MainPage} /> */}
