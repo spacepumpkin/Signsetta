@@ -1,23 +1,26 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container.js';
 // import TweetsContainer from './tweets/tweets_container';
 // import MainPage from './main/main_page';
-
-import CardIndexContainer from './card/card_index_container';
-
+import CategoryIndexContainer from './categories/categories_index_container';
+import CardIndexContainer from './card/card_index_container'
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import ProfileContainer from './profile/profile_container';
+
 import CategoriesIndex from './categories/categories_index_container';
 import CardShowContainer from './card/card_show_container';
 import SplashComponent from './splash/splash';
+
+
 
 // import TweetComposeContainer from './tweets/tweets_compose_container';
 
 const App = () => (
   <div>
+
     <NavBarContainer />
       <AuthRoute exact path="/" component={SplashComponent} />
     <Switch>
@@ -27,6 +30,7 @@ const App = () => (
       
       <ProtectedRoute exact path="/cards/${cardId}" component={CardShowContainer}/>
       <ProtectedRoute exact path="/cards" component={CardIndexContainer}/>
+
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
     </Switch>
   </div>

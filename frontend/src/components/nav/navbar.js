@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 // import './navbar.css'
-import { Icon, Segment, Button, Grid} from  'semantic-ui-react'
+import { Button } from  'semantic-ui-react'
 import '../../index'
+import logo from '../../images/mern-logo-1.png';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -20,38 +21,65 @@ class NavBar extends React.Component {
     getLinks() {
         if (this.props.loggedIn) {
             return (
-                <Segment inverted >
-                        <Link to={'/categories'}><Button color='red'>Return to all categories</Button></Link>
-                        <Link to={'/profile'}><Button color='yellow'>Profile</Button></Link>
-                        <Link to={'/cards'}>Cards</Link>
-                        <Button color='violet' onClick={this.logoutUser}>Logout</Button>
-                </Segment>
+                <div className="right menu" >
+                    <div className="item" >
+                        <Link to={'/categories'}>
+                            <div className=" ui button pink">Return to all categories</div>
+                        </Link>
+                    </div>
+
+                    <div className="item" >
+                        <Link to={'/profile'}>  
+                                <div className=" ui button blue">Profile</div>                       
+                        </Link>
+                    </div>
+
+                    <div className="item" >
+                        <Link to={'/cards'}>
+                            <div className=" ui button teal">
+                                Cards
+                            </div>
+                        </Link>
+                    </div>
+
+                    <div className="item" >
+                        <div className=" ui button teal" onClick={this.logoutUser}>
+                            Logout
+                        </div>
+                    </div>
+                </div> 
             );
         } else {
             return (
-                <Segment inverted >
-                     
-                                <Link to={'/signup'}><Button color='blue'>Signup</Button></Link>
+                
+                <div className="right menu" >  
 
-                                <Link to={'/login'}><Button color='green'>Login</Button></Link>
-                           
-                </Segment> 
+                    <div className="item" >
+                        <Link to={'/signup'}><div className="ui button pink">Signup</div></Link>
+                    </div>
+                    <div className="item" >
+                        <Link to={'/login'}><div className=" ui button teal">Login</div></Link>
+                    </div>
+                </div> 
             );
         }
     }
 
     render() {
-        return (
-            <Segment inverted color="orange">
-                    <h1>Welcome to Signsetta!</h1>
-                    <Grid>
-                            <Grid.Column textAlign="right">
-                                    { this.getLinks()}
-                            </Grid.Column>
-                    </Grid>
-                
-            </Segment>
-        );
+      
+        
+    
+            
+                return(
+                <div className="ui stackable menu">
+                    <Link to="/">
+                        <img src={logo} className="image" alt="logo" height="80"/>
+                    </Link>
+                    { this.getLinks()}
+                </div>
+                )
+           
+      
     }
 }
 
