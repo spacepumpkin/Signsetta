@@ -40,7 +40,7 @@ const App = () => (
 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
     </Switch>
-    <Footer />
+    <AuthRoute exact path="/" component={Footer} />
   </div>
 );
 
