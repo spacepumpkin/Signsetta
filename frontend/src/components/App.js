@@ -16,28 +16,31 @@ import CardShowContainer from './card/card_show_container';
 import SplashComponent from './splash/splash';
 import FSGameContainer from './card/fs_game_container';
 
+import Footer from './footer/footer';
+
 
 const App = () => (
   <div>
-
     <NavBarContainer />
-      <AuthRoute exact path="/" component={SplashComponent} />
+    <AuthRoute exact path="/" component={SplashComponent} />
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
-      <ProtectedRoute exact path="/cards" component={CardIndexContainer}/>
+      <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
       <ProtectedRoute exact path="/categories/:catId" component={CategoryShowContainer} />
-      <ProtectedRoute exact path ="/categories" component={CategoryIndexContainer} />
+      <ProtectedRoute exact path="/categories" component={CategoryIndexContainer} />
 
-      <ProtectedRoute exact path="/categories" component={CategoriesIndex}/>
+      <ProtectedRoute exact path="/categories" component={CategoriesIndex} />
+
       <Route exact path="/fingerspelling-game" component={FSGameContainer} />
 
-      <ProtectedRoute exact path="/cards/${cardId}" component={CardShowContainer}/>
-      <ProtectedRoute exact path="/cards" component={CardIndexContainer}/>
+      <ProtectedRoute exact path="/cards/${cardId}" component={CardShowContainer} />
+      <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
     </Switch>
+    <Footer />
   </div>
 );
 
