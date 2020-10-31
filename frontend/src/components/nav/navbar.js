@@ -28,13 +28,13 @@ class NavBar extends React.Component {
 
                     <div className="item" >
                         <Link to={'/profile'}>  
-                                <div className=" ui button blue">Profile</div>                       
+                                <div className=" ui button violet">Profile</div>                       
                         </Link>
                     </div>
 
                     <div className="item" >
                         <Link to={'/cards'}>
-                            <div className=" ui button teal">
+                            <div className=" ui button blue">
                                 Cards
                             </div>
                         </Link>
