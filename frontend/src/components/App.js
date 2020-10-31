@@ -14,12 +14,10 @@ import ProfileContainer from './profile/profile_container';
 import CategoriesIndex from './categories/categories_index_container';
 import CardShowContainer from './card/card_show_container';
 import SplashComponent from './splash/splash';
+import FSGameContainer from './card/fs_game_container';
 
 import Footer from './footer/footer';
 
-
-
-// import TweetComposeContainer from './tweets/tweets_compose_container';
 
 const App = () => (
   <div>
@@ -35,13 +33,14 @@ const App = () => (
 
       <ProtectedRoute exact path="/categories" component={CategoriesIndex} />
 
+      <Route exact path="/fingerspelling-game" component={FSGameContainer} />
 
       <ProtectedRoute exact path="/cards/${cardId}" component={CardShowContainer} />
       <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
     </Switch>
-    <Footer />
+    <AuthRoute exact path="/" component={Footer} />
   </div>
 );
 
