@@ -27,6 +27,7 @@ class FSGame extends React.Component {
       // currentWord: "",
       // cardDelay: 1500
     };
+    this.currentWord = "";
     this.cardDelay = SPEED.normal;
     this.wordLength = "four";
     this.state = Object.assign({}, this.cleared);
@@ -83,6 +84,8 @@ class FSGame extends React.Component {
     if (this.state.userGuess.length > 0
       && this.state.userGuess.toLowerCase() === this.currentWord.toLowerCase()) {
       alert("That's right!")
+    } else if (this.currentWord === "") {
+      alert("Please generate a new word.")
     } else {
       alert("Sorry try again.")
     }
@@ -181,7 +184,7 @@ class FSGame extends React.Component {
         <div className="row five wide">
           <div className="ui form" onChange={this.wordSelect()}>
             <div className="inline fields">
-              <label className="ui header teal"> # of Letters </label>
+              <label className="ui header teal"> Number of Letters </label>
               <div class="field">
                 <div class="ui radio checkbox">
                   <input type="radio" name="length"
@@ -205,6 +208,20 @@ class FSGame extends React.Component {
               </div>
             </div>
           </div>
+        </div>
+        <div className="ui segment">
+          <div className="ui text container">
+            Practice your fingerspelling comprehension by guessing words!
+            Begin by choosing your <span className="ui header teal small">speed</span> and the
+             <span className="ui header teal small"> number of letters</span> in the word, or go
+            with the normal settings.
+            Then press <button className="ui pink button tiny" type="button">"Generate New Word"</button> to get
+            started! You can also replay the word as many times as you'd like.
+          </div>
+          <div className="ui divider"></div>
+          <div className="ui text container center aligned">
+            Once you're satisfied, type your guess and check if it's right!
+            </div>
         </div>
       </div>
     )
