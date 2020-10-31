@@ -21,6 +21,12 @@ class NavBar extends React.Component {
             return (
                 <div className="right menu" >
                     <div className="item" >
+                        <Link to={'/fingerspelling-game'}>
+                            <div className="ui button olive">Fingerspelling Practice</div>
+                        </Link>
+                    </div>
+
+                    <div className="item" >
                         <Link to={'/categories'}>
                             <div className=" ui button pink">Learning Subjects</div>
                         </Link>
