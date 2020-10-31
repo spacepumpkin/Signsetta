@@ -11,7 +11,7 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="ui segment">
         <h1>Welcome, {this.props.currentUser.username}</h1>
         <div> This is where the cards go
           {this.props.cards.map(card => (

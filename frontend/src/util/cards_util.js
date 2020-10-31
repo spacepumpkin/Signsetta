@@ -20,9 +20,9 @@ export const getUserCards = userId => {
     return axios.get(`/api/users/${userId}/cards`)
 };
 
-// export const getCategoryCards = catId => {
-//     return axios.get(`/api/categories/${catId}`)
-// }
+export const getCategoryCards = catId => {
+    return axios.get(`/api/categories/${catId}`)
+}
 
 // /:user_id/cards
 

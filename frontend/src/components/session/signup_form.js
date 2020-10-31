@@ -69,7 +69,11 @@ class SignupForm extends React.Component {
       <div className="ui middle aligned center aligned grid" >
         <div className="column five wide">
           <div className="image">
-            <img src={logo} className="image" alt="logo" />
+
+
+              <i className="loading american sign language interpreting teal icon huge" ></i>
+          
+
           </div>
           <div className="ui divider"></div>
           <h1 className="ui teal header">Sign Up</h1>

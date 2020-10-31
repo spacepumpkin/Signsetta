@@ -3,12 +3,12 @@ import React from 'react';
 
 
 class CategorySearch extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state={search: ''}
+        this.state = { search: '' }
     }
-    updateSearch(event){
-        this.setState({search: event.target.value.substr(0,15) })
+    updateSearch(event) {
+        this.setState({ search: event.target.value.substr(0, 15) })
     }
 
     render() {
@@ -21,12 +21,15 @@ class CategorySearch extends React.Component {
 
         return (
             <div>
-                <input type="text" value={this.state.search} onChange={this.updateSearch.bind(this)}/>
-                    <ul>
-                        {cats.map((category)=> {
-                            return <h2>{category.name}</h2>
-                        })}
-                    </ul>
+                <div className="ui icon input">
+                    <input className="prompt" type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} />
+                    <i class="search icon"></i>
+                </div>
+                <ul className="results">
+                    {cats.map((category) => {
+                        return <h2>{category.name}</h2>
+                    })}
+                </ul>
             </div>
         );
     }

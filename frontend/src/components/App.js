@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container.js';
 // import TweetsContainer from './tweets/tweets_container';
 // import MainPage from './main/main_page';
+import CategoryShowContainer from './categories/category_show_container';
 import CategoryIndexContainer from './categories/categories_index_container';
 import CardIndexContainer from './card/card_index_container'
 import LoginFormContainer from './session/login_form_container';
@@ -24,6 +25,11 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+
+      <ProtectedRoute exact path="/cards" component={CardIndexContainer}/>
+      <ProtectedRoute exact path="/categories/:catId" component={CategoryShowContainer} />
+      <ProtectedRoute exact path ="/categories" component={CategoryIndexContainer} />
+
       <ProtectedRoute exact path="/categories" component={CategoriesIndex}/>
       <Route exact path="/fingerspelling-game" component={FSGameContainer} />
 

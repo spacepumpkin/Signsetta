@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-// import './navbar.css'
-import { Button } from  'semantic-ui-react'
-import '../../index'
+import '../../index';
 import logo from '../../images/mern-logo-1.png';
 
 class NavBar extends React.Component {
@@ -24,19 +22,19 @@ class NavBar extends React.Component {
                 <div className="right menu" >
                     <div className="item" >
                         <Link to={'/categories'}>
-                            <div className=" ui button pink">Return to all categories</div>
+                            <div className=" ui button pink">Learning Subjects</div>
                         </Link>
                     </div>
 
                     <div className="item" >
                         <Link to={'/profile'}>  
-                                <div className=" ui button blue">Profile</div>                       
+                                <div className=" ui button violet">Profile</div>                       
                         </Link>
                     </div>
 
                     <div className="item" >
                         <Link to={'/cards'}>
-                            <div className=" ui button teal">
+                            <div className=" ui button blue">
                                 Cards
                             </div>
                         </Link>
@@ -69,17 +67,17 @@ class NavBar extends React.Component {
       
         
     
-            
-                return(
+        
+            return(
                 <div className="ui stackable menu">
                     <Link to="/">
                         <img src={logo} className="image" alt="logo" height="80"/>
                     </Link>
                     { this.getLinks()}
                 </div>
-                )
-           
-      
+            )
+        
+    
     }
 }
 
