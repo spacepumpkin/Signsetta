@@ -10,8 +10,6 @@ router.get('/', (req, res) => {
         .catch(err => res.status(404).json({nocardsfound: 'no cards found'}));
 });
 
-
-
 router.get('/:id', (req, res) => {
     Card.findById(req.params.id)
         .then(card => res.json(card))
@@ -19,5 +17,16 @@ router.get('/:id', (req, res) => {
             res.status(404).json({ nocardfound: 'No card found with that ID' })
         );
 });
+
+router.get('/category/:catid', (req, res) => {
+    Card.find({category_id: req.params.category})
+        .then(cards => 
+            res.json(cards))
+        .catch(err => {
+            res.status(404).json({ nocardsfound: 'no cards found in this category'})
+        })
+})
+
+// router.get("/category/test", (req, res) => res.json({ msg: "This is the category cards route" }));
 
 module.exports = router;

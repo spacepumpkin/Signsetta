@@ -63,7 +63,7 @@ export const fetchUserCards = userId => {
 };
 
 export const fetchCategoryCards = (catId) => {
-    debugger;
+    // debugger;
     return dispatch => {
         return CardUtil.getCategoryCards(catId)
             .then(catCards => {
