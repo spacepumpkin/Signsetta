@@ -35,7 +35,7 @@ const App = () => (
 
       <Route exact path="/fingerspelling-game" component={FSGameContainer} />
 
-      <ProtectedRoute exact path="/cards/${cardId}" component={CardShowContainer} />
+      <ProtectedRoute exact path="/cards/:cardId" component={CardShowContainer} />
       <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />

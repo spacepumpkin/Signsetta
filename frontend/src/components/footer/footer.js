@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="team-member-photo" />
+                <img src="#" alt="team-member" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Brandon Leong </div>
@@ -37,7 +37,7 @@ export default function Footer() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="team-member-photo" />
+                <img src="#" alt="team-member" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Bella Sandoval </div>
@@ -61,7 +61,7 @@ export default function Footer() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="team-member-photo" />
+                <img src="#" alt="team-member" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Malcolm Reyes </div>
@@ -85,7 +85,7 @@ export default function Footer() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="team-member-photo" />
+                <img src="#" alt="team-member" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Gary Wan </div>
@@ -99,7 +99,7 @@ export default function Footer() {
                   <i className="icon linkedin blue"></i>
                   LinkedIn
                 </a>
-                <a className="right floated" href="#">
+                <a className="right floated" href="https://github.com/spacepumpkin">
                   <i className="icon github pink"></i>
                   Github
                 </a>

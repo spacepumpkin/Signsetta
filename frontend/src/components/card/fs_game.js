@@ -11,11 +11,11 @@ import './fs_game.css';
 const WORDS = {
   three: ["CAT", "BAT", "TOP", "SAW", "ALE", "ROW", "DOG", "EAT", "TUB", "VAN", "ZIP"],
   four: ["BEAR", "WINE", "DUNE", "SAME", "CALM", "FLOW", "GLAD", "LIKE", "NEON"],
-  five: ["CATCH", "BADGE", "ZEBRA", "BAKER", "DODGE", "PASTA", "CROWN", "ALIVE"]
+  five: ["CATCH", "BADGE", "TIGER", "BAKER", "DODGE", "PASTA", "CROWN", "ALIVE", "LEMUR"]
 };
 
 const SPEED = {
-  slow: 2000, normal: 1500, fast: 1000, fluent: 500
+  slow: 2000, medium: 1500, fast: 1000, fluent: 500, natural: 200
 }
 
 class FSGame extends React.Component {
@@ -24,12 +24,16 @@ class FSGame extends React.Component {
     this.cleared = {
       userGuess: "",
       currentLetter: "",
+      cardMessage: "Get Ready"
       // currentWord: "",
       // cardDelay: 1500
     };
     this.currentWord = "";
-    this.cardDelay = SPEED.normal;
+    this.cardDelay = SPEED.medium;
     this.wordLength = "four";
+    this.cardDisplaying = false;
+    // this.cardMessage = "What do I spell?"
+
     this.state = Object.assign({}, this.cleared);
     this.generateNewWord = this.generateNewWord.bind(this);
     this.replayWord = this.replayWord.bind(this);
@@ -53,8 +57,11 @@ class FSGame extends React.Component {
     this.cardSwitch = setInterval(() => {
       if (count === that.currentWord.length) {
         clearInterval(that.cardSwitch);
-        // that.setState(that.cleared);
+        that.cardDisplaying = false;
+        this.setState({ currentLetter: "", cardMessage: "What do I spell?" })
       } else {
+        that.cardDisplaying || (that.cardDisplaying = true);
+        // that.cardDisplaying = true;
         that.setState({ currentLetter: that.currentWord[count] })
         // that.currentLetter = that.currentWord[count];
         console.log(that.state.currentLetter);
@@ -68,7 +75,9 @@ class FSGame extends React.Component {
     // return () => {
     let wordArr = WORDS[this.wordLength];
     let randomWord = wordArr[Math.floor(Math.random() * wordArr.length)];
-    console.log(randomWord);
+    while (randomWord === this.currentWord) {
+      randomWord = wordArr[Math.floor(Math.random() * wordArr.length)];
+    }
     // this.setState({ currentWord: randomWord });
     this.currentWord = randomWord;
     // debugger
@@ -83,11 +92,18 @@ class FSGame extends React.Component {
     evt.preventDefault();
     if (this.state.userGuess.length > 0
       && this.state.userGuess.toLowerCase() === this.currentWord.toLowerCase()) {
-      alert("That's right!")
+      // alert("That's right!");
+      // this.cardMessage = "That's right!";
+      this.setState({ cardMessage: "* ~ That's right! ~ *" });
     } else if (this.currentWord === "") {
-      alert("Please generate a new word.")
+      // alert("Please generate a new word.");
+      this.setState({ cardMessage: "Please generate a new word." });
+    } else if (this.state.userGuess === "") {
+      // alert("Please enter a guess.");
+      this.setState({ cardMessage: "Please enter a guess." });
     } else {
-      alert("Sorry try again.")
+      // alert("Sorry try again.");
+      this.setState({ cardMessage: "Sorry try again." });
     }
   }
   update() {
@@ -105,8 +121,11 @@ class FSGame extends React.Component {
         case "fluent":
           this.cardDelay = SPEED.fluent;
           break;
+        case "natural":
+          this.cardDelay = SPEED.natural;
+          break;
         default:
-          this.cardDelay = SPEED.normal;
+          this.cardDelay = SPEED.medium;
           break;
       }
     }
@@ -133,11 +152,14 @@ class FSGame extends React.Component {
         <div className="column seven wide">
           <h1 className="ui header teal"> Guess That Word! </h1>
           <div className="simple-card-box">
-            <SimpleCard card={currentCard} />
+            <SimpleCard card={currentCard} cardMessage={this.state.cardMessage} />
           </div>
           <div className="ui divider"></div>
-          <button className="ui button inverted pink" onClick={this.generateNewWord} type="button"> Generate New Word </button>
-          <button className="ui button" onClick={this.replayWord} type="button"> Replay </button>
+          <button className="ui button inverted pink" onClick={this.generateNewWord} type="button"
+            disabled={this.cardDisplaying}> Generate New Word
+          </button>
+          <button className="ui button" onClick={this.replayWord} type="button"
+            disabled={this.cardDisplaying || (this.currentWord === "")}> Replay </button>
 
           <div className="ui action input">
             <form onSubmit={this.checkMatch} className="ui action input">
@@ -160,8 +182,8 @@ class FSGame extends React.Component {
               <div class="field">
                 <div class="ui radio checkbox" >
                   <input type="radio" name="speed"
-                    value="normal" defaultChecked />
-                  <label>normal</label>
+                    value="medium" defaultChecked />
+                  <label>medium</label>
                 </div>
               </div>
               <div class="field">
@@ -176,6 +198,13 @@ class FSGame extends React.Component {
                   <input type="radio" name="speed"
                     value="fluent" />
                   <label>fluent</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox">
+                  <input type="radio" name="speed"
+                    value="natural" />
+                  <label>natural</label>
                 </div>
               </div>
             </div>
@@ -214,8 +243,8 @@ class FSGame extends React.Component {
             Practice your fingerspelling comprehension by guessing words!
             Begin by choosing your <span className="ui header teal small">speed</span> and the
              <span className="ui header teal small"> number of letters</span> in the word, or go
-            with the normal settings.
-            Then press <button className="ui pink button tiny" type="button">"Generate New Word"</button> to get
+            with the default settings.
+            Then press <button className="ui pink button tiny disabled" type="button">"Generate New Word"</button> to get
             started! You can also replay the word as many times as you'd like.
           </div>
           <div className="ui divider"></div>

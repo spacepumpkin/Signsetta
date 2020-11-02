@@ -6,12 +6,13 @@ import {
 
 const initialState = {
     isAuthenticated: false,
-    user: undefined
+    user: {}
 };
 
 export default function sessionReducer (state = initialState, action) {
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
+            // debugger
             return {
                 ...state,
                 isAuthenticated: !!action.currentUser,
@@ -20,11 +21,14 @@ export default function sessionReducer (state = initialState, action) {
         case RECEIVE_USER_LOGOUT:
             return initialState;
         case RECEIVE_USER_SIGN_IN:
+            // debugger
             return {
                 ...state,
                 isAuthenticated: true
+                // user: action.currentUser
             }
         default:
+            // debugger
             return state;
     }
 }

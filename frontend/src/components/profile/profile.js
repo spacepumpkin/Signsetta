@@ -2,14 +2,15 @@ import React from 'react';
 import CardBox from '../card/cardbox'
 
 class Profile extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   componentDidMount() {
     this.props.fetchUserCards(this.props.currentUser);
   }
 
   render() {
+    debugger
     return (
       <div className="ui segment">
         <h1>Welcome, {this.props.currentUser.username}</h1>
