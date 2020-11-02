@@ -1,7 +1,8 @@
-import { getAllUsers } from "../util/users_util";
+import { getAllUsers, addCardsToUser } from "../util/users_util";
 
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
+export const RECIEVE_CARDS = "RECIEVE_CARDS";
 
 export const receiveUsers = users => {
     return ({
@@ -17,9 +18,22 @@ export const receiveErrors = errors => {
     })
 };
 
+// const recieveCards = cards => {
+//     return ({
+//         type: RECIEVE_CARDS,
+//         cards
+//     })
+// } 
+
 export const fetchUsers = () => dispatch =>
     getAllUsers()
         .then(users => dispatch(receiveUsers(users)))
         .catch(err => dispatch(receiveErrors(err)));
 
-        
+
+export const postCardsToUser = (id, cards) => dispatch => 
+   addCardsToUser(id, cards)
+        .catch(err => dispatch(receiveErrors(err)))
+
+    
+    // .then(users => dispatch(receiveCards(users))

@@ -1,4 +1,4 @@
-import { RECEIVE_USERS } from "../actions/user_actions";
+import { RECEIVE_USERS,  } from "../actions/user_actions";
 
 const UsersReducer = (state = {}, action) => {
 

@@ -22,8 +22,7 @@ class CategoryShow extends React.Component {
                 // debugger;
                 return <CardBox
                     key={card._id}
-                    frontside={card.frontside}
-                    backside={card.backside}
+                    card={card}
                 />
             }
         })
