@@ -27,6 +27,8 @@ router.get('/category/:catid', (req, res) => {
         })
 })
 
+
+
 // router.get("/category/test", (req, res) => res.json({ msg: "This is the category cards route" }));
 
 module.exports = router;

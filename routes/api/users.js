@@ -53,21 +53,12 @@ router.get('/:id', (req, res) => {
 // });
 
 // api/user/:user_id/cards
-// router.get('/:user_id/cards', (req, res) => {
-//     User
-//         .findOne( {email: req.body.email} )
-//         .then(user => {
-//             if (user.cards.length !== 0) {
-//                 return res.json( {
-//                     cards: user.cards
-//                 })
-//             } else {
-//                 return res.status(404).json({ msg: "No cards found" })
-//             }
-//         })
-//         // .then(email = res.json(email))
-//         // .catch(err => res.status(404).json({ nocardsfound: 'No cards found for that user' }))
-// })
+router.get('/:user_id/cards', (req, res) => {
+    User.findOne({id: req.params.id})
+        .then(user =>  res.json( user.cards ))
+        // .then(email = res.json(email))
+        // .catch(err => res.status(404).json({ nocardsfound: 'No cards found for that user' }))
+})
 
 router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -169,6 +160,24 @@ router.post("/:id/add-profile-picture", function (req, res) {
             .catch((err) => res.status(400).json({ success: false, error: err }));
     });
 });
+router.post("/:id/cards", function (req, res) {
+    const uid = req.params.id;
+
+    User.findOne({_id: uid}, function(err, doc){
+        let cards = req.body.cards; 
+        cards = cards.split(',');
+        cards.forEach(id => {
+            if(!doc.cards.includes(id)){
+                doc.cards.push(id);
+            }
+        })
+           doc.save();  
+           
+    })  .then((user) => res.status(200).json({ success: true, user: user }))
+        .catch((err) => res.status(400).json({ success: false, error: err }));
+      
+})
+
 
 module.exports = router;
 
