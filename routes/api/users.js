@@ -18,13 +18,44 @@ router.get('/current', passport.authenticate('jwt', { session: false }), (req, r
     });
 })
 
+router.get("/all", (req, res) => {
+    User.find()
+        .then(users => {
+            const payload = {};
+            users.forEach(user => {
+                payload[user.id] = user;
+            });
+            res.json(payload);
+        })
+        .catch(err => res.status(400).json(err));
+});
+
+router.get('/:id', (req, res) => {
+    User.findById(req.params.id)
+        .then(user => res.json(user))
+        .catch(err =>
+            res.status(404).json({ nouserfound: 'No user found with that ID' })
+        );
+});
+
+// router.get('/:user_id', (req, res) => {
+//     User.findOne({ email: req.body.email })
+//         .then(user => {
+//             if (user) {
+//                 return res.json( {
+//                    username: user.username,
+//                    cards: user.cards
+//                 } )
+//             } else {
+//                 return res.status(404).json({err: "No user found"})
+//             }
+//         })
+// });
+
 // api/user/:user_id/cards
 router.get('/:user_id/cards', (req, res) => {
-    User
-        .findOne( {username: req.body.username} )
-        .then(res.json({
-            cards: res.body.cards
-        }))
+    User.findOne({id: req.params.id})
+        .then(user =>  res.json( user.cards ))
         // .then(email = res.json(email))
         // .catch(err => res.status(404).json({ nocardsfound: 'No cards found for that user' }))
 })
@@ -103,4 +134,50 @@ router.post('/login', (req, res) => {
                 });
         });
 });
+
+const upload = require("../../services/ImageUpload.js");
+const singleUpload = upload.single("image");
+
+router.post("/:id/add-profile-picture", function (req, res) {
+    const uid = req.params.id;
+
+    singleUpload(req, res, function (err) {
+        if (err) {
+            return res.json({
+                success: false,
+                errors: {
+                    title: "Image Upload Error",
+                    detail: err.message,
+                    error: err,
+                },
+            });
+        }
+
+        let update = { profilePicture: req.file.location };
+
+        User.findByIdAndUpdate(uid, update, { new: true })
+            .then((user) => res.status(200).json({ success: true, user: user }))
+            .catch((err) => res.status(400).json({ success: false, error: err }));
+    });
+});
+router.post("/:id/cards", function (req, res) {
+    const uid = req.params.id;
+
+    User.findOne({_id: uid}, function(err, doc){
+        let cards = req.body.cards; 
+        cards = cards.split(',');
+        cards.forEach(id => {
+            if(!doc.cards.includes(id)){
+                doc.cards.push(id);
+            }
+        })
+           doc.save();  
+           
+    })  .then((user) => res.status(200).json({ success: true, user: user }))
+        .catch((err) => res.status(400).json({ success: false, error: err }));
+      
+})
+
+
 module.exports = router;
+

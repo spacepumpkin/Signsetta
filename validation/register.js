@@ -12,7 +12,7 @@ module.exports = function validateRegisterInput(data) {
   if(!Validator.isLength(data.username, { min: 2, max:30 }))
 
   if (Validator.isEmpty(data.username)) {
-    errors.username = 'username field is required';
+    errors.username = 'Username field is required';
   }
 
   if (Validator.isEmpty(data.email)) {

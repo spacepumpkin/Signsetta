@@ -1,18 +1,23 @@
-const express = require("express");
-const Category = require("../../models/Category");
+const express = require('express');
 const router = express.Router();
+const Category = require("../../models/Category");
 
-router.get('/', (res, req) => {
-    Category
-        .find({})
-        .sort({name: 1})
-        .catch(err => render.json(err))
-})  
+router.get("/test", (req, res) => res.json({ msg: "This is the categories route" }));
 
-router.get('/:id', (res, req) => {
-    Category
-        .find({},{id: req.id})
-        .catch(err => render.json(err))
-})
+
+router.get('/', (req, res) => {
+    Category.find()
+        .sort({ name: 1 })
+        .then(categories => res.json(categories))
+        .catch(err => res.status(404).json({ nocategoriesfound: 'no categories found' }));
+});
+
+router.get('/:id', (req, res) => {
+    Category.findById(req.params.id)
+        .then(category => res.json(category))
+        .catch(err =>
+            res.status(404).json({ nocategoryfound: 'No category found with that ID' })
+        );
+});
 
 module.exports = router;

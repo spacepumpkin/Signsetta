@@ -1,0 +1,6 @@
+.simple-card-box {
+  min-height: 200px;
+  /* width: 200px; */
+  border: inherit;
+  /* border: 1px solid gray; */
+}
