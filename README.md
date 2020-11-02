@@ -1,11 +1,10 @@
+<p align="center"> <img src="./frontend/src/images/mern-logo-1.png" /> </p>
+
 [Link to the working site](https://signsetta.herokuapp.com/#/)
 
 - [Functionality and MVP](https://github.com/spacepumpkin/Signsetta/wiki/Functionality-and-MVP)
 - [Background and overview](https://github.com/spacepumpkin/Signsetta/wiki/Background-and-Overview)
 	
-
-<p align="center"> <img src="./frontend/src/images/mern-logo-1.png" /> </p>
-
 ## Welcome to Signsetta!
 [Go to The Wiki](https://github.com/spacepumpkin/Signsetta/wiki)
 
@@ -43,19 +42,22 @@ Congrats! You have successfully ran Signsetta! Go to localhost:3000 to see the s
 
 Features
 =============
-- ## Search on the main page for a specific card
+- ## _Search on the main page for a specific card_
 ![](./gifs/signsetta-search-1.gif)
-- ## Once signed in, have access to all the cards, cards by category, and your own saved cards.
+- ## _Once signed in, have access to all the cards, cards by category, and your own saved cards._
 ![](./gifs/signsetta-cards-2.gif)
-- ## Flip cards over with just a single click
-- ## Play a fingerspelling game to solidify what you've learned and put your knowledge to use.
+- ## _Flip cards over with just a single click_
+- ## _Play a fingerspelling game to solidify what you've learned and put your knowledge to use._
 ![](./gifs/signsetta-game-1.gif)
-- ## Adjust the speed that letters appear, or change the length of your practice word.
+- ## _Adjust the speed that letters appear, or change the length of your practice word._
 ![](./gifs/signsetta-game-2.gif)
 
 
 Future Additions to the Project
 =============
+- ### Going beyond flash cards with basic lessons to get users started
+- ### Additional practice games
+- ### Additional styling to unify the website theme
 
 Team Members
 =============
