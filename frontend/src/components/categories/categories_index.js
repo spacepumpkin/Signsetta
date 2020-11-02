@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './categories_index.css';
 import {Button} from 'semantic-ui-react';
+
 
 class CategoriesIndex extends React.Component {
     constructor(props){
@@ -39,7 +42,11 @@ const CategoryBox = props => {
     
     return (
         <div className="doubling three wide column">
-            <Button color={colors[(props.idx % colors.length)]} >{props.category.name}</Button>
+            
+                <Link className={`ui button ${colors[(props.idx % colors.length)]}`}to={`/categories/${props.category._id}`}>
+                    {props.category.name}
+                </Link>
+
         </div>
     )
 }

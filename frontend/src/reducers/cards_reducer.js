@@ -17,7 +17,7 @@ const CardsReducer = (state = { all: {}, user: {}, user_cards: {} }, action) => 
             newState.user = action.cards.data;
             return newState;
         case RECEIVE_USER_CARDS:
-            newState.user_cards = action.cards.data
+            newState.user_cards = action.userCards.data
             return newState;   
         case RECEIVE_CATEGORY_CARDS:
             newState.all = action.cards;
