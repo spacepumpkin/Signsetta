@@ -54,7 +54,7 @@ class CategorySearch extends React.Component {
                         <div className="ui centered cards">
                             {/* {returnCard} */}
 
-           {(returnCard !== undefined) && <CardBox key={returnCard._id} frontside={returnCard.frontside}
+           {(returnCard !== undefined) && <CardBox card={returnCard} key={returnCard._id} frontside={returnCard.frontside}
                 backside={returnCard.backside} />}
 
                         </div>
