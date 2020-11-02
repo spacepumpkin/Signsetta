@@ -4,7 +4,7 @@
 - [Background and overview](https://github.com/spacepumpkin/Signsetta/wiki/Background-and-Overview)
 	
 
-# Signsetta <p align="center"> <img src="./frontend/src/images/mern-logo-1.png" /> </p>
+<p align="center"> <img src="./frontend/src/images/mern-logo-1.png" /> </p>
 
 ## Welcome to Signsetta!
 [Go to The Wiki](https://github.com/spacepumpkin/Signsetta/wiki)
@@ -25,7 +25,7 @@ Instructions for how to run the suite
 
 Start out by running npm use to set the project node version to 10.13.0
 
-	npm use
+        npm use
 
 Then install in the root directory and in the frontend folder.
 
@@ -39,14 +39,20 @@ Open up another terminal and run the server in the backend by navigating to the 
 
         npm run server
 
-Congrats! You have successfully ran Signsetta! Go to localhost3000 to see the site.
+Congrats! You have successfully ran Signsetta! Go to localhost:3000 to see the site.
 
 Features
 =============
-- ### Search on the main page for a specific card
-- ### Once signed in, have access to all the cards and your own saved cards.
-- ### Flip cards over with just a single click
-- ### Play a fingerspelling game to solidify what you've learned and put your knowledge to use.
+- ## Search on the main page for a specific card
+![](./gifs/signsetta-search-1.gif)
+- ## Once signed in, have access to all the cards, cards by category, and your own saved cards.
+![](./gifs/signsetta-cards-2.gif)
+- ## Flip cards over with just a single click
+- ## Play a fingerspelling game to solidify what you've learned and put your knowledge to use.
+![](./gifs/signsetta-game-1.gif)
+- ## Adjust the speed that letters appear, or change the length of your practice word.
+![](./gifs/signsetta-game-2.gif)
+
 
 Future Additions to the Project
 =============
