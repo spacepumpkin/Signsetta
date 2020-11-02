@@ -18,7 +18,7 @@ const Splash = (state) => {
             </div>
             <div className="ui divider"></div>
             <div className="ui category search">
-                <div className="search-bar">Search:<SearchContainer /> </div>
+                <div className="search-bar">Search for any letter or number between 1-10:<SearchContainer /> </div>
             </div>
 
             <div className="splash-img ui fluid image">
