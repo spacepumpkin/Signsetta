@@ -14,6 +14,7 @@ class Profile extends React.Component {
   }
 
   render() {
+
     console.log(this.props.cardIds)
     let ProfileCards =  this.props.cards.map(card => {
       console.log(card._id);
@@ -22,7 +23,6 @@ class Profile extends React.Component {
             }
     })
     
-
     return (
       <div className="ui segment">
         <h1>Welcome, {this.props.currentUser.username}</h1>
