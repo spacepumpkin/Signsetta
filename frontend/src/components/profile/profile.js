@@ -10,7 +10,6 @@ class Profile extends React.Component {
   }
 
   render() {
-    debugger
     return (
       <div className="ui segment">
         <h1>Welcome, {this.props.currentUser.username}</h1>
@@ -19,7 +18,6 @@ class Profile extends React.Component {
             <CardBox key={card._id} frontside={card.frontside} backside={card.backside} />
           ))} 
         </div>
-        
       </div>
     )
   }
