@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import logo from '../../images/mern-logo-1.png';
+// import logo from '../../images/mern-logo-2.png';
 
 class LoginForm extends React.Component {
   constructor(props) {

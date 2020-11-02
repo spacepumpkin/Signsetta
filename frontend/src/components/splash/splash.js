@@ -22,7 +22,7 @@ const Splash = (state) => {
             </div>
 
             <div className="splash-img ui fluid image">
-                <img src={image} className="image" alt="image" />
+                <img src={image} className="image" alt="splash" />
             </div>
 
         </div>
