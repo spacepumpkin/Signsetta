@@ -1,15 +1,10 @@
-
-#
-Signsetta
-
 [Link to the working site](https://signsetta.herokuapp.com/#/)
-[Functionality and MVP](https://github.com/spacepumpkin/Signsetta/wiki/Functionality-and-MVP)
-[Background and overview](https://github.com/spacepumpkin/Signsetta/wiki/Background-and-Overview)
+
+- [Functionality and MVP](https://github.com/spacepumpkin/Signsetta/wiki/Functionality-and-MVP)
+- [Background and overview](https://github.com/spacepumpkin/Signsetta/wiki/Background-and-Overview)
 	
 
-
-
-# Signsetta
+# Signsetta <p align="center"> <img src="./frontend/src/images/mern-logo-1.png" /> </p>
 
 ## Welcome to Signsetta!
 [Go to The Wiki](https://github.com/spacepumpkin/Signsetta/wiki)
@@ -28,7 +23,11 @@ React Version: 17.1.0
 Instructions for how to run the suite
 =============
 
-Start out by running npm install in the root directory and in the frontend folder.
+Start out by running npm use to set the project node version to 10.13.0
+
+	npm use
+
+Then install in the root directory and in the frontend folder.
 
         npm install
         
@@ -42,5 +41,19 @@ Open up another terminal and run the server in the backend by navigating to the 
 
 Congrats! You have successfully ran Signsetta! Go to localhost3000 to see the site.
 
+Features
+=============
+- ### Search on the main page for a specific card
+- ### Once signed in, have access to all the cards and your own saved cards.
+- ### Flip cards over with just a single click
+- ### Play a fingerspelling game to solidify what you've learned and put your knowledge to use.
+
 Future Additions to the Project
 =============
+
+Team Members
+=============
+Brandon Leong | Bella Sandoval | Malcolm Reyes | Gary Wan
+
+
+Photos by: Sarah Pflug(https://burst.shopify.com/@sarahpflugphoto) and Malcolm Reyes
