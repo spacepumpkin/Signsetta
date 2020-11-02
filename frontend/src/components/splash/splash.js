@@ -1,7 +1,7 @@
 import React from 'react';
 import image from '../../images/splash-image.jpg';
 
-import SearchContainer from '../search/search_container';
+import SearchContainer from '../search/search_bar_container';
 
 const Splash = (state) => {
     return (
