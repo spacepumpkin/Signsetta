@@ -7,6 +7,7 @@ class Profile extends React.Component {
  
   }
 
+
   componentDidMount() {
     this.props.fetchCards()
     this.props.fetchUserCards(this.props.currentUser.id);
@@ -21,6 +22,7 @@ class Profile extends React.Component {
             }
     })
     
+
     return (
       <div className="ui segment">
         <h1>Welcome, {this.props.currentUser.username}</h1>

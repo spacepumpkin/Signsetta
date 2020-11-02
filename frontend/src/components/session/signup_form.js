@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import logo from '../../images/mern-logo-1.png';
+// import logo from '../../images/mern-logo-2.png';
+// import icon from '../../images/icon_250x250.png';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -71,7 +72,11 @@ class SignupForm extends React.Component {
           <div className="image">
 
 
-              <i className="loading american sign language interpreting teal icon huge" ></i>
+              <i className="loading american sign language interpreting teal icon huge"></i>
+              {/* <i className="loading american sign language interpreting inverted icon huge"
+              style={{ "position": "absolute", "top": "65px", "left": "295px"}}></i> */}
+              {/* <img src={icon} alt="icon" style={{width: "150px"}} /> */}
+              {/* <img src={logo} alt="logo" /> */}
           
 
           </div>
