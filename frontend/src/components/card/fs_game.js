@@ -15,7 +15,7 @@ const WORDS = {
 };
 
 const SPEED = {
-  slow: 2000, medium: 1500, fast: 1000, fluent: 500, natural: 200
+  slow: 2000, medium: 1500, fast: 1000, fluent: 500, native: 200
 }
 
 class FSGame extends React.Component {
@@ -121,8 +121,8 @@ class FSGame extends React.Component {
         case "fluent":
           this.cardDelay = SPEED.fluent;
           break;
-        case "natural":
-          this.cardDelay = SPEED.natural;
+        case "native":
+          this.cardDelay = SPEED.native;
           break;
         default:
           this.cardDelay = SPEED.medium;
@@ -203,8 +203,8 @@ class FSGame extends React.Component {
               <div class="field">
                 <div class="ui radio checkbox">
                   <input type="radio" name="speed"
-                    value="natural" />
-                  <label>natural</label>
+                    value="native" />
+                  <label>native</label>
                 </div>
               </div>
             </div>
