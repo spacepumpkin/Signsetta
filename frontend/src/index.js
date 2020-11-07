@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'semantic-ui-css/semantic.min.css';
-import axios from 'axios';
 import Root from './components/Root';
 import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
@@ -30,5 +29,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   const root = document.getElementById('root')
   ReactDOM.render(<Root store={store} />, root);
-  window.axios = axios
+    
 })

@@ -1,41 +1,37 @@
-import React from 'react';
+// import React from 'react';
+// import CardBox from '../card/cardbox';
 
 
+// class Search extends React.Component {
+//     constructor(props) {
+//         super(props)
+//     }
 
-class CategorySearch extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = { search: '' }
-    }
-    updateSearch(event) {
-        this.setState({ search: event.target.value.substr(0, 15) })
-    }
+//     // componentDidMount() {
+//     //     this.props.fetchCards()
+//     // }
 
-    render() {
-        const cats = Object.values(this.props.categories)
-        // let filteredCats = this.state.entities.categories(
-        //     (category) =>{
-        //         return category.name.indexOf(this.state.search) !== -1;
-        //     }
-        // )
+//     render(){
+//         const returnCard = this.props.cards.map(card => {
+//             if (card.backside === this.state.search){
+//                 return <CardBox key={card._id} frontside={card.frontside} 
+//                 backside={card.backside} />
+//             }
+//         })
 
-        return (
-            <div>
-                <div className="ui icon input">
-                    <input className="prompt" type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} />
-                    <i class="search icon"></i>
-                </div>
-                <ul className="results">
-                    {cats.map((category) => {
-                        return <h2>{category.name}</h2>
-                    })}
-                </ul>
-            </div>
-        );
-    }
-}
+//             return (
+//                 <div>
+        
+//                     <div className="ui segment center aligned grid">
+//                         <div className="ui centered cards">
+//                             {returnCard}
 
+//                         </div>
+//                     </div>
+//                 </div>
+//             )
+    
+//     }
+// }
 
-export default CategorySearch;
-
-
+// export default Search;

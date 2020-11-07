@@ -30,8 +30,8 @@ class CardIndex extends React.Component {
                         this.props.cards.map(card => (
                         <CardBox 
                             key={card._id} 
-                            frontside={card.frontside} 
-                            backside={card.backside} 
+                          
+                            card={card}
                             />))
                     }
                 

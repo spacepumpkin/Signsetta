@@ -1,43 +1,115 @@
 import React from 'react';
+import { postCardsToUser} from '../../actions/user_actions'
 import { Transition } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 
 
-const CardBox = props => {
-    const [flip, setFlip] = React.useState(true)
-    const [animation, setAnimation] = React.useState(true)
-
-    const flipAll = () => {
-            return setAnimation(!animation), setTimeout(() => setFlip(!flip), 400)            
-    }
-
-    return (
-        
-                <Transition visible={animation} animation='horizontal flip' duration={400} onHide={() => setAnimation(!animation)}>
-                    <div className="teal card" onClick={ () => flipAll()} >     
-                        {
-                            (flip) ? (
-                                <div classname="ui grid centered pink">
-                                    <img className=" column image" src={props.frontside} height="150"/>
-
-                                    <div className="ui bottom attached button">
-                                        <i className="add icon"></i>
-                                         Add To Your Cards
-                                    </div>
-                                </div>
+//this is an addition made to help with the creation of card indexes in the future
+export const CardBoxIndex = props => {
     
-                            ) : (
-                                <p className="content">{props.backside}</p> 
-                            )    
-                        }
-
-                        
-                    </div> 
-                 </Transition>
-            
-    );
+    return (
+        <div className="ui segment center aligned grid">
+            <div className="ui centered cards">
+                
+                    {
+                        props.cards.map(card => (
+                        <CardBox 
+                            key={card._id}
+                            card={card} 
+                            />))
+                    }               
+            </div>
+        </div>
+        );
 }
 
-export default CardBox;
+// CardBox is the main export of the file 
+class CardBox extends React.Component {
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            flip: true,
+            animation: true,
+            cards: []
+        }
+    }
+    // const [flip, setFlip] = React.useState(true)
+    // const [animation, setAnimation] = React.useState(true)
+
+    flipAll = () => {
+        
+            return (this.setState({animation: !this.state.animation}), 
+            setTimeout(() => this.setState({flip: !this.state.flip}), 400))      
+    }
+
+    addToUserCards = (e) => {
+        e.stopPropagation()
+       if (e.target.className === "ui bottom attached button"){
+    
+            this.state.cards.push(this.props.card._id)
+        }
+        debugger
+        
+    }
+
+    componentWillUnmount(){
+        if(this.state.cards.length > 0){
+            let str = `${this.state.cards}`;
+            // str = str.substr(1, str.length - 2);
+            this.props.addCards(this.props.currentUser.id,{cards: str});    
+            
+        }
+       
+    }
+
+
+    render() {
+        
+        return (
+            
+                    <Transition 
+                    visible={this.state.animation} 
+                    animation='horizontal flip' 
+                    duration={400} 
+                    onHide={() => this.setState({animation: !this.state.animation})}>
+                        <div className="ui teal card" onClick={ () => this.flipAll()} >     
+                            {
+                                (this.state.flip) ? (
+                                    <div>
+                                        <img className=" column image" src={this.props.card.frontside} height="150"/>
+
+                                        <div className="ui bottom attached button" onClick={this.addToUserCards} >
+                                            <i className="add icon"></i>
+                                            Add To Your Cards
+                                        </div>
+                                    </div>
+        
+                                ) : (
+                                    <p className="content">{this.props.card.backside}</p> 
+                                )    
+                            }
+                            
+                        </div> 
+                    </Transition>
+                
+        );
+    }
+}
+const mSP = state => {
+    
+    return {
+        currentUser: state.session.user
+    }
+}
+const mDP = dispatch => {
+    return {
+        addCards: (id, cards) => dispatch(postCardsToUser(id, cards))
+    }
+}
+
+export default connect(mSP, mDP)(CardBox);
 
 // const CardBox = props => {
 //     const [flip, setFlip] = React.useState(true)
