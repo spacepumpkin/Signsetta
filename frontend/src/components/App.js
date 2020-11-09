@@ -22,7 +22,6 @@ import Footer from './footer/footer';
 const App = () => (
   <div>
     <NavBarContainer />
-    <AuthRoute exact path="/" component={SplashComponent} />
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
@@ -39,8 +38,9 @@ const App = () => (
       <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
+      <Route exact path="/" component={SplashComponent} />
     </Switch>
-    <AuthRoute exact path="/" component={Footer} />
+    <Route exact path="/" component={Footer} />
   </div>
 );
 
