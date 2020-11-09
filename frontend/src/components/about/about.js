@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Footer() {
+export default function About() {
   return (
     <div className="ui vertical footer">
       <div className="ui center aligned container inverted">

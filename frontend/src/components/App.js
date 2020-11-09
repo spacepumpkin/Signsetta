@@ -16,13 +16,14 @@ import CardShowContainer from './card/card_show_container';
 import SplashComponent from './splash/splash';
 import FSGameContainer from './card/fs_game_container';
 
-import Footer from './footer/footer';
+import About from './about/about';
 
 
 const App = () => (
   <div>
     <NavBarContainer />
     <Switch>
+      <Route exact path="/" component={SplashComponent} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
@@ -32,15 +33,14 @@ const App = () => (
 
       <ProtectedRoute exact path="/categories" component={CategoriesIndex} />
 
-      <Route exact path="/fingerspelling-game" component={FSGameContainer} />
+      <ProtectedRoute exact path="/fingerspelling-game" component={FSGameContainer} />
 
       <ProtectedRoute exact path="/cards/:cardId" component={CardShowContainer} />
       <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
-      <Route exact path="/" component={SplashComponent} />
+      <Route exact path="/about" component={About} />
     </Switch>
-    <Route exact path="/" component={Footer} />
   </div>
 );
 

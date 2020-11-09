@@ -172,36 +172,36 @@ class FSGame extends React.Component {
           <div className="ui form" onChange={this.speedSelect()}>
             <div className="inline fields">
               <label className="ui header teal"> Speed </label>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input type="radio" name="speed"
                     value="slow" />
                   <label>slow</label>
                 </div>
               </div>
-              <div class="field">
-                <div class="ui radio checkbox" >
+              <div className="field">
+                <div className="ui radio checkbox" >
                   <input type="radio" name="speed"
                     value="medium" defaultChecked />
                   <label>medium</label>
                 </div>
               </div>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input type="radio" name="speed"
                     value="fast" />
                   <label>fast</label>
                 </div>
               </div>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input type="radio" name="speed"
                     value="fluent" />
                   <label>fluent</label>
                 </div>
               </div>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input type="radio" name="speed"
                     value="native" />
                   <label>native</label>
@@ -214,22 +214,22 @@ class FSGame extends React.Component {
           <div className="ui form" onChange={this.wordSelect()}>
             <div className="inline fields">
               <label className="ui header teal"> Number of Letters </label>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input type="radio" name="length"
                     value="three" />
                   <label>three</label>
                 </div>
               </div>
-              <div class="field">
-                <div class="ui radio checkbox" >
+              <div className="field">
+                <div className="ui radio checkbox" >
                   <input type="radio" name="length"
                     value="four" defaultChecked />
                   <label>four</label>
                 </div>
               </div>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input type="radio" name="length"
                     value="five" />
                   <label>five</label>
