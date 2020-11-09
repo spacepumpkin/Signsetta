@@ -3,6 +3,8 @@ import { postCardsToUser } from '../../actions/user_actions'
 import { Transition } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
+import './cardbox.css';
+
 
 //this is an addition made to help with the creation of card indexes in the future
 export const CardBoxIndex = props => {
@@ -83,7 +85,9 @@ class CardBox extends React.Component {
                             <div>
                                 <img className=" column image" src={this.props.card.frontside} height="150" />
 
-                                {(
+                                {
+                                // Check if currentUser exists; if so, render the Add Card button
+                                (
                                     (Object.prototype.toString.call(user) === "[object Object]") && (Object.keys(user).length !== 0)
                                     &&
                                     (<div className="ui bottom attached button" onClick={this.addToUserCards} >
@@ -95,7 +99,20 @@ class CardBox extends React.Component {
                             </div>
 
                         ) : (
-                                <p className="content">{this.props.card.backside}</p>
+                                <div>
+                                    <div className="card-backside" style={{ height: "150px" }}>
+                                        {this.props.card.backside}
+                                        </div>
+                                    {(
+                                        (Object.prototype.toString.call(user) === "[object Object]") && (Object.keys(user).length !== 0)
+                                        &&
+                                        (<div className="ui bottom attached button" onClick={this.addToUserCards} >
+                                            <i className="add icon"></i>
+                                            Add To Your Cards
+                                        </div>
+                                        )
+                                    )}
+                                </div>
                             )
                     }
 
