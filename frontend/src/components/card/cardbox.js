@@ -35,9 +35,7 @@ class CardBox extends React.Component {
             cards: []
         }
     }
-    // const [flip, setFlip] = React.useState(true)
-    // const [animation, setAnimation] = React.useState(true)
-
+   
     flipAll = () => {
         
             return (this.setState({animation: !this.state.animation}), 
@@ -49,15 +47,12 @@ class CardBox extends React.Component {
        if (e.target.className === "ui bottom attached button"){
     
             this.state.cards.push(this.props.card._id)
-        }
-        debugger
-        
+        }        
     }
 
     componentWillUnmount(){
         if(this.state.cards.length > 0){
             let str = `${this.state.cards}`;
-            // str = str.substr(1, str.length - 2);
             this.props.addCards(this.props.currentUser.id,{cards: str});    
             
         }
