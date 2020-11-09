@@ -24,7 +24,8 @@ class FSGame extends React.Component {
     this.cleared = {
       userGuess: "",
       currentLetter: "",
-      cardMessage: "Get Ready"
+      cardMessage: "Get Ready",
+      revealAnswerCheck: false
       // currentWord: "",
       // cardDelay: 1500
     };
@@ -32,7 +33,7 @@ class FSGame extends React.Component {
     this.cardDelay = SPEED.medium;
     this.wordLength = "four";
     this.cardDisplaying = false;
-    // this.cardMessage = "What do I spell?"
+    // this.revealAnswerCheck = false;
 
     this.state = Object.assign({}, this.cleared);
     this.generateNewWord = this.generateNewWord.bind(this);
@@ -73,6 +74,7 @@ class FSGame extends React.Component {
   generateNewWord() {
     // evt.preventDefault();
     // return () => {
+    this.setState({ userGuess: "" });
     let wordArr = WORDS[this.wordLength];
     let randomWord = wordArr[Math.floor(Math.random() * wordArr.length)];
     while (randomWord === this.currentWord) {
@@ -107,7 +109,7 @@ class FSGame extends React.Component {
     }
   }
   update() {
-    return evt => this.setState({ userGuess: evt.currentTarget.value })
+    return evt => this.setState({ userGuess: evt.currentTarget.value });
   }
   speedSelect() {
     return (evt) => {
@@ -135,6 +137,15 @@ class FSGame extends React.Component {
       this.wordLength = evt.target.value;
     }
   }
+  revealAnswer() {
+    return () => {
+      this.setState({ cardMessage: `The answer was: ${this.currentWord}` });
+      this.setState({ revealAnswerCheck: false });
+    };
+  }
+  // revealAnswerCheck() {
+  //   // return () => this.revealAnswerCheck = 
+  // }
 
   render() {
     // const { cards } = this.props;
@@ -146,7 +157,8 @@ class FSGame extends React.Component {
       }
     );
 
-    // debugger
+    console.log(this.state.revealAnswerCheck);
+
     return (
       <div className="ui middle aligned center aligned grid">
         <div className="column seven wide">
@@ -238,6 +250,23 @@ class FSGame extends React.Component {
             </div>
           </div>
         </div>
+        <div className="ui row">
+          <button className="ui button" onClick={() => this.setState({ revealAnswerCheck: true })} type="button"
+            disabled={this.cardDisplaying || (this.currentWord === "") || (this.state.cardMessage.includes("answer"))}> Reveal Answer </button>
+          {
+            (this.state.revealAnswerCheck)
+            && (
+              <div className="ui middle aligned content">
+                <span style={{ padding: "0px 10px"}}>
+                  Are you sure?
+                </span>
+                <button className="ui button" onClick={this.revealAnswer()} type="button"> Yes </button>
+                <button className="ui button" onClick={() => this.setState({ revealAnswerCheck: false })} type="button"> No </button>
+              </div>
+            )
+          }
+        </div>
+
         <div className="ui segment">
           <div className="ui text container">
             Practice your fingerspelling comprehension by guessing words!
