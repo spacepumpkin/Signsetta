@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container.js';
 // import TweetsContainer from './tweets/tweets_container';
 // import MainPage from './main/main_page';
@@ -24,6 +24,7 @@ const App = () => (
     <NavBarContainer />
     <Switch>
       <Route exact path="/" component={SplashComponent} />
+      <Route exact path="/about" component={About} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
@@ -39,7 +40,7 @@ const App = () => (
       <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
-      <Route exact path="/about" component={About} />
+      <Route render={() => <Redirect to="/" />} />
     </Switch>
   </div>
 );
