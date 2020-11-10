@@ -4,7 +4,6 @@ import { fetchCategories } from '../../actions/categories_actions';
 import { connect } from 'react-redux';
 
 const MSTP = (state, ownProps) => {
-    // debugger;
     return {
         cards: Object.values(state.entities.cards.all),
         categories: Object.values(state.entities.categories)[0]

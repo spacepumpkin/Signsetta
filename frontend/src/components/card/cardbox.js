@@ -52,7 +52,6 @@ class CardBox extends React.Component {
 
             this.state.cards.push(this.props.card._id)
         }
-        debugger
 
     }
 
