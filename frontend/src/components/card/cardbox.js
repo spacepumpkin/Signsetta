@@ -52,7 +52,6 @@ class CardBox extends React.Component {
 
             this.state.cards.push(this.props.card._id)
         }
-        debugger
 
     }
 
@@ -68,9 +67,7 @@ class CardBox extends React.Component {
 
 
     render() {
-        // debugger
         let user = this.props.currentUser;
-        if (Object.keys(user).length !== 0) debugger;
 
         return (
 

@@ -30,23 +30,34 @@ class CardIndex extends React.Component {
         const phrasesCards = this.props.cards.filter(card => card.category === "5f9a0c0b027b164d2c011ed9");
 
         return (
-        <div className="ui segment center aligned grid">
-            <h2 >These are all the cards</h2>
-
-            <div className="ui centered cards"> Alphabet
-                
+            <div className="ui segment center aligned grid">
+                <h2 className="ui header" style={{"margin-top" : "35px"}}>
+                    All the Cards
+                </h2>
+                <div className="ui stacked segment">
+                    <h1 className="ui header teal">
+                        <i class="language icon"></i>
+                        Alphabet
+                    </h1>
+                    <div className="ui centered cards">
                     {
                         alphabetCards.map(card => (
-                        <CardBox 
-                            key={card._id} 
-                          
-                            card={card}
+                            <CardBox
+                                key={card._id}
+
+                                card={card}
                             />))
                     }
-                
-            </div>
-                <div className="ui centered cards"> Numbers
+                    </div>
 
+                </div>
+                {/* <div className="ui divider"></div> */}
+                <div className="ui stacked segment">
+                    <h1 className="ui header blue">
+                        <i class="sort numeric down icon"></i>
+                        Numbers
+                    </h1>
+                    <div className="ui centered cards">
                     {
                         numberCards.map(card => (
                             <CardBox
@@ -55,10 +66,14 @@ class CardIndex extends React.Component {
                                 card={card}
                             />))
                     }
-
+                    </div>
                 </div>
-                <div className="ui centered cards"> Common Phrases
-
+                <div className="ui stacked segment">
+                    <h1 className="ui horizontal divider header purple">
+                        <i class="comments outline icon"></i>
+                        Common Phrases
+                    </h1>
+                    <div className="ui centered cards">
                     {
                         phrasesCards.map(card => (
                             <CardBox
@@ -67,13 +82,13 @@ class CardIndex extends React.Component {
                                 card={card}
                             />))
                     }
-
+                    </div>
                 </div>
-        </div>
+            </div>
         );
     }
 }
 
-    
+
 
 export default withRouter(CardIndex);
