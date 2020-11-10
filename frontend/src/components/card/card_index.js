@@ -1,16 +1,12 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import CategoryShow from '../categories/category_show';
+// import CategoryShow from '../categories/category_show';
 import CardBox from './cardbox';
 
 class CardIndex extends React.Component {
-    constructor(props) {
-        super(props)
-
-        // this.state = {
-        //     cards: []
-        // }
-    }
+    // constructor(props) {
+    //     super(props)
+    // }
 
     componentDidMount() {
         this.props.fetchCards();
@@ -36,7 +32,7 @@ class CardIndex extends React.Component {
                 </h2>
                 <div className="ui stacked segment">
                     <h1 className="ui header teal">
-                        <i class="language icon"></i>
+                        <i className="language icon"></i>
                         Alphabet
                     </h1>
                     <div className="ui centered cards">
@@ -54,7 +50,7 @@ class CardIndex extends React.Component {
                 {/* <div className="ui divider"></div> */}
                 <div className="ui stacked segment">
                     <h1 className="ui header blue">
-                        <i class="sort numeric down icon"></i>
+                        <i className="sort numeric down icon"></i>
                         Numbers
                     </h1>
                     <div className="ui centered cards">
@@ -70,7 +66,7 @@ class CardIndex extends React.Component {
                 </div>
                 <div className="ui stacked segment">
                     <h1 className="ui horizontal divider header purple">
-                        <i class="comments outline icon"></i>
+                        <i className="comments outline icon"></i>
                         Common Phrases
                     </h1>
                     <div className="ui centered cards">

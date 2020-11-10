@@ -34,8 +34,11 @@ class CardBox extends React.Component {
         this.state = {
             flip: true,
             animation: true,
-            cards: []
+            cards: [],
+            loaded: false
         }
+        this.handleLoad = this.handleLoad.bind(this);
+
     }
     // const [flip, setFlip] = React.useState(true)
     // const [animation, setAnimation] = React.useState(true)
@@ -64,6 +67,9 @@ class CardBox extends React.Component {
         }
 
     }
+    handleLoad() {
+        this.setState({ loaded: true });
+    }
 
 
     render() {
@@ -80,7 +86,12 @@ class CardBox extends React.Component {
                     {
                         (this.state.flip) ? (
                             <div>
-                                <img className=" column image" src={this.props.card.frontside} height="150" />
+                                <div className={`ui centered loader ${this.state.loaded ? '' : 'active'}`}></div>
+                                <img className=" column image" 
+                                src={this.props.card.frontside} 
+                                height="150" 
+                                onLoad={this.handleLoad}
+                                alt="card"/>
 
                                 {
                                 // Check if currentUser exists; if so, render the Add Card button
