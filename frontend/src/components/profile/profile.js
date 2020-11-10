@@ -7,15 +7,16 @@ class Profile extends React.Component {
  
   }
 
+
   componentDidMount() {
     this.props.fetchCards()
     this.props.fetchUserCards(this.props.currentUser.id);
   }
 
   render() {
-    console.log(this.props.cardIds)
+
+  
     let ProfileCards =  this.props.cards.map(card => {
-      console.log(card._id);
             if(this.props.cardIds.includes(card._id)){
               return <CardBox key={card._id} frontside={card.frontside} backside={card.backside} card={card} />
             }

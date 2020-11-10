@@ -18,12 +18,7 @@ export const receiveErrors = errors => {
     })
 };
 
-// const recieveCards = cards => {
-//     return ({
-//         type: RECIEVE_CARDS,
-//         cards
-//     })
-// } 
+
 
 export const fetchUsers = () => dispatch =>
     getAllUsers()
@@ -31,9 +26,10 @@ export const fetchUsers = () => dispatch =>
         .catch(err => dispatch(receiveErrors(err)));
 
 
-export const postCardsToUser = (id, cards) => dispatch => 
-   addCardsToUser(id, cards)
-        .catch(err => dispatch(receiveErrors(err)))
+export const postCardsToUser = (id, cards) => dispatch => {
+    
+   return addCardsToUser(id, cards)
+        .catch(err => console.log(err))
+    }
 
     
-    // .then(users => dispatch(receiveCards(users))

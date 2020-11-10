@@ -1,99 +1,116 @@
 import React from 'react';
-import { postCardsToUser} from '../../actions/user_actions'
+import { postCardsToUser } from '../../actions/user_actions'
 import { Transition } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+
+import './cardbox.css';
 
 
 //this is an addition made to help with the creation of card indexes in the future
 export const CardBoxIndex = props => {
-    
+
     return (
         <div className="ui segment center aligned grid">
             <div className="ui centered cards">
-                
-                    {
-                        props.cards.map(card => (
-                        <CardBox 
+
+                {
+                    props.cards.map(card => (
+                        <CardBox
                             key={card._id}
-                            card={card} 
-                            />))
-                    }               
+                            card={card}
+                        />))
+                }
             </div>
         </div>
-        );
+    );
 }
 
 // CardBox is the main export of the file 
 class CardBox extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
             flip: true,
-            animation: true,
-            cards: []
+            animation: true
         }
+        this.addToUserCards = this.addToUserCards.bind(this)
     }
    
     flipAll = () => {
-        
-            return (this.setState({animation: !this.state.animation}), 
-            setTimeout(() => this.setState({flip: !this.state.flip}), 400))      
-    }
 
+        return (this.setState({ animation: !this.state.animation }),
+            setTimeout(() => this.setState({ flip: !this.state.flip }), 400))
+    }
+s
     addToUserCards = (e) => {
         e.stopPropagation()
-       if (e.target.className === "ui bottom attached button"){
-    
-            this.state.cards.push(this.props.card._id)
-        }        
-    }
-
-    componentWillUnmount(){
-        if(this.state.cards.length > 0){
-            let str = `${this.state.cards}`;
-            this.props.addCards(this.props.currentUser.id,{cards: str});    
+        if (e.target.className === "ui bottom attached button") {
+            
+            this.props.addCards(this.props.currentUser.id, JSON.stringify([this.props.card._id]));
             
         }
-       
     }
+
 
 
     render() {
-        
-        return (
-            
-                    <Transition 
-                    visible={this.state.animation} 
-                    animation='horizontal flip' 
-                    duration={400} 
-                    onHide={() => this.setState({animation: !this.state.animation})}>
-                        <div className="ui teal card" onClick={ () => this.flipAll()} >     
-                            {
-                                (this.state.flip) ? (
-                                    <div>
-                                        <img className=" column image" src={this.props.card.frontside} height="150"/>
+        let user = this.props.currentUser;
+        if (Object.keys(user).length !== 0) ;
 
-                                        <div className="ui bottom attached button" onClick={this.addToUserCards} >
+        return (
+
+            <Transition
+                visible={this.state.animation}
+                animation='horizontal flip'
+                duration={400}
+                onHide={() => this.setState({ animation: !this.state.animation })}>
+                <div className="ui teal card" onClick={() => this.flipAll()} >
+                    {
+                        (this.state.flip) ? (
+                            <div>
+                                <img className=" column image" src={this.props.card.frontside} height="150" />
+
+                                {
+                                // Check if currentUser exists; if so, render the Add Card button
+                                (
+                                    (Object.prototype.toString.call(user) === "[object Object]") && (Object.keys(user).length !== 0)
+                                    &&
+                                    (<div className="ui bottom attached button" onClick={this.addToUserCards} >
+                                        <i className="add icon"></i>
+                                            Add To Your Cards
+                                    </div>
+                                    )
+                                )}
+                            </div>
+
+                        ) : (
+                                <div>
+                                    <div className="card-backside" style={{ height: "150px" }}>
+                                        {this.props.card.backside}
+                                        </div>
+                                    {(
+                                        (Object.prototype.toString.call(user) === "[object Object]") && (Object.keys(user).length !== 0)
+                                        &&
+                                        (<div className="ui bottom attached button" onClick={this.addToUserCards} >
                                             <i className="add icon"></i>
                                             Add To Your Cards
                                         </div>
-                                    </div>
-        
-                                ) : (
-                                    <p className="content">{this.props.card.backside}</p> 
-                                )    
-                            }
-                            
-                        </div> 
-                    </Transition>
-                
+                                        )
+                                    )}
+                                </div>
+                            )
+                    }
+
+                </div>
+            </Transition>
+
         );
     }
 }
 const mSP = state => {
-    
+
     return {
         currentUser: state.session.user
     }

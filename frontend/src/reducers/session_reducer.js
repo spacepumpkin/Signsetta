@@ -6,7 +6,7 @@ import {
 
 const initialState = {
     isAuthenticated: false,
-    user: undefined
+    user: {}
 };
 
 export default function sessionReducer (state = initialState, action) {
@@ -29,4 +29,3 @@ export default function sessionReducer (state = initialState, action) {
     }
 }
 
-// ! What's the difference between isAuthenticated vs isSignedIn

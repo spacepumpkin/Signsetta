@@ -11,11 +11,13 @@ const SimpleCard = (props) => {
             (
               <img src={frontside} alt={backside} />
             ) : (
-              <div style={{ height: "200px" }}></div>
+              <div className="text container" style={{ height: "200px", paddingTop: "80px" }}>
+                <em className="ui large header">{props.cardMessage}</em>
+              </div>
             )
         }
       </div>
-    </div>
+    </div >
   );
 }
 

@@ -1,9 +1,15 @@
 import React from 'react';
 import image from '../../images/splash-image.jpg';
 
-import SearchContainer from '../search/search_container';
+import SearchContainer from '../search/search_bar_container';
+import { Button, Modal } from 'semantic-ui-react';
+
+// import SignupModal from '../session/signup_form';
+// import "./splash.css";
 
 const Splash = (state) => {
+    // const [open, setOpen] = React.useState(false);
+
     return (
         <div className="ui masthead center aligned segment">
             <div className="ui text container">
@@ -18,13 +24,15 @@ const Splash = (state) => {
             </div>
             <div className="ui divider"></div>
             <div className="ui category search">
-                <div className="search-bar">Search:<SearchContainer /> </div>
+                <div className="search-bar">Search for any letter or number between 1-10:<SearchContainer /> </div>
             </div>
 
             <div className="splash-img ui fluid image">
-                <img src={image} className="image" alt="image" />
+                <img src={image} className="image" alt="splash" />
             </div>
-
+            {/* <div className="">
+                <SignupModal />
+            </div> */}
         </div>
 
     )

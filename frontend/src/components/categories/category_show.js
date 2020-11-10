@@ -10,23 +10,18 @@ class CategoryShow extends React.Component {
         const catId = this.props.match.params.catId
         this.props.fetchCategory(catId);
         this.props.fetchCards()
-        // this.props.fetchCategoryCards(catId);
-        // debugger;
+
     }
 
     render() {
-        // debugger;
         const correctCards = this.props.category_cards.map(card => {
-            // debugger;
             if (card.category == this.props.match.params.catId) {
-                // debugger;
                 return <CardBox
                     key={card._id}
                     card={card}
                 />
             }
         })
-        // debugger;
         return (
             <div>
                 <h1> This is the {this.props.category.name} category</h1>
@@ -35,7 +30,6 @@ class CategoryShow extends React.Component {
 
                     <div className="ui centered cards">
 
-                        {/* <div className="four column row"> */}
                         {correctCards}
 
                     </div>

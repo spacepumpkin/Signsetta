@@ -1,6 +1,6 @@
 import React from 'react';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container.js';
 // import TweetsContainer from './tweets/tweets_container';
 // import MainPage from './main/main_page';
@@ -16,14 +16,15 @@ import CardShowContainer from './card/card_show_container';
 import SplashComponent from './splash/splash';
 import FSGameContainer from './card/fs_game_container';
 
-import Footer from './footer/footer';
+import About from './about/about';
 
 
 const App = () => (
   <div>
     <NavBarContainer />
-    <AuthRoute exact path="/" component={SplashComponent} />
     <Switch>
+      <Route exact path="/" component={SplashComponent} />
+      <Route exact path="/about" component={About} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
 
@@ -33,14 +34,14 @@ const App = () => (
 
       <ProtectedRoute exact path="/categories" component={CategoriesIndex} />
 
-      <Route exact path="/fingerspelling-game" component={FSGameContainer} />
+      <ProtectedRoute exact path="/fingerspelling-game" component={FSGameContainer} />
 
-      <ProtectedRoute exact path="/cards/${cardId}" component={CardShowContainer} />
+      <ProtectedRoute exact path="/cards/:cardId" component={CardShowContainer} />
       <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
+      <Route render={() => <Redirect to="/" />} />
     </Switch>
-    <AuthRoute exact path="/" component={Footer} />
   </div>
 );
 
