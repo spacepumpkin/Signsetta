@@ -244,7 +244,7 @@ class FSGame extends React.Component {
             Begin by choosing your <span className="ui header teal small">speed</span> and the
              <span className="ui header teal small"> number of letters</span> in the word, or go
             with the default settings.
-            Then press <button className="ui pink button tiny disabled" type="button">"Generate New Word"</button> to get
+            Then press <button className="ui pink button tiny disabled" type="button">Generate New Word</button> to get
             started! You can also replay the word as many times as you'd like.
           </div>
           <div className="ui divider"></div>
