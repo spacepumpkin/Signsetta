@@ -1,4 +1,5 @@
 import React from 'react';
+import profileGary from "../../images/profilepic-gary.png";
 
 export default function About() {
   return (
@@ -13,7 +14,7 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE_pPYBSkbvsg/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=B7nVMKwNe4nfQDVQwrb8EY2UKMyNvQ6yn4Lw-lZNOK8" alt="team-member" />
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE_pPYBSkbvsg/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=B7nVMKwNe4nfQDVQwrb8EY2UKMyNvQ6yn4Lw-lZNOK8" alt="profile pic" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Brandon Leong </div>
@@ -37,11 +38,11 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="https://media-exp1.licdn.com/dms/image/C5603AQEtbHNVEWimVQ/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=-UhnM20qoyoSLBxI7NfwXUIS0fuMTanbwOd1ouStpgA" alt="team-member" />
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQEtbHNVEWimVQ/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=-UhnM20qoyoSLBxI7NfwXUIS0fuMTanbwOd1ouStpgA" alt="profile pic" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Bella Sandoval </div>
-                <div className="meta"> Loves cats more than Malcom.</div>
+                <div className="meta"> Loves cats more than Malcolm</div>
                 <div className="description">
                   Bella is a software engineer that enjoys full stack development and exploring new ways to solving problems.
                 </div>
@@ -85,17 +86,17 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="team-member" />
+                <img src={profileGary} alt="profile pic" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Gary Wan </div>
-                <div className="meta"> Loves cats </div>
+                <div className="meta"> Loves cats more than Brandon </div>
                 <div className="description">
-                  Gary ...
+                  Gary is a medical/healthcare worker turned full-stack software engineer with a focus on design and user engagement
                 </div>
               </div>
               <div className="extra content">
-                <a className="left floated" href="#">
+                <a className="left floated" href="https://www.linkedin.com/in/gary-w-269749ba/">
                   <i className="icon linkedin blue"></i>
                   LinkedIn
                 </a>
