@@ -42,7 +42,7 @@ export default function About() {
               </div>
               <div className="content">
                 <div className="ui header teal"> Bella Sandoval </div>
-                <div className="meta"> Loves cats more than Malcom.</div>
+                <div className="meta"> Loves cats more than Malcolm</div>
                 <div className="description">
                   Bella is a software engineer that enjoys full stack development and exploring new ways to solving problems.
                 </div>
