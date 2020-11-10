@@ -68,9 +68,7 @@ class CardBox extends React.Component {
 
 
     render() {
-        // debugger
         let user = this.props.currentUser;
-        if (Object.keys(user).length !== 0) debugger;
 
         return (
 

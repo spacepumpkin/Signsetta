@@ -54,7 +54,6 @@ class FSGame extends React.Component {
     let count = 0, that = this;
     // const { currentWord, cardDelay } = this.state;
 
-    // debugger
     this.cardSwitch = setInterval(() => {
       if (count === that.currentWord.length) {
         clearInterval(that.cardSwitch);
@@ -82,7 +81,6 @@ class FSGame extends React.Component {
     }
     // this.setState({ currentWord: randomWord });
     this.currentWord = randomWord;
-    // debugger
     this.displayCards();
     // }
   }
@@ -316,7 +314,6 @@ export default FSGame;
 //       let count = 0, that = this;
 //       const { currentWord, cardDelay } = this.state;
 
-//       debugger
 //       this.cardSwitch = setInterval(() => {
 //         if (count === currentWord.length) {
 //           clearInterval(that.cardSwitch);
@@ -333,7 +330,6 @@ export default FSGame;
 //       let randomWord = WORDS_THREE[Math.floor(Math.random() * WORDS_THREE.length)];
 //       this.setState({ currentWord: randomWord });
 //       // this.currentWord = randomWord;
-//       debugger
 //       this.displayCards()();
 //     }
 //   }
@@ -363,7 +359,6 @@ export default FSGame;
 //       }
 //     );
 
-//     debugger
 //     return (
 //       <div className="ui middle aligned center aligned grid">
 //         <div className="column five wide">
