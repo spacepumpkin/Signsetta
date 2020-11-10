@@ -14,21 +14,21 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="profile pic" />
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE_pPYBSkbvsg/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=B7nVMKwNe4nfQDVQwrb8EY2UKMyNvQ6yn4Lw-lZNOK8" alt="profile pic" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Brandon Leong </div>
-                <div className="meta"> Loves cats </div>
+                <div className="meta"> Loves cats more than Bella </div>
                 <div className="description">
-                  Brandon ...
+                  A software engineer dedicated to self-improvement and crafting positive user experiences.
                 </div>
               </div>
               <div className="extra content">
-                <a className="left floated" href="#">
+                <a className="left floated" href="https://www.linkedin.com/in/brandon-leong-8bb965138/">
                   <i className="icon linkedin blue"></i>
                   LinkedIn
                 </a>
-                <a className="right floated" href="#">
+                <a className="right floated" href="https://github.com/bleong7818">
                   <i className="icon github pink"></i>
                   Github
                 </a>
@@ -38,23 +38,23 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="profile pic" />
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQEtbHNVEWimVQ/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=-UhnM20qoyoSLBxI7NfwXUIS0fuMTanbwOd1ouStpgA" alt="profile pic" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Bella Sandoval </div>
-                <div className="meta"> Loves cats </div>
+                <div className="meta"> Loves cats more than Malcom.</div>
                 <div className="description">
-                  Bella ...
+                  Bella is a software engineer that enjoys full stack development and exploring new ways to solving problems.
                 </div>
               </div>
               <div className="extra content">
                 <a className="left floated" href="#">
                   <i className="icon linkedin blue"></i>
-                  LinkedIn
+                  <a href="https://www.linkedin.com/in/isabella-sandoval-513025192/">LinkedIn</a>
                 </a>
                 <a className="right floated" href="#">
                   <i className="icon github pink"></i>
-                  Github
+                  <a href="https://github.com/isabella-sandoval">Github</a>
                 </a>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="profile pic" />
+                <img src="#" alt="team-member" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Malcolm Reyes </div>
