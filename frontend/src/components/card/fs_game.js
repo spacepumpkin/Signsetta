@@ -157,8 +157,6 @@ class FSGame extends React.Component {
       }
     );
 
-    console.log(this.state.revealAnswerCheck);
-
     return (
       <div className="ui middle aligned center aligned grid">
         <div className="column seven wide">
@@ -251,13 +249,15 @@ class FSGame extends React.Component {
           </div>
         </div>
         <div className="ui row">
-          <button className="ui button" onClick={() => this.setState({ revealAnswerCheck: true })} type="button"
-            disabled={this.cardDisplaying || (this.currentWord === "") || (this.state.cardMessage.includes("answer"))}> Reveal Answer </button>
+          <button className="ui button teal" onClick={() => this.setState({ revealAnswerCheck: true })} type="button"
+            disabled={this.cardDisplaying || (this.currentWord === "") || (this.state.cardMessage.includes("answer"))}>
+            Reveal Answer
+          </button>
           {
             (this.state.revealAnswerCheck)
             && (
               <div className="ui middle aligned content">
-                <span style={{ padding: "0px 10px"}}>
+                <span style={{ padding: "0px 10px" }}>
                   Are you sure?
                 </span>
                 <button className="ui button" onClick={this.revealAnswer()} type="button"> Yes </button>
@@ -331,7 +331,6 @@ export default FSGame;
 //     // evt.preventDefault();
 //     return () => {
 //       let randomWord = WORDS_THREE[Math.floor(Math.random() * WORDS_THREE.length)];
-//       console.log(randomWord);
 //       this.setState({ currentWord: randomWord });
 //       // this.currentWord = randomWord;
 //       debugger
