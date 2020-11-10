@@ -33,9 +33,12 @@ class CardBox extends React.Component {
 
         this.state = {
             flip: true,
-            animation: true
+            animation: true,
+            loaded: false
         }
-        this.addToUserCards = this.addToUserCards.bind(this)
+    this.handleLoad = this.handleLoad.bind(this);
+    this.addToUserCards = this.addToUserCards.bind(this)
+
     }
    
     flipAll = () => {
@@ -51,13 +54,25 @@ s
             this.props.addCards(this.props.currentUser.id, JSON.stringify([this.props.card._id]));
             
         }
+
     }
 
+    componentWillUnmount() {
+        if (this.state.cards.length > 0) {
+            let str = `${this.state.cards}`;
+            // str = str.substr(1, str.length - 2);
+            this.props.addCards(this.props.currentUser.id, { cards: str });
+
+        }
+
+    }
+    handleLoad() {
+        this.setState({ loaded: true });
+    }
 
 
     render() {
         let user = this.props.currentUser;
-        if (Object.keys(user).length !== 0) ;
 
         return (
 
@@ -70,7 +85,12 @@ s
                     {
                         (this.state.flip) ? (
                             <div>
-                                <img className=" column image" src={this.props.card.frontside} height="150" />
+                                <div className={`ui centered loader ${this.state.loaded ? '' : 'active'}`}></div>
+                                <img className=" column image" 
+                                src={this.props.card.frontside} 
+                                height="150" 
+                                onLoad={this.handleLoad}
+                                alt="card"/>
 
                                 {
                                 // Check if currentUser exists; if so, render the Add Card button
@@ -123,19 +143,3 @@ const mDP = dispatch => {
 
 export default connect(mSP, mDP)(CardBox);
 
-// const CardBox = props => {
-//     const [flip, setFlip] = React.useState(true)
-//     return (
-//         <li className="cardbox-card" onClick={() => setFlip(!flip)}>
-//             {
-//                 (flip) ? (
-//                     <img className="cardbox-image" src={props.frontside} />
-//                     // <img>{props.frontside}</img>
-//                 ) : (
-//                         <p className="cardbox-card-backside">{props.backside}</p>
-//                     )
-//             }
-//             <div>Add me to the list!</div>
-//         </li>
-//     );
-// }

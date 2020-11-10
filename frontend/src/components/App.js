@@ -40,7 +40,8 @@ const App = () => (
       <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
-      <Route render={() => <Redirect to="/" />} />
+      <Redirect to="/" />
+      {/* <Route render={() => <Redirect to="/" />} /> */}
     </Switch>
   </div>
 );
