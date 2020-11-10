@@ -13,21 +13,21 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="team-member" />
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE_pPYBSkbvsg/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=B7nVMKwNe4nfQDVQwrb8EY2UKMyNvQ6yn4Lw-lZNOK8" alt="team-member" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Brandon Leong </div>
-                <div className="meta"> Loves cats </div>
+                <div className="meta"> Loves cats more than Bella </div>
                 <div className="description">
-                  Brandon ...
+                  A software engineer dedicated to self-improvement and crafting positive user experiences.
                 </div>
               </div>
               <div className="extra content">
-                <a className="left floated" href="#">
+                <a className="left floated" href="https://www.linkedin.com/in/brandon-leong-8bb965138/">
                   <i className="icon linkedin blue"></i>
                   LinkedIn
                 </a>
-                <a className="right floated" href="#">
+                <a className="right floated" href="https://github.com/bleong7818">
                   <i className="icon github pink"></i>
                   Github
                 </a>
