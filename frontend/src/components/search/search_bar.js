@@ -12,7 +12,6 @@ class CategorySearch extends React.Component {
 
     }
     componentDidMount() {
-        // debugger
         this.props.fetchCards()
         this.props.fetchCategories()
     }
@@ -40,7 +39,7 @@ class CategorySearch extends React.Component {
         })
         
         return (
-            <div className="ui search">
+            <div className="ui category search">
                 <form onSubmit={this.submitSearch}>
                     <input className="prompt" value={this.state.search} onChange={this.updateSearch} type="text" placeholder="Search cards..."></input>
                     

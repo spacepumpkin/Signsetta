@@ -58,12 +58,12 @@ export const fetchUserCards = userId => {
         return CardUtil.getUserCards(userId)
             .then(userCards => {
                 return dispatch(receiveUserCards(userCards))
+
             })
     }
 };
 
 export const fetchCategoryCards = (catId) => {
-    // debugger;
     return dispatch => {
         return CardUtil.getCategoryCards(catId)
             .then(catCards => {

@@ -34,26 +34,25 @@ class CardBox extends React.Component {
         this.state = {
             flip: true,
             animation: true,
-            cards: [],
             loaded: false
         }
-        this.handleLoad = this.handleLoad.bind(this);
+    this.handleLoad = this.handleLoad.bind(this);
+    this.addToUserCards = this.addToUserCards.bind(this)
 
     }
-    // const [flip, setFlip] = React.useState(true)
-    // const [animation, setAnimation] = React.useState(true)
-
+   
     flipAll = () => {
 
         return (this.setState({ animation: !this.state.animation }),
             setTimeout(() => this.setState({ flip: !this.state.flip }), 400))
     }
-
+s
     addToUserCards = (e) => {
         e.stopPropagation()
         if (e.target.className === "ui bottom attached button") {
-
-            this.state.cards.push(this.props.card._id)
+            
+            this.props.addCards(this.props.currentUser.id, JSON.stringify([this.props.card._id]));
+            
         }
 
     }
@@ -144,19 +143,3 @@ const mDP = dispatch => {
 
 export default connect(mSP, mDP)(CardBox);
 
-// const CardBox = props => {
-//     const [flip, setFlip] = React.useState(true)
-//     return (
-//         <li className="cardbox-card" onClick={() => setFlip(!flip)}>
-//             {
-//                 (flip) ? (
-//                     <img className="cardbox-image" src={props.frontside} />
-//                     // <img>{props.frontside}</img>
-//                 ) : (
-//                         <p className="cardbox-card-backside">{props.backside}</p>
-//                     )
-//             }
-//             <div>Add me to the list!</div>
-//         </li>
-//     );
-// }

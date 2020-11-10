@@ -2,12 +2,7 @@ import React from 'react';
 import SimpleCard from './simple_card';
 import './fs_game.css';
 
-// const WORDS_THREE = [
-//   "CAT", "BAT", "TOP", "SAW", "ALE", "ROW"
-// ];
-// const WORDS_FOUR = [
-//   "BEER", "WINE", "DEER", "SAME", "CALM", "FLOW", "GLAD"
-// ];
+
 const WORDS = {
   three: ["CAT", "BAT", "TOP", "SAW", "ALE", "ROW", "DOG", "EAT", "TUB", "VAN", "ZIP"],
   four: ["BEAR", "WINE", "DUNE", "SAME", "CALM", "FLOW", "GLAD", "LIKE", "NEON"],
@@ -26,14 +21,13 @@ class FSGame extends React.Component {
       currentLetter: "",
       cardMessage: "Get Ready",
       revealAnswerCheck: false
-      // currentWord: "",
-      // cardDelay: 1500
+
     };
     this.currentWord = "";
     this.cardDelay = SPEED.medium;
     this.wordLength = "four";
     this.cardDisplaying = false;
-    // this.revealAnswerCheck = false;
+
 
     this.state = Object.assign({}, this.cleared);
     this.generateNewWord = this.generateNewWord.bind(this);
@@ -48,12 +42,13 @@ class FSGame extends React.Component {
     clearInterval(this.cardSwitch);
   }
   displayCards() {
-    // return () => {
-    // this.setState({ currentLetter: "" })
-    // this.currentLetter = "";
-    let count = 0, that = this;
-    // const { currentWord, cardDelay } = this.state;
 
+    let count = 0, that = this;
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> 05280c4856992b33e15462b04fdfbc48cabf3727
     this.cardSwitch = setInterval(() => {
       if (count === that.currentWord.length) {
         clearInterval(that.cardSwitch);
@@ -61,9 +56,7 @@ class FSGame extends React.Component {
         this.setState({ currentLetter: "", cardMessage: "What do I spell?" })
       } else {
         that.cardDisplaying || (that.cardDisplaying = true);
-        // that.cardDisplaying = true;
         that.setState({ currentLetter: that.currentWord[count] })
-        // that.currentLetter = that.currentWord[count];
         console.log(that.state.currentLetter);
         count++;
       }
@@ -71,18 +64,15 @@ class FSGame extends React.Component {
     // }
   }
   generateNewWord() {
-    // evt.preventDefault();
-    // return () => {
+
     this.setState({ userGuess: "" });
     let wordArr = WORDS[this.wordLength];
     let randomWord = wordArr[Math.floor(Math.random() * wordArr.length)];
     while (randomWord === this.currentWord) {
       randomWord = wordArr[Math.floor(Math.random() * wordArr.length)];
     }
-    // this.setState({ currentWord: randomWord });
     this.currentWord = randomWord;
     this.displayCards();
-    // }
   }
   replayWord(evt) {
     evt.preventDefault();
@@ -92,8 +82,7 @@ class FSGame extends React.Component {
     evt.preventDefault();
     if (this.state.userGuess.length > 0
       && this.state.userGuess.toLowerCase() === this.currentWord.toLowerCase()) {
-      // alert("That's right!");
-      // this.cardMessage = "That's right!";
+
       this.setState({ cardMessage: "* ~ That's right! ~ *" });
     } else if (this.currentWord === "") {
       // alert("Please generate a new word.");
@@ -141,17 +130,14 @@ class FSGame extends React.Component {
       this.setState({ revealAnswerCheck: false });
     };
   }
-  // revealAnswerCheck() {
-  //   // return () => this.revealAnswerCheck = 
-  // }
+
 
   render() {
-    // const { cards } = this.props;
-    // const { currentLetter } = this.state;
+
     const currentCard = Object.values(this.props.cards).find(
       (card) => {
         return card.backside === this.state.currentLetter;
-        // return card.backside === this.currentLetter;
+
       }
     );
 
@@ -285,6 +271,8 @@ class FSGame extends React.Component {
 }
 
 export default FSGame;
+<<<<<<< HEAD
+=======
 
 // class FSGame extends React.Component {
 //   constructor(props) {
@@ -376,3 +364,4 @@ export default FSGame;
 // }
 
 // export default FSGame;
+>>>>>>> 05280c4856992b33e15462b04fdfbc48cabf3727

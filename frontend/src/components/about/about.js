@@ -65,18 +65,20 @@ export default function About() {
                 <img src="#" alt="team-member" />
               </div>
               <div className="content">
-                <div className="ui header teal"> Malcolm Reyes </div>
-                <div className="meta"> Loves cats </div>
+                <div className="ui header teal"> Malcolm Reyes</div>
+                <div className="meta">Loves cats more than gary</div>
+                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQF1WMhFKFhFNQ/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=hUAAaE4llHT9F4TqcCF5OBtSunAzs81Ja0PWdeY7hBM"></img>
                 <div className="description">
-                  Malcolm ...
+                  A Software Engineer: enthusiastic about Designing intuitive user interfaces,
+                  and learning as much as possible.
                 </div>
               </div>
               <div className="extra content">
-                <a className="left floated" href="#">
+                <a className="left floated" href="https://www.linkedin.com/in/malcolm-r-333b21126/">
                   <i className="icon linkedin blue"></i>
                   LinkedIn
                 </a>
-                <a className="right floated" href="#">
+                <a className="right floated" href="https://github.com/xalcolm1">
                   <i className="icon github pink"></i>
                   Github
                 </a>
