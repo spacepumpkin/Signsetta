@@ -1,4 +1,5 @@
 import React from 'react';
+import profileGary from "../../images/profilepic-gary.png";
 
 export default function About() {
   return (
@@ -13,7 +14,7 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="team-member" />
+                <img src="#" alt="profile pic" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Brandon Leong </div>
@@ -37,7 +38,7 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="team-member" />
+                <img src="#" alt="profile pic" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Bella Sandoval </div>
@@ -61,7 +62,7 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="team-member" />
+                <img src="#" alt="profile pic" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Malcolm Reyes </div>
@@ -85,17 +86,17 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="team-member" />
+                <img src={profileGary} alt="profile pic" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Gary Wan </div>
-                <div className="meta"> Loves cats </div>
+                <div className="meta"> Loves cats more than Brandon </div>
                 <div className="description">
-                  Gary ...
+                  Gary is a medical/healthcare worker turned full-stack software engineer with a focus on design and user engagement
                 </div>
               </div>
               <div className="extra content">
-                <a className="left floated" href="#">
+                <a className="left floated" href="https://www.linkedin.com/in/gary-w-269749ba/">
                   <i className="icon linkedin blue"></i>
                   LinkedIn
                 </a>
