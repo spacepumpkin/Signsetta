@@ -33,11 +33,12 @@ class CardBox extends React.Component {
 
         this.state = {
             flip: true,
-            animation: true,
-            loaded: false
+            animation: true
         }
-    this.handleLoad = this.handleLoad.bind(this);
-    this.addToUserCards = this.addToUserCards.bind(this)
+        
+    
+        this.addToUserCards = this.addToUserCards.bind(this)
+        this.handleLoad = this.handleLoad.bind(this);
 
     }
    
@@ -57,14 +58,8 @@ s
 
     }
 
-    componentWillUnmount() {
-        // if (this.state.cards.length > 0) {
-        //     let str = `${this.state.cards}`;
-        //     this.props.addCards(this.props.currentUser.id, { cards: str });
 
-        // }
-
-    }
+    
     handleLoad() {
         this.setState({ loaded: true });
     }
@@ -142,3 +137,19 @@ const mDP = dispatch => {
 
 export default connect(mSP, mDP)(CardBox);
 
+// const CardBox = props => {
+//     const [flip, setFlip] = React.useState(true)
+//     return (
+//         <li className="cardbox-card" onClick={() => setFlip(!flip)}>
+//             {
+//                 (flip) ? (
+//                     <img className="cardbox-image" src={props.frontside} />
+//                     // <img>{props.frontside}</img>
+//                 ) : (
+//                         <p className="cardbox-card-backside">{props.backside}</p>
+//                     )
+//             }
+//             <div>Add me to the list!</div>
+//         </li>
+//     );
+// }
