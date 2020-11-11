@@ -58,11 +58,11 @@ s
     }
 
     componentWillUnmount() {
-        if (this.state.cards.length > 0) {
-            let str = `${this.state.cards}`;
-            this.props.addCards(this.props.currentUser.id, { cards: str });
+        // if (this.state.cards.length > 0) {
+        //     let str = `${this.state.cards}`;
+        //     this.props.addCards(this.props.currentUser.id, { cards: str });
 
-        }
+        // }
 
     }
     handleLoad() {
