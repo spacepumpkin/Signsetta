@@ -161,15 +161,33 @@ router.post("/:id/add-profile-picture", function (req, res) {
     });
 });
 
+// Post user's cards
 router.post("/:id/cards", function (req, res) {
     const uid = req.params.id;
-    debugger
     User.findOne({ _id: uid }, function (err, doc) {
         let cardIds = JSON.parse(req.body.cards);
         console.log(cardIds);
         cardIds.forEach(id => {
             if (!doc.cards.includes(id)) {
                 doc.cards.push(id);
+            }
+        })
+        doc.save();
+
+    }).then((user) => res.status(200).json({ success: true, user: user }))
+        .catch((err) => res.status(400).json({ success: false, error: err }));
+})
+
+// Delete user's cards
+router.delete("/:id/cards", function (req, res) {
+    const uid = req.params.id;
+    User.findOne({ _id: uid }, function (err, doc) {
+        let cardIds = JSON.parse(req.body.cards);
+        console.log(cardIds);
+        cardIds.forEach(id => {
+            while (doc.cards.includes(id)) {
+                doc.cards.splice(doc.cards.indexOf(id), 1)
+                console.log(doc.cards);
             }
         })
         doc.save();
