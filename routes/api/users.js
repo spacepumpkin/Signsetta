@@ -60,6 +60,7 @@ router.get('/:id/cards', (req, res) => {
         })
         // .then(email = res.json(email))
         .catch(err => res.status(404).json({ nocardsfound: 'No cards found for that user' }))
+
 })
 
 router.post('/register', (req, res) => {
@@ -162,11 +163,12 @@ router.post("/:id/add-profile-picture", function (req, res) {
             .catch((err) => res.status(400).json({ success: false, error: err }));
     });
 });
+
 router.post("/:id/cards", function (req, res) {
     const uid = req.params.id;
 
     User.findOne({_id: uid}, function(err, doc){
-        cardIds = JSON.parse(req.body.cards); 
+        let cardIds = JSON.parse(req.body.cards); 
         cardIds.forEach(id => {
             if(!doc.cards.includes(id)){
                 doc.cards.push(id);
@@ -180,8 +182,7 @@ router.post("/:id/cards", function (req, res) {
         .catch((err) => res.status(400).json({ success: false, error: err }));
     
       
+
 })
 
-
 module.exports = router;
-
