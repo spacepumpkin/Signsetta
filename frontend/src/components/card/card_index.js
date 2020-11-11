@@ -27,7 +27,7 @@ class CardIndex extends React.Component {
 
         return (
             <div className="ui segment center aligned grid">
-                <h2 className="ui header" style={{"margin-top" : "35px"}}>
+                <h2 className="ui header" style={{marginTop : "35px"}}>
                     All the Cards
                 </h2>
                 <div className="ui stacked segment">

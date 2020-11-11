@@ -48,13 +48,13 @@ export default function About() {
                 </div>
               </div>
               <div className="extra content">
-                <a className="left floated" href="#">
+                <a className="left floated" href="https://www.linkedin.com/in/isabella-sandoval-513025192/">
                   <i className="icon linkedin blue"></i>
-                  <a href="https://www.linkedin.com/in/isabella-sandoval-513025192/">LinkedIn</a>
+                  LinkedIn
                 </a>
-                <a className="right floated" href="#">
+                <a className="right floated" href="https://github.com/isabella-sandoval">
                   <i className="icon github pink"></i>
-                  <a href="https://github.com/isabella-sandoval">Github</a>
+                  Github
                 </a>
               </div>
             </div>
@@ -62,12 +62,11 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="#" alt="team-member" />
+                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQF1WMhFKFhFNQ/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=hUAAaE4llHT9F4TqcCF5OBtSunAzs81Ja0PWdeY7hBM" alt="profile pic" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Malcolm Reyes</div>
-                <div className="meta">Loves cats more than gary</div>
-                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQF1WMhFKFhFNQ/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=hUAAaE4llHT9F4TqcCF5OBtSunAzs81Ja0PWdeY7hBM"></img>
+                <div className="meta">Loves cats more than Gary</div>
                 <div className="description">
                   A Software Engineer: enthusiastic about Designing intuitive user interfaces,
                   and learning as much as possible.
