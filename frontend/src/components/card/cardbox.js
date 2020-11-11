@@ -58,11 +58,18 @@ s
     }
 
     componentWillUnmount() {
+<<<<<<< HEAD
         if (this.state.cards.length > 0) {
             let str = `${this.state.cards}`;
             this.props.addCards(this.props.currentUser.id, { cards: str });
+=======
+        // if (this.state.cards !== undefined && this.state.cards.length > 0) {
+        //     let str = `${this.state.cards}`;
+        //     // str = str.substr(1, str.length - 2);
+        //     this.props.addCards(this.props.currentUser.id, { cards: str });
+>>>>>>> d2d9dd1c8f298a3a19a1b8ef83610243a7782318
 
-        }
+        // }
 
     }
     handleLoad() {
