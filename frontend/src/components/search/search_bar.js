@@ -28,7 +28,6 @@ class CategorySearch extends React.Component {
 
     render() {  
         const CardsArr = Object.values(this.props.cards)
-      
 
         const returnCard = CardsArr.find(card => {
             if (!card.backside || !this.state.search){
@@ -50,7 +49,7 @@ class CategorySearch extends React.Component {
                 <div>
 
                     <div className="ui segment center aligned grid">
-                        <div className="ui centered cards">
+                        <div  className="ui centered cards">
                             {/* {returnCard} */}
 
            {(returnCard !== undefined) && <CardBox card={returnCard} key={returnCard._id} frontside={returnCard.frontside}
