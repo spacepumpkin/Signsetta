@@ -26,14 +26,16 @@ export const fetchUsers = () => dispatch =>
         .catch(err => dispatch(receiveErrors(err)));
 
 
-export const postCardsToUser = (id, cards) => dispatch => {
-   return addCardsToUser(id, cards)
-        .catch(err => console.log(err))
-};
+// export const postCardsToUser = (id, cards) => dispatch => {
+//    return addCardsToUser(id, cards)
+//         .catch(err => console.log(err))
+// };
 
-export const deleteCardsFromUser = (id, cards) => dispatch => {
-    return deleteUserCards(id, cards)
-        .catch(err => console.log(err))
-};
+// export const deleteCardsFromUser = (id, cards) => dispatch => {
+//     // debugger;
+//     return deleteUserCards(id, cards)
+//         .then()
+//         .catch(err => console.log(err))
+// };
 
     

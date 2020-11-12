@@ -12,6 +12,12 @@ class Profile extends React.Component {
     this.props.fetchUserCards(this.props.currentUser.id);
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   // console.log(prevProps);
+  //   // console.log(this.props);
+  //   // debugger;
+  // }
+
   render() {
 
   

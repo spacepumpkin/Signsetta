@@ -1,5 +1,5 @@
 import React from 'react';
-import { postCardsToUser, deleteCardsFromUser } from '../../actions/user_actions'
+import { postCardsToUser, deleteCardsFromUser } from '../../actions/card_actions';
 import { Transition } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
@@ -48,27 +48,26 @@ class CardBox extends React.Component {
         return (this.setState({ animation: !this.state.animation }),
             setTimeout(() => this.setState({ flip: !this.state.flip }), 400))
     }
-s
+
+    // componentDidUpdate() {
+    //     debugger;
+    // }
+
     addToUserCards = (e) => {
         e.stopPropagation()
         if (e.target.className === "ui bottom attached button") {
             
             this.props.addCards(this.props.currentUser.id, JSON.stringify([this.props.card._id]));
-            
         }
-
+        // this.setState(this.state);
     }
 
     deleteUserCards = (e) => {
         e.stopPropagation()
         if (e.target.className === "ui bottom attached button") {
-
             this.props.deleteCards(this.props.currentUser.id, JSON.stringify([this.props.card._id]));
-
         }
-
     }
-
 
     
     handleLoad() {
@@ -140,15 +139,7 @@ s
     }
 }
 const mSP = (state, ownProps) => {
-    // debugger;
-    // let ownsCard;
-    // // debugger;
-    // if (state.entities.cards && state.entities.cards.userCards) {
-    //     ownsCard = state.entities.cards.userCards.includes(ownProps.card._id);
-    // } else {
-    //     ownsCard = false;
-    // }
-    // debugger;
+    
     return {
         currentUser: state.session.user,
         hasCard: state.entities.cards.userCards.includes(ownProps.card._id)

@@ -9,5 +9,6 @@ export const addCardsToUser = (id, cards) => {
 };
 
 export const deleteUserCards = (id, cards) => {
-    return axios.delete(`/api/users/${id}/cards`, {cards: cards});
+    // debugger;
+    return axios.delete(`/api/users/${id}/cards`, { data: {cards: cards} });
 };
