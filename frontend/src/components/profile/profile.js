@@ -2,10 +2,9 @@ import React from 'react';
 import CardBox from '../card/cardbox'
 
 class Profile extends React.Component {
-  constructor(props) {
-    super(props);
- 
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
 
   componentDidMount() {
@@ -13,12 +12,20 @@ class Profile extends React.Component {
     this.props.fetchUserCards(this.props.currentUser.id);
   }
 
+  // componentDidUpdate(prevProps, prevState) {
+  //   // console.log(prevProps);
+  //   // console.log(this.props);
+  //   // debugger;
+  // }
+
   render() {
 
   
     let ProfileCards =  this.props.cards.map(card => {
             if(this.props.cardIds.includes(card._id)){
               return <CardBox key={card._id} frontside={card.frontside} backside={card.backside} card={card} />
+            } else {
+              return ""
             }
     })
     

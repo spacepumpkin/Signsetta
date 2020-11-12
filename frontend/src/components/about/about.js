@@ -48,13 +48,13 @@ export default function About() {
                 </div>
               </div>
               <div className="extra content">
-                <a className="left floated" href="#">
+                <a className="left floated" href="https://www.linkedin.com/in/isabella-sandoval-513025192/">
                   <i className="icon linkedin blue"></i>
-                  <a href="https://www.linkedin.com/in/isabella-sandoval-513025192/">LinkedIn</a>
+                  LinkedIn
                 </a>
-                <a className="right floated" href="#">
+                <a className="right floated" href="https://github.com/isabella-sandoval">
                   <i className="icon github pink"></i>
-                  <a href="https://github.com/isabella-sandoval">Github</a>
+                  Github
                 </a>
               </div>
             </div>
@@ -67,6 +67,7 @@ export default function About() {
               <div className="content">
                 <div className="ui header teal"> Malcolm Reyes</div>
                 <div className="meta">Loves cats more than gary</div>
+
                 <div className="description">
                   Malcolm is a software engineer: enthusiastic about design and finding ways to improve existing technology .
                 </div>

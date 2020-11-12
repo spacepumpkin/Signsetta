@@ -5,7 +5,7 @@ import {
     RECEIVE_CATEGORY_CARDS 
 } from '../actions/card_actions';
 
-const CardsReducer = (state = { all: {}, user: {}, user_cards: {} }, action) => {
+const CardsReducer = (state = { all: {}, user: {}, userCards: [] }, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
 
@@ -17,7 +17,7 @@ const CardsReducer = (state = { all: {}, user: {}, user_cards: {} }, action) => 
             newState.user = action.cards.data;
             return newState;
         case RECEIVE_USER_CARDS:
-            newState.user_cards = action.userCards.data
+            newState.userCards = action.userCards.data;
             return newState;   
         case RECEIVE_CATEGORY_CARDS:
             newState.all = action.cards;
