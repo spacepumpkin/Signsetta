@@ -1,5 +1,5 @@
 import React from 'react';
-import { postCardsToUser } from '../../actions/user_actions'
+import { postCardsToUser, deleteCardsFromUser } from '../../actions/user_actions'
 import { Transition } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
@@ -36,8 +36,9 @@ class CardBox extends React.Component {
             animation: true
         }
         
-    
-        this.addToUserCards = this.addToUserCards.bind(this)
+        // debugger;
+        this.addToUserCards = this.addToUserCards.bind(this);
+        this.deleteUserCards = this.deleteUserCards.bind(this);
         this.handleLoad = this.handleLoad.bind(this);
 
     }
@@ -58,6 +59,16 @@ s
 
     }
 
+    deleteUserCards = (e) => {
+        e.stopPropagation()
+        if (e.target.className === "ui bottom attached button") {
+
+            this.props.deleteCards(this.props.currentUser.id, JSON.stringify([this.props.card._id]));
+
+        }
+
+    }
+
 
     
     handleLoad() {
@@ -67,7 +78,19 @@ s
 
     render() {
         let user = this.props.currentUser;
+        let addButton = (<div className="ui bottom attached button" onClick={this.addToUserCards} >
+            <i className="add icon"></i>
+                                            Add To Your Cards
+        </div>
+        );
 
+        let deleteButton = (<div className="ui bottom attached button" onClick={this.deleteUserCards} >
+            <i className="minus icon"></i>
+                                            Delete From Your Cards
+        </div>
+        );
+        let cardButton = this.props.hasCard ? deleteButton : addButton;
+        
         return (
 
             <Transition
@@ -91,11 +114,7 @@ s
                                 (
                                     (Object.prototype.toString.call(user) === "[object Object]") && (Object.keys(user).length !== 0)
                                     &&
-                                    (<div className="ui bottom attached button" onClick={this.addToUserCards} >
-                                        <i className="add icon"></i>
-                                            Add To Your Cards
-                                    </div>
-                                    )
+                                    cardButton
                                 )}
                             </div>
 
@@ -107,10 +126,7 @@ s
                                     {(
                                         (Object.prototype.toString.call(user) === "[object Object]") && (Object.keys(user).length !== 0)
                                         &&
-                                        (<div className="ui bottom attached button" onClick={this.addToUserCards} >
-                                            <i className="add icon"></i>
-                                            Add To Your Cards
-                                        </div>
+                                        (cardButton
                                         )
                                     )}
                                 </div>
@@ -123,15 +139,25 @@ s
         );
     }
 }
-const mSP = state => {
-
+const mSP = (state, ownProps) => {
+    // debugger;
+    // let ownsCard;
+    // // debugger;
+    // if (state.entities.cards && state.entities.cards.userCards) {
+    //     ownsCard = state.entities.cards.userCards.includes(ownProps.card._id);
+    // } else {
+    //     ownsCard = false;
+    // }
+    // debugger;
     return {
-        currentUser: state.session.user
+        currentUser: state.session.user,
+        hasCard: state.entities.cards.userCards.includes(ownProps.card._id)
     }
 }
 const mDP = dispatch => {
     return {
-        addCards: (id, cards) => dispatch(postCardsToUser(id, cards))
+        addCards: (id, cards) => dispatch(postCardsToUser(id, cards)),
+        deleteCards: (id, cards) => dispatch(deleteCardsFromUser(id, cards))
     }
 }
 
