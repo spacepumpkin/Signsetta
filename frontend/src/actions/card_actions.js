@@ -81,6 +81,7 @@ export const fetchCategoryCards = (catId) => {
 
 
 export const postCardsToUser = (id, cards) => dispatch => {
+    // debugger;
     return addCardsToUser(id, cards)
         .then(userCards => {
             return dispatch(receiveUserCards(userCards));

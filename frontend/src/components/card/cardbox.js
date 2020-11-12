@@ -49,14 +49,11 @@ class CardBox extends React.Component {
             setTimeout(() => this.setState({ flip: !this.state.flip }), 400))
     }
 
-    // componentDidUpdate() {
-    //     debugger;
-    // }
+
 
     addToUserCards = (e) => {
         e.stopPropagation()
-        if (e.target.className === "ui bottom attached button") {
-            
+        if (e.target.className === "ui bottom attached button") { 
             this.props.addCards(this.props.currentUser.id, JSON.stringify([this.props.card._id]));
         }
         // this.setState(this.state);
