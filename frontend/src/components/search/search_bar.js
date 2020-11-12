@@ -35,8 +35,8 @@ class CategorySearch extends React.Component {
             if (!card.backside || !this.state.search){
                 return null
             }else{
-
-                let regex = new RegExp( this.state.search.toLowerCase(), 'g' );
+                let searchString = this.state.search.toLowerCase().replace()
+                let regex = new RegExp(searchString , 'g' );
                 return card.backside.toLowerCase().match(regex)
             }
         })
@@ -50,9 +50,8 @@ class CategorySearch extends React.Component {
                 </div>
             <div>
 
-                    <div className="ui segment center aligned grid">
+                    <div className="ui segment center aligned grid" style={{background: '000000'}}>
                         <div className="ui centered cards">
-                            {/* {returnCard} */}
 
                             {(returnCard !== undefined) && returnCard.map(card => {
                 

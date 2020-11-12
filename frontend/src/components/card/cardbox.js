@@ -74,12 +74,15 @@ s
                 animation='horizontal flip'
                 duration={400}
                 onHide={() => this.setState({ animation: !this.state.animation })}>
-                <div className="ui teal card" onClick={() => this.flipAll()} >
+                <div className="ui teal card" 
+                     style={{backgroundColor: '#000000', color: "white", textAlign: 'center'}} 
+                     onClick={() => this.flipAll()} >
                     {
                         (this.state.flip) ? (
                             <div>
-                                <div className={`ui centered loader ${this.state.loaded ? '' : 'active'}`}></div>
-                                <img className=" column image" 
+                                <div className={`ui centered loader ${this.state.loaded ? '' : 'active'}`} ></div>
+                                <img 
+                                className="ui centered rounded image" 
                                 src={this.props.card.frontside} 
                                 height="150" 
                                 onLoad={this.handleLoad}
