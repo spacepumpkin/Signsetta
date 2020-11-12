@@ -11,9 +11,14 @@ class CardIndex extends React.Component {
     componentDidMount() {
         this.props.fetchCards();
         this.props.fetchCategories();
+        this.props.fetchUserCards(this.props.currentUser.id);
     }
     // componentWillReceiveProps(newState) {
     //     this.setState({ cards: newState.cards });
+    // }
+
+    // componentDidUpdate() {
+    //     debugger;
     // }
 
     render() {

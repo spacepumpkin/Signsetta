@@ -15,7 +15,7 @@ class Profile extends React.Component {
   // componentDidUpdate(prevProps, prevState) {
   //   // console.log(prevProps);
   //   // console.log(this.props);
-  //   // debugger;
+  //   debugger;
   // }
 
   render() {
@@ -23,7 +23,7 @@ class Profile extends React.Component {
   
     let ProfileCards =  this.props.cards.map(card => {
             if(this.props.cardIds.includes(card._id)){
-              return <CardBox key={card._id} frontside={card.frontside} backside={card.backside} card={card} />
+              return <CardBox key={card._id} frontside={card.frontside} backside={card.backside} card={card} deleteCards={this.props.deleteCards} addCards={this.props.addCards} />
             } else {
               return ""
             }

@@ -20,7 +20,7 @@ export default function About() {
                 <div className="ui header teal"> Brandon Leong </div>
                 <div className="meta"> Loves cats more than Bella </div>
                 <div className="description">
-                  A software engineer dedicated to self-improvement and crafting positive user experiences.
+                  Brandon is a software engineer dedicated to self-improvement and crafting positive user experiences.
                 </div>
               </div>
               <div className="extra content">
@@ -69,7 +69,7 @@ export default function About() {
                 <div className="meta">Loves cats more than gary</div>
 
                 <div className="description">
-                  Malcolm is a software engineer: enthusiastic about design and finding ways to improve existing technology .
+                  Malcolm is a software engineer: enthusiastic about design and finding ways to improve existing technology.
                 </div>
               </div>
               <div className="extra content">
@@ -93,7 +93,7 @@ export default function About() {
                 <div className="ui header teal"> Gary Wan </div>
                 <div className="meta"> Loves cats more than Brandon </div>
                 <div className="description">
-                  Gary is a medical/healthcare worker turned full-stack software engineer with a focus on design and user engagement
+                  Gary is a medical/healthcare worker turned full-stack software engineer with a focus on design and user engagement.
                 </div>
               </div>
               <div className="extra content">

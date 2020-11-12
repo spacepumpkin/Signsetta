@@ -11,7 +11,6 @@ import 'semantic-ui-css/semantic.min.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
-
   if (localStorage.jwtToken){
     setAuthToken(localStorage.jwtToken);
     const decodedUser = jwt_decode(localStorage.jwtToken);
@@ -27,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore({});
   }
+  window.getState = store.getState;
   const root = document.getElementById('root')
   ReactDOM.render(<Root store={store} />, root);
     
