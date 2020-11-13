@@ -53,11 +53,14 @@ router.get('/:id', (req, res) => {
 // });
 
 // api/user/:user_id/cards
-router.get('/:user_id/cards', (req, res) => {
-    User.findOne({id: req.params.id})
-        .then(user =>  res.json( user.cards ))
+router.get('/:id/cards', (req, res) => {
+    User.findOne({_id: req.params.id})
+        .then(user =>  {
+            res.json( user.cards )
+        })
         // .then(email = res.json(email))
-        // .catch(err => res.status(404).json({ nocardsfound: 'No cards found for that user' }))
+        .catch(err => res.status(404).json({ nocardsfound: 'No cards found for that user' }))
+
 })
 
 router.post('/register', (req, res) => {
@@ -160,24 +163,46 @@ router.post("/:id/add-profile-picture", function (req, res) {
             .catch((err) => res.status(400).json({ success: false, error: err }));
     });
 });
+
+// Post user's cards
 router.post("/:id/cards", function (req, res) {
     const uid = req.params.id;
 
     User.findOne({_id: uid}, function(err, doc){
-        let cards = req.body.cards; 
-        cards = cards.split(',');
-        cards.forEach(id => {
+        let cardIds = JSON.parse(req.body.cards); 
+        cardIds.forEach(id => {
             if(!doc.cards.includes(id)){
                 doc.cards.push(id);
             }
         })
            doc.save();  
            
-    })  .then((user) => res.status(200).json({ success: true, user: user }))
-        .catch((err) => res.status(400).json({ success: false, error: err }));
-      
-})
 
+           
+    }).then((user) => res.json(user.cards))
+        .catch((err) => res.status(400).json({ success: false, error: err }));
+    
+      
+
+});
+
+// Delete user's cards
+router.delete("/:id/cards", function (req, res) {
+    const uid = req.params.id;
+    User.findOne({ _id: uid }, function (err, doc) {
+        console.log(req.body);
+        let cardIds = JSON.parse(req.body.cards);
+        console.log(cardIds);
+        cardIds.forEach(id => {
+            while (doc.cards.includes(id)) {
+                doc.cards.splice(doc.cards.indexOf(id), 1)
+                console.log(doc.cards);
+            }
+        })
+        doc.save();
+
+    }).then((user) => res.json(user.cards))
+        .catch((err) => res.status(400).json({ success: false, error: err }));
+});
 
 module.exports = router;
-

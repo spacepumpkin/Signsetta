@@ -4,10 +4,8 @@ import { fetchCategories } from '../../actions/categories_actions';
 import {fetchCards} from '../../actions/card_actions'
 
 const mSTP= (state, ownProps) => {
-    // debugger
     return{
         categories: state.entities.categories,
-        // category: state.entities.categories[ownProps.match.params.categoryId]
         cards: state.entities.cards.all
     }
 }

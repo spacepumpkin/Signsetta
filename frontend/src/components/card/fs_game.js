@@ -2,12 +2,7 @@ import React from 'react';
 import SimpleCard from './simple_card';
 import './fs_game.css';
 
-// const WORDS_THREE = [
-//   "CAT", "BAT", "TOP", "SAW", "ALE", "ROW"
-// ];
-// const WORDS_FOUR = [
-//   "BEER", "WINE", "DEER", "SAME", "CALM", "FLOW", "GLAD"
-// ];
+
 const WORDS = {
   three: ["CAT", "BAT", "TOP", "SAW", "ALE", "ROW", "DOG", "EAT", "TUB", "VAN", "ZIP"],
   four: ["BEAR", "WINE", "DUNE", "SAME", "CALM", "FLOW", "GLAD", "LIKE", "NEON"],
@@ -15,7 +10,7 @@ const WORDS = {
 };
 
 const SPEED = {
-  slow: 2000, medium: 1500, fast: 1000, fluent: 500, natural: 200
+  slow: 2000, medium: 1500, fast: 1000, fluent: 500, native: 200
 }
 
 class FSGame extends React.Component {
@@ -24,15 +19,15 @@ class FSGame extends React.Component {
     this.cleared = {
       userGuess: "",
       currentLetter: "",
-      cardMessage: "Get Ready"
-      // currentWord: "",
-      // cardDelay: 1500
+      cardMessage: "Get Ready",
+      revealAnswerCheck: false
+
     };
     this.currentWord = "";
     this.cardDelay = SPEED.medium;
     this.wordLength = "four";
     this.cardDisplaying = false;
-    // this.cardMessage = "What do I spell?"
+
 
     this.state = Object.assign({}, this.cleared);
     this.generateNewWord = this.generateNewWord.bind(this);
@@ -47,13 +42,9 @@ class FSGame extends React.Component {
     clearInterval(this.cardSwitch);
   }
   displayCards() {
-    // return () => {
-    // this.setState({ currentLetter: "" })
-    // this.currentLetter = "";
-    let count = 0, that = this;
-    // const { currentWord, cardDelay } = this.state;
 
-    // debugger
+    let count = 0, that = this;
+
     this.cardSwitch = setInterval(() => {
       if (count === that.currentWord.length) {
         clearInterval(that.cardSwitch);
@@ -61,9 +52,7 @@ class FSGame extends React.Component {
         this.setState({ currentLetter: "", cardMessage: "What do I spell?" })
       } else {
         that.cardDisplaying || (that.cardDisplaying = true);
-        // that.cardDisplaying = true;
         that.setState({ currentLetter: that.currentWord[count] })
-        // that.currentLetter = that.currentWord[count];
         console.log(that.state.currentLetter);
         count++;
       }
@@ -71,18 +60,15 @@ class FSGame extends React.Component {
     // }
   }
   generateNewWord() {
-    // evt.preventDefault();
-    // return () => {
+
+    this.setState({ userGuess: "" });
     let wordArr = WORDS[this.wordLength];
     let randomWord = wordArr[Math.floor(Math.random() * wordArr.length)];
     while (randomWord === this.currentWord) {
       randomWord = wordArr[Math.floor(Math.random() * wordArr.length)];
     }
-    // this.setState({ currentWord: randomWord });
     this.currentWord = randomWord;
-    // debugger
     this.displayCards();
-    // }
   }
   replayWord(evt) {
     evt.preventDefault();
@@ -92,8 +78,7 @@ class FSGame extends React.Component {
     evt.preventDefault();
     if (this.state.userGuess.length > 0
       && this.state.userGuess.toLowerCase() === this.currentWord.toLowerCase()) {
-      // alert("That's right!");
-      // this.cardMessage = "That's right!";
+
       this.setState({ cardMessage: "* ~ That's right! ~ *" });
     } else if (this.currentWord === "") {
       // alert("Please generate a new word.");
@@ -107,7 +92,7 @@ class FSGame extends React.Component {
     }
   }
   update() {
-    return evt => this.setState({ userGuess: evt.currentTarget.value })
+    return evt => this.setState({ userGuess: evt.currentTarget.value });
   }
   speedSelect() {
     return (evt) => {
@@ -121,8 +106,8 @@ class FSGame extends React.Component {
         case "fluent":
           this.cardDelay = SPEED.fluent;
           break;
-        case "natural":
-          this.cardDelay = SPEED.natural;
+        case "native":
+          this.cardDelay = SPEED.native;
           break;
         default:
           this.cardDelay = SPEED.medium;
@@ -135,18 +120,23 @@ class FSGame extends React.Component {
       this.wordLength = evt.target.value;
     }
   }
+  revealAnswer() {
+    return () => {
+      this.setState({ cardMessage: `The answer was: ${this.currentWord}` });
+      this.setState({ revealAnswerCheck: false });
+    };
+  }
+
 
   render() {
-    // const { cards } = this.props;
-    // const { currentLetter } = this.state;
+
     const currentCard = Object.values(this.props.cards).find(
       (card) => {
         return card.backside === this.state.currentLetter;
-        // return card.backside === this.currentLetter;
+
       }
     );
 
-    // debugger
     return (
       <div className="ui middle aligned center aligned grid">
         <div className="column seven wide">
@@ -172,39 +162,39 @@ class FSGame extends React.Component {
           <div className="ui form" onChange={this.speedSelect()}>
             <div className="inline fields">
               <label className="ui header teal"> Speed </label>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input type="radio" name="speed"
                     value="slow" />
                   <label>slow</label>
                 </div>
               </div>
-              <div class="field">
-                <div class="ui radio checkbox" >
+              <div className="field">
+                <div className="ui radio checkbox" >
                   <input type="radio" name="speed"
                     value="medium" defaultChecked />
                   <label>medium</label>
                 </div>
               </div>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input type="radio" name="speed"
                     value="fast" />
                   <label>fast</label>
                 </div>
               </div>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input type="radio" name="speed"
                     value="fluent" />
                   <label>fluent</label>
                 </div>
               </div>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input type="radio" name="speed"
-                    value="natural" />
-                  <label>natural</label>
+                    value="native" />
+                  <label>native</label>
                 </div>
               </div>
             </div>
@@ -214,22 +204,22 @@ class FSGame extends React.Component {
           <div className="ui form" onChange={this.wordSelect()}>
             <div className="inline fields">
               <label className="ui header teal"> Number of Letters </label>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input type="radio" name="length"
                     value="three" />
                   <label>three</label>
                 </div>
               </div>
-              <div class="field">
-                <div class="ui radio checkbox" >
+              <div className="field">
+                <div className="ui radio checkbox" >
                   <input type="radio" name="length"
                     value="four" defaultChecked />
                   <label>four</label>
                 </div>
               </div>
-              <div class="field">
-                <div class="ui radio checkbox">
+              <div className="field">
+                <div className="ui radio checkbox">
                   <input type="radio" name="length"
                     value="five" />
                   <label>five</label>
@@ -238,6 +228,25 @@ class FSGame extends React.Component {
             </div>
           </div>
         </div>
+        <div className="ui row">
+          <button className="ui button teal" onClick={() => this.setState({ revealAnswerCheck: true })} type="button"
+            disabled={this.cardDisplaying || (this.currentWord === "") || (this.state.cardMessage.includes("answer"))}>
+            Reveal Answer
+          </button>
+          {
+            (this.state.revealAnswerCheck)
+            && (
+              <div className="ui middle aligned content">
+                <span style={{ padding: "0px 10px" }}>
+                  Are you sure?
+                </span>
+                <button className="ui button" onClick={this.revealAnswer()} type="button"> Yes </button>
+                <button className="ui button" onClick={() => this.setState({ revealAnswerCheck: false })} type="button"> No </button>
+              </div>
+            )
+          }
+        </div>
+
         <div className="ui segment">
           <div className="ui text container">
             Practice your fingerspelling comprehension by guessing words!
@@ -258,98 +267,3 @@ class FSGame extends React.Component {
 }
 
 export default FSGame;
-
-// class FSGame extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.cleared = {
-//       userGuess: "",
-//       currentLetter: "",
-//       currentWord: "",
-//       cardDelay: 1500
-//     };
-//     this.state = Object.assign({}, this.cleared);
-//     this.generateNewWord = this.generateNewWord.bind(this);
-//     this.replayWord = this.replayWord.bind(this);
-//     this.displayCards = this.displayCards.bind(this);
-//     this.checkMatch = this.checkMatch.bind(this);
-//   }
-//   // componentDidMount() {
-//   //   this.props.fetchCards();
-//   // }
-//   componentWillUnmount() {
-//     clearInterval(this.cardSwitch);
-//   }
-//   displayCards() {
-//     return () => {
-//       this.setState({ currentLetter: "" })
-//       // this.currentLetter = "";
-//       let count = 0, that = this;
-//       const { currentWord, cardDelay } = this.state;
-
-//       debugger
-//       this.cardSwitch = setInterval(() => {
-//         if (count === currentWord.length) {
-//           clearInterval(that.cardSwitch);
-//           that.setState(that.cleared);
-//         }
-//         that.setState({ currentLetter: currentWord[count] })
-//         count++;
-//       }, cardDelay);
-//     }
-//   }
-//   generateNewWord() {
-//     // evt.preventDefault();
-//     return () => {
-//       let randomWord = WORDS_THREE[Math.floor(Math.random() * WORDS_THREE.length)];
-//       console.log(randomWord);
-//       this.setState({ currentWord: randomWord });
-//       // this.currentWord = randomWord;
-//       debugger
-//       this.displayCards()();
-//     }
-//   }
-//   replayWord(evt) {
-//     evt.preventDefault();
-//     this.displayCards();
-//   }
-//   checkMatch(evt) {
-//     evt.preventDefault();
-//     if (this.state.userGuess.length > 0
-//       && this.state.userGuess.toLowerCase() === this.state.currentWord.toLowerCase()) {
-//       alert("That's right!")
-//     } else {
-//       alert("Sorry try again.")
-//     }
-//   }
-//   update() {
-//     return evt => this.setState({ userGuess: evt.currentTarget.value })
-//   }
-
-//   render() {
-//     const { cards } = this.props;
-//     // const { currentLetter } = this.state;
-//     const currentCard = Object.values(cards).find(
-//       (card) => {
-//         return card.backside === this.state.currentLetter;
-//       }
-//     );
-
-//     debugger
-//     return (
-//       <div className="ui middle aligned center aligned grid">
-//         <div className="column five wide">
-//           <div className="simple-card-box">
-//             <SimpleCard card={currentCard} />
-//           </div>
-//           <button onClick={this.generateNewWord()} type="button"> Generate New Word </button>
-//           <button onClick={this.replayWord} type="button"> Replay </button>
-//           <input type="text" placeholder="Type your answer here" onChange={this.update()} value={this.state.userGuess} />
-//           <button onClick={this.checkMatch} type="button">Check</button>
-//         </div>
-//       </div>
-//     )
-//   }
-// }
-
-// export default FSGame;

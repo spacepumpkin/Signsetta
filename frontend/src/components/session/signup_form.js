@@ -22,9 +22,9 @@ class SignupForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.isAuthenticated === true) {
-      this.props.history.push("/profile");
-    }
+    // if (nextProps.isAuthenticated === true) {
+    //   this.props.history.push("/profile");
+    // }
     this.setState({ errors: nextProps.errors })
   }
 
