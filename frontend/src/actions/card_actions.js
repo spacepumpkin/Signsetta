@@ -43,6 +43,9 @@ export const receiveCategoryCards = (cards) => {
     }
 }
 
+
+// Thunk Actions
+
 export const fetchCards = () => {
     return dispatch => {
         return CardUtil.getCards()

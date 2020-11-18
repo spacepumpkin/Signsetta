@@ -17,6 +17,7 @@ import SplashComponent from './splash/splash';
 import FSGameContainer from './card/fs_game_container';
 
 import About from './about/about';
+import TranslatorContainer from './translator/translator_container'
 
 
 const App = () => (
@@ -27,6 +28,7 @@ const App = () => (
       <Route exact path="/about" component={About} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <Route exact path="/translator" component={TranslatorContainer} />
 
       <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
       <ProtectedRoute exact path="/categories/:catId" component={CategoryShowContainer} />
