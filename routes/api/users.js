@@ -176,33 +176,30 @@ router.post("/:id/cards", function (req, res) {
             }
         })
            doc.save();  
-           
-
-           
-    }).then((user) => res.json(user.cards))
-        .catch((err) => res.status(400).json({ success: false, error: err }));
-    
-      
-
+        return res.json(doc.cards);
+    }).catch((err) => res.status(400).json({ success: false, error: err }));
+    // User.findOne by default returned the OLD user as soon as it found it without applying the add
+    // .then((user) => res.json(user.cards))
 });
 
 // Delete user's cards
 router.delete("/:id/cards", function (req, res) {
     const uid = req.params.id;
     User.findOne({ _id: uid }, function (err, doc) {
-        console.log(req.body);
-        let cardIds = JSON.parse(req.body.cards);
-        console.log(cardIds);
-        cardIds.forEach(id => {
-            while (doc.cards.includes(id)) {
-                doc.cards.splice(doc.cards.indexOf(id), 1)
-                console.log(doc.cards);
+        let cardId = JSON.parse(req.body.cards);
+        // console.log("card ID:", cardId);
+            if (doc.cards.includes(cardId)) {
+                doc.cards.splice(doc.cards.indexOf(cardId), 1)
             }
-        })
         doc.save();
+        return res.json(doc.cards)
+    }).catch((err) => res.status(400).json({ success: false, error: err }));
+    // User.findOne by default returned the OLD user as soon as it found it without applying the delete
 
-    }).then((user) => res.json(user.cards))
-        .catch((err) => res.status(400).json({ success: false, error: err }));
+        // .then((user) => {
+        //     console.log("userCards: ", user.cards);
+        //     return res.json(user.cards)
+        // })
 });
 
 module.exports = router;

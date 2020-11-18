@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import { fetchUserCards, fetchCards, postCardsToUser, deleteCardsFromUser } from '../../actions/card_actions';
+import { fetchUserCards, fetchCards } from '../../actions/card_actions';
 import Profile from './profile';
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state) => {
-    debugger;
+    // debugger;
     return {
         currentUser: state.session.user,
         cardIds: Object.values(state.entities.cards.userCards),
