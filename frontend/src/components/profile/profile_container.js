@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
     return {
         
         currentUser: state.session.user,
-        cardIds: Object.values(state.entities.cards.user_cards),
+        cardIds: Object.values(state.entities.cards.userCards),
         cards: Object.values(state.entities.cards.all)
     };
 };

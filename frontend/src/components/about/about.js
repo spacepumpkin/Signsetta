@@ -62,14 +62,14 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQF1WMhFKFhFNQ/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=hUAAaE4llHT9F4TqcCF5OBtSunAzs81Ja0PWdeY7hBM" alt="profile pic" />
+                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQF1WMhFKFhFNQ/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=hUAAaE4llHT9F4TqcCF5OBtSunAzs81Ja0PWdeY7hBM" alt="team-member" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Malcolm Reyes</div>
-                <div className="meta">Loves cats more than Gary</div>
+                <div className="meta">Loves cats more than gary</div>
+
                 <div className="description">
-                  A Software Engineer: enthusiastic about Designing intuitive user interfaces,
-                  and learning as much as possible.
+                  Malcolm is a software engineer: enthusiastic about design and finding ways to improve existing technology .
                 </div>
               </div>
               <div className="extra content">

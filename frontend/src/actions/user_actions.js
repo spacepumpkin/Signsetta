@@ -1,4 +1,4 @@
-import { getAllUsers, addCardsToUser } from "../util/users_util";
+import { getAllUsers, addCardsToUser, deleteUserCards } from "../util/users_util";
 
 export const RECEIVE_USERS = "RECEIVE_USERS";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
@@ -26,10 +26,16 @@ export const fetchUsers = () => dispatch =>
         .catch(err => dispatch(receiveErrors(err)));
 
 
-export const postCardsToUser = (id, cards) => dispatch => {
-    
-   return addCardsToUser(id, cards)
-        .catch(err => console.log(err))
-    }
+// export const postCardsToUser = (id, cards) => dispatch => {
+//    return addCardsToUser(id, cards)
+//         .catch(err => console.log(err))
+// };
+
+// export const deleteCardsFromUser = (id, cards) => dispatch => {
+//     // debugger;
+//     return deleteUserCards(id, cards)
+//         .then()
+//         .catch(err => console.log(err))
+// };
 
     

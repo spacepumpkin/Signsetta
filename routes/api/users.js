@@ -179,17 +179,18 @@ router.post("/:id/cards", function (req, res) {
            
 
            
-    })  .then((user) => res.status(200).json({ success: true, user: user }))
+    }).then((user) => res.json(user.cards))
         .catch((err) => res.status(400).json({ success: false, error: err }));
     
       
 
-})
+});
 
 // Delete user's cards
 router.delete("/:id/cards", function (req, res) {
     const uid = req.params.id;
     User.findOne({ _id: uid }, function (err, doc) {
+        console.log(req.body);
         let cardIds = JSON.parse(req.body.cards);
         console.log(cardIds);
         cardIds.forEach(id => {
@@ -200,8 +201,8 @@ router.delete("/:id/cards", function (req, res) {
         })
         doc.save();
 
-    }).then((user) => res.status(200).json({ success: true, user: user }))
+    }).then((user) => res.json(user.cards))
         .catch((err) => res.status(400).json({ success: false, error: err }));
-})
+});
 
 module.exports = router;

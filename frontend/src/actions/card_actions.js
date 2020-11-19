@@ -1,5 +1,6 @@
 // import { getCard, getUserCards } from '../util/cards_util';
 import * as CardUtil from "../util/cards_util";
+import { addCardsToUser, deleteUserCards } from "../util/users_util";
 // import { getCategoryCards } from '../util/categories_util';
 
 export const RECEIVE_CARDS = "RECEIVE_CARDS";
@@ -25,8 +26,15 @@ export const receiveUserCards = userCards => {
     return {
         type: RECEIVE_USER_CARDS,
         userCards
-    }
-}
+    };
+};
+
+// export const receiveNewUserCards = userCards => {
+//     return {
+//         type: RECEIVE_USER_CARDS,
+//         userCards
+//     };
+// };
 
 export const receiveCategoryCards = (cards) => {
     return {
@@ -57,10 +65,9 @@ export const fetchUserCards = userId => {
     return dispatch => {
         return CardUtil.getUserCards(userId)
             .then(userCards => {
-                return dispatch(receiveUserCards(userCards))
-
-            })
-    }
+                return dispatch(receiveUserCards(userCards));
+            });
+    };
 };
 
 export const fetchCategoryCards = (catId) => {
@@ -70,4 +77,22 @@ export const fetchCategoryCards = (catId) => {
                 return dispatch(receiveCategoryCards(catCards))
             })
     }
+};
+
+
+export const postCardsToUser = (id, cards) => dispatch => {
+    return addCardsToUser(id, cards)
+        .then(userCards => {
+            return dispatch(receiveUserCards(userCards));
+        })
+        .catch(err => console.log(err));
+};
+
+export const deleteCardsFromUser = (id, cards) => dispatch => {
+    // debugger;
+    return deleteUserCards(id, cards)
+        .then(userCards => {
+            return dispatch(receiveUserCards(userCards));
+        })
+        .catch(err => console.log(err));
 };
