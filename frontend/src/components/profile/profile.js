@@ -1,5 +1,7 @@
 import React from 'react';
-import CardBox from '../card/cardbox'
+import CardBox from '../card/cardbox';
+
+import './profile.css';
 
 class Profile extends React.Component {
   // constructor(props) {
@@ -31,9 +33,10 @@ class Profile extends React.Component {
     
     return (
       <div className="ui segment">
-        <h1>Welcome, {this.props.currentUser.username}</h1>
+        <h1>Welcome, {this.props.currentUser.username}!</h1>
+        <h3>Here are your study cards:</h3>
         <div className="ui segment center aligned grid">
-          <div className="ui centered cards">
+          <div className="ui centered cards profile-cards">
             { ProfileCards }
 
           </div>
