@@ -25,7 +25,7 @@ export const CardBoxIndex = props => {
     );
 }
 
-// CardBox is the main export of the file 
+// CardBox is the main export of the file; container is in the same file
 class CardBox extends React.Component {
 
     constructor(props) {
@@ -49,14 +49,12 @@ class CardBox extends React.Component {
             setTimeout(() => this.setState({ flip: !this.state.flip }), 400))
     }
 
-    // componentDidUpdate() {
-    //     debugger;
-    // }
+
 
     addToUserCards = (e) => {
         e.stopPropagation()
-        if (e.target.className === "ui bottom attached button") {
-            
+        if (e.target.className === "ui bottom attached button") { 
+            // console.log("adding card id: ", JSON.stringify([this.props.card._id]));
             this.props.addCards(this.props.currentUser.id, JSON.stringify([this.props.card._id]));
         }
         // this.setState(this.state);
@@ -65,6 +63,7 @@ class CardBox extends React.Component {
     deleteUserCards = (e) => {
         e.stopPropagation()
         if (e.target.className === "ui bottom attached button") {
+            // console.log("deleting card id: ", JSON.stringify([this.props.card._id]));
             this.props.deleteCards(this.props.currentUser.id, JSON.stringify([this.props.card._id]));
         }
     }
@@ -151,7 +150,7 @@ const mSP = (state, ownProps) => {
 const mDP = dispatch => {
     return {
         addCards: (id, cards) => dispatch(postCardsToUser(id, cards)),
-        deleteCards: (id, cards) => dispatch(deleteCardsFromUser(id, cards))
+        deleteCards: (id, card) => dispatch(deleteCardsFromUser(id, card))
     }
 }
 

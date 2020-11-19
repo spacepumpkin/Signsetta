@@ -5,6 +5,7 @@ export const getAllUsers = () => {
 };
 
 export const addCardsToUser = (id, cards) => {
+    // debugger;
     return axios.post(`/api/users/${id}/cards`,  {cards: cards});
 };
 

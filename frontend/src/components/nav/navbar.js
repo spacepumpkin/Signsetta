@@ -21,8 +21,8 @@ class NavBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <div className="right menu" >
-                    <div id="aboutus" className="ui compact menu">
-                        <Link to={'/about'} className="item">
+                    <div id="aboutus" className="ui item">
+                        <Link to={'/about'} className="">
                             <div>
                                 <i className="icon users"></i>
                                 About Us
