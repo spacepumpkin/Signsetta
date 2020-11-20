@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import '../../index';
 import logo from '../../images/mern-logo-1.png';
 import './navbar.css';
+import SearchContainer from '../search/search_bar_container';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -21,6 +22,11 @@ class NavBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <div className="right menu" >
+
+                    <div className="ui category search" style={{ border: 'none' }}>
+                        <div className="search-bar"><SearchContainer /> </div>
+                    </div>
+
                     <div id="aboutus" className="ui item">
                         <Link to={'/about'} className="">
                             <div>
@@ -63,6 +69,9 @@ class NavBar extends React.Component {
             return (
 
                 <div className="right menu" >
+                    <div className="ui category search" style={{ border: 'none' }}>
+                        <div className="search-bar"><SearchContainer /> </div>
+                    </div>
 
                     <div id="aboutus" className="ui compact menu" >
                         <Link to={'/about'} className="item">
@@ -93,6 +102,7 @@ class NavBar extends React.Component {
                 </Link>
                 { this.getLinks()}
             </div>
+
         )
 
 
