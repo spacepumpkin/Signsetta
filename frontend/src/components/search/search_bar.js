@@ -28,7 +28,6 @@ class CategorySearch extends React.Component {
 
     render() {  
         const CardsArr = Object.values(this.props.cards)
-      
 
         const returnCard = CardsArr
         .filter(card => {
@@ -50,8 +49,8 @@ class CategorySearch extends React.Component {
                 </div>
             <div>
 
-                    <div className="ui segment center aligned grid" style={{background: '000000', border: 'none'}}>
-                        <div className="ui centered cards">
+                    <div className="ui segment center aligned grid" style={{background: '000000', border: 'none', boxShadow: 'none'}}>
+                        <div className="ui centered cards" style={{ border: 'none'}}>
 
                             {(returnCard !== undefined) && returnCard.map(card => {
                 
