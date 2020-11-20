@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 // import CategoryShow from '../categories/category_show';
 import CardBox from './cardbox';
+import CategoryIndexContainer from '../categories/categories_index_container';
 
 class CardIndex extends React.Component {
     // constructor(props) {
@@ -32,11 +33,11 @@ class CardIndex extends React.Component {
 
         return (
             <div className="ui segment center aligned grid">
-
+                <div className="ui stacked segment">
+                <CategoryIndexContainer/>
                 <h2 className="ui header" style={{marginTop : "35px"}}>
                     All the Cards
                 </h2>
-                <div className="ui stacked segment">
                     <h1 className="ui header teal">
                         <i className="language icon"></i>
                         Alphabet
