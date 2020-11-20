@@ -1,5 +1,7 @@
 import React from 'react';
-import CardBox from '../card/cardbox'
+import CardBox from '../card/cardbox';
+
+import './profile.css';
 
 class Profile extends React.Component {
   // constructor(props) {
@@ -33,7 +35,7 @@ class Profile extends React.Component {
         <h1>Welcome, {this.props.currentUser.username}</h1>
               {this.props.cardIds.length === 0 ? <h2>Your flashcards will go here! Add some sign langauge flashcards that you wish to study from the card page above.</h2> : null}
         <div className="ui segment center aligned grid">
-          <div className="ui centered cards">
+          <div className="ui centered cards profile-cards">
             { ProfileCards }
           </div>
         </div>

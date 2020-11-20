@@ -21,8 +21,8 @@ class NavBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <div className="right menu" >
-                    <div id="aboutus" className="ui compact menu">
-                        <Link to={'/about'} className="item">
+                    <div id="aboutus" className="ui item">
+                        <Link to={'/about'} className="">
                             <div>
                                 <i className="icon users"></i>
                                 About Us
@@ -32,15 +32,11 @@ class NavBar extends React.Component {
 
                     <div className="item" >
                         <Link to={'/fingerspelling-game'}>
-                            <div className="ui button olive">Fingerspelling Practice</div>
+                            <div className="ui button pink">Fingerspelling Practice</div>
                         </Link>
                     </div>
 
-                    <div className="item" >
-                        <Link to={'/categories'}>
-                            <div className=" ui button pink">Learning Subjects</div>
-                        </Link>
-                    </div>
+                   
 
                     <div className="item" >
                         <Link to={'/profile'}>
