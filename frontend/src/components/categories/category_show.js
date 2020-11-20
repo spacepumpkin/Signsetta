@@ -24,9 +24,16 @@ class CategoryShow extends React.Component {
                 return "";
             }
         })
+        
+        const { categoryIconName, categoryHeaderColor } = this.props;
+
         return (
             <div>
-                <h1 className="ui centered header"> Category: {this.props.category.name}</h1>
+                <h2 className={`ui centered header`}> Category: </h2>
+                <h1 className={`ui centered header ${categoryHeaderColor}`}>
+                    <i className={`${categoryIconName} icon`}></i>
+                    {this.props.category.name}
+                </h1>
                 <div className="ui segment center aligned grid">
 
                     <div className="ui centered cards">

@@ -5,10 +5,34 @@ import CategoryShow from './category_show';
 import { withRouter } from 'react-router-dom';
 
 const MSTP = (state, ownProps) => {
+    
+    let categoryIconName = "";
+    let categoryHeaderColor = "";
+    if (state.entities.categories.data) {
+        switch (state.entities.categories.data.name) {
+            case "Alphabet":
+                categoryIconName = "language";
+                categoryHeaderColor = "teal"
+                break;
+            case "Numbers":
+                categoryIconName = "sort numeric down";
+                categoryHeaderColor = "blue"
+                break;
+            case "Common Phrases":
+                categoryIconName = "comments outline";
+                categoryHeaderColor = "purple"
+                break;
+            default:
+                break;
+        }
+    }
+
     return {
         currentUser: state.session.user,
         category: state.entities.categories.data ? state.entities.categories.data : [],
-        category_cards: Object.values(state.entities.cards.all)
+        category_cards: Object.values(state.entities.cards.all),
+        categoryIconName: categoryIconName,
+        categoryHeaderColor: categoryHeaderColor
     }
 }
 
