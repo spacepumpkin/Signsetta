@@ -33,7 +33,9 @@ class Profile extends React.Component {
           return (
       <div className="ui segment">
         <h1>Welcome, {this.props.currentUser.username}</h1>
-              {this.props.cardIds.length === 0 ? <h2>Your flashcards will go here! Add some sign langauge flashcards that you wish to study from the card page above.</h2> : null}
+              {this.props.cardIds.length === 0 ? <h2>Your flashcards will go here! Click the "Cards" button above to 
+                see all the flashcards you can add to your study list.</h2> : <h2>These are your flashcards! You can study your cards by clicking on them. 
+                  You can find more cards to add to your list of cards by clicking on the "Cards" button above. Also check out our flashcard learning game by clicking on the "Fingerspelling Practice" button!</h2>}
         <div className="ui segment center aligned grid">
           <div className="ui centered cards profile-cards">
             { ProfileCards }
