@@ -49,13 +49,8 @@ class CategorySearch extends React.Component {
                 </div>
             <div>
 
-<<<<<<< HEAD
                     <div className="ui segment center aligned grid" style={{background: '000000', border: 'none', boxShadow: 'none'}}>
                         <div className="ui centered cards" style={{ border: 'none'}}>
-=======
-                    <div className="ui segment center aligned grid" style={{background: '000000', border: 'none'}}>
-                        <div className="ui centered cards">
->>>>>>> e5884998fb60a9646881086efa667b9a708fb9e7
 
                             {(returnCard !== undefined) && returnCard.map(card => {
                 
