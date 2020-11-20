@@ -1,6 +1,6 @@
 import React from 'react';
 import CardBox from '../card/cardbox';
-
+import './search.css'
 
 
 class CategorySearch extends React.Component {
@@ -42,7 +42,7 @@ class CategorySearch extends React.Component {
         })
         
         return (
-            <div className="ui category search">
+            <div className="ui category search" id="searchbar">
                 <div className="ui icon input">
                     <input className="prompt search" value={this.state.search} onChange={this.updateSearch} type="text" placeholder="Search cards..."></input>
                     
@@ -50,7 +50,7 @@ class CategorySearch extends React.Component {
                 </div>
             <div>
 
-                    <div className="ui segment center aligned grid" style={{background: '000000'}}>
+                    <div className="ui segment center aligned grid" style={{background: '000000', border: 'none'}}>
                         <div className="ui centered cards">
 
                             {(returnCard !== undefined) && returnCard.map(card => {
