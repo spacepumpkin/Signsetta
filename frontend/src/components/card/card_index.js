@@ -35,8 +35,13 @@ class CardIndex extends React.Component {
             <div className="ui segment center aligned grid">
                 <div className="ui stacked segment">
                 <CategoryIndexContainer/>
-                <h2 className="ui header" style={{marginTop : "35px"}}>
+                <h1 className="ui header" style={{marginTop : "35px"}}>
                     All the Cards
+                </h1>
+                <h2>
+                    Click on a card to see the meaning of the sign. Click the "Add To Your Cards" button 
+                    to add that card to your list of cards you want to study, and click the "Delete
+                    From Your Cards" button to delete that card from your list.
                 </h2>
                     <h1 className="ui header teal">
                         <i className="language icon"></i>
