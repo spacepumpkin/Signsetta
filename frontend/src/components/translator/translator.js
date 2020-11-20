@@ -3,73 +3,61 @@ import CardBox from '../card/cardbox';
 
 export default function Translator(props) {
 
-  // Set all cards after a fetch;
-  let allCards = [];
-
-  // Fetch cards on Mount
-  React.useEffect(() => {
-    props.fetchCards()
-    console.log(props)
-    allCards = Object.values(props.cards);
-  }, [])
-
-  // Hook for user input
+  // Local state for fetched cards, user input, and array of characters to be rendered as cards
+  const [allCards, setAllCards] = React.useState([]);
   const [userInput, setUserInput] = React.useState("");
+  const [outputCards, setOutputCards] = React.useState([]);
 
-  // Hook for array of cards that match user input
-  // const [outputCards, setOutputCards] = React.useState([]);
-  const outputCards = [];
+  // Fetch cards on Mount; destructured props to avoid useEffect dependency warning
+  const { fetchCards } = props;
+  React.useEffect(fetchCards, [fetchCards])
+
+  // Set allCards once props.cards are fetched
+  React.useEffect(() => setAllCards(Object.values(props.cards)), [props.cards])
 
   // For every letter entered into text input, change the cards that will be shown
   const updateOutputCards = () => {
-    userInput.split("").forEach((char) => {
-      if (/\w/.test(char)) {
-        // console.log(char)
-        // setOutputCards(outputCards.push(char))
-        outputCards.push(char)
-      } else if (/\s/.test(char)) {
-        // console.log(char)
-        // setOutputCards(outputCards.push(" "))
-        outputCards.push(" ")
-      }
-    })
+    setOutputCards(userInput.replace(/[^a-z\s]/gi, "").split(""))
   }
 
-  React.useEffect(() => updateOutputCards(), [userInput])
+  // Update outputCards if userInput changes 
+  // NEED this since React State Hooks are async and do not have a callback like setState does
+  React.useEffect(updateOutputCards, [userInput])
 
-  console.log(allCards);
-  
   return (
     <div className="ui middle aligned center aligned grid">
-      <div className="column seven wide">
-
+      <div className="column twelve wide" style={{ marginTop: "50px" }}>
         <h1 className="ui header teal"> Translate an English word to ASL </h1>
 
-        <div className="ui action input">
+        <div className="ui input">
           <input
             type="text"
             placeholder="Type any letters..."
             onChange={(e) => setUserInput(e.target.value)}
-            value={userInput} />
+            value={userInput}
+            style={{ height: '100px', border: '2px solid #03dac5', fontSize: '30px' }}
+          />
         </div>
+        <div className="ui center aligned grid" style={{ marginTop: '50px' }} >
 
-        <div className="">
-          {
-            outputCards.map((char, idx) => {
-              console.log(outputCards);
-              if (char === " ") {
-                return (
-                  <div style={{ width: "50px" }}></div>
-                )
-              } else {
-                return (
-                  <CardBox key={`card-${idx}`} card={allCards.find((card) => card.backside === char)} />
-                )
-              }
-            })
-          }
+          <div className="">
+            {
+              outputCards.map((char, idx) => {
+                if (char === " ") {
+                  // Return a dividing empty div if char is a space
+                  return (
+                    <div style={{ width: "50px", height: "50px" }}></div>
+                  )
+                } else {
+                  // Return card that corresponds to current char
+                  return (
+                    <CardBox key={`card-${idx}`} card={allCards.find((card) => card.backside === char.toUpperCase())} />
+                  )
+                }
+              })
+            }
+          </div>
         </div>
-
       </div>
     </div>
   )
