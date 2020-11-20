@@ -32,15 +32,11 @@ class NavBar extends React.Component {
 
                     <div className="item" >
                         <Link to={'/fingerspelling-game'}>
-                            <div className="ui button olive">Fingerspelling Practice</div>
+                            <div className="ui button pink">Fingerspelling Practice</div>
                         </Link>
                     </div>
 
-                    <div className="item" >
-                        <Link to={'/categories'}>
-                            <div className=" ui button pink">Learning Subjects</div>
-                        </Link>
-                    </div>
+                   
 
                     <div className="item" >
                         <Link to={'/profile'}>

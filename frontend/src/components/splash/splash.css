@@ -2,3 +2,7 @@
   position: fixed;
   display: block;
 } */
+
+#splash-image{
+  filter: grayscale(100%);
+}

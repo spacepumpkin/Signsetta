@@ -32,9 +32,7 @@ const App = () => (
 
       <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
       <ProtectedRoute exact path="/categories/:catId" component={CategoryShowContainer} />
-      <ProtectedRoute exact path="/categories" component={CategoryIndexContainer} />
-
-      <ProtectedRoute exact path="/categories" component={CategoriesIndex} />
+    
 
       <ProtectedRoute exact path="/fingerspelling-game" component={FSGameContainer} />
 
