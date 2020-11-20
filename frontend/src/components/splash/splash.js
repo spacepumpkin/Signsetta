@@ -1,7 +1,7 @@
 import React from 'react';
 import image from '../../images/hands-image.jpg';
 
-import SearchContainer from '../search/search_bar_container';
+// import SearchContainer from '../search/search_bar_container';
 
 const Splash = (state) => {
     return (
@@ -17,9 +17,9 @@ const Splash = (state) => {
                 </h3>
             </div>
             <div className="ui divider" style={{ border: 'none' }}></div>
-            <div className="ui category search" style={{ border: 'none' }}>
+            {/* <div className="ui category search" style={{ border: 'none' }}>
                 <div className="search-bar"><SearchContainer /> </div>
-            </div>
+            </div> */}
 
             <div className="splash-img ui fluid image  " style={{ background: '#000000', boxShadow: 'none' }}>
                 <img src={image} className="image" alt="splash" style={{ position: 'fixed', zIndex: '-1000', top: '0', left: '0', filter: 'grayscale(30%) blur(0px)' }} />
