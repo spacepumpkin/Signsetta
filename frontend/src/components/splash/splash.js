@@ -22,7 +22,7 @@ const Splash = (state) => {
             </div>
 
             <div className="splash-img ui fluid image  " style={{ background: '#000000', boxShadow: 'none' }}>
-                <img src={image} className="image" alt="splash" style={{ position: 'fixed', zIndex: '-1000', top: '0', left: '0', filter: 'grayscale(30%)', filter: 'blur(0px)' }} />
+                <img src={image} className="image" alt="splash" style={{ position: 'fixed', zIndex: '-1000', top: '0', left: '0', filter: 'grayscale(30%) blur(0px)' }} />
             </div>
         </div>
 
