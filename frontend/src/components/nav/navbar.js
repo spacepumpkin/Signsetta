@@ -23,9 +23,10 @@ class NavBar extends React.Component {
             return (
                 <div className="right menu" >
 
-                    <div className="ui category search" style={{ border: 'none' }}>
+                    <div className="ui item category search" style={{ border:'none' }}>
                         <div className="search-bar"><SearchContainer /> </div>
                     </div>
+                        {/* <div class="ui divider"></div> */}
 
                     <div id="aboutus" className="ui item">
                         <Link to={'/about'} className="">
@@ -69,9 +70,11 @@ class NavBar extends React.Component {
             return (
 
                 <div className="right menu" >
-                    <div className="ui category search" style={{ border: 'none' }}>
+
+                    <div className="ui item category search" style={{ border: 'none' }}>
                         <div className="search-bar"><SearchContainer /> </div>
                     </div>
+                    {/* <div class="ui divider"></div> */}
 
                     <div id="aboutus" className="ui compact menu" >
                         <Link to={'/about'} className="item">
@@ -98,9 +101,10 @@ class NavBar extends React.Component {
         return (
             <div className="ui stackable menu">
                 <Link to="/">
-                    <img src={logo} className="image" alt="logo" height="80" />
+                    <img src={logo} className="image" alt="logo" height="auto" />
                 </Link>
                 { this.getLinks()}
+
             </div>
 
         )
