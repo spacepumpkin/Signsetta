@@ -8,10 +8,10 @@ const Splash = (state) => {
         <div className="ui masthead center
          aligned segment"style={{ background: '#00000000', border: 'none', boxShadow: 'none' }}>
             <div className="ui text" style={{ background: '000000'}}>
-                <h1 className="ui header teal huge" style={{ fontSize: '60px', textShadow: '2px 2px 15px black', paddingTop: '20%'}} >
+                <h1 className="ui header teal huge" style={{ fontSize: '70px', textShadow: '2px 2px 15px black', paddingTop: '20%'}} >
                     Start your ASL journey with Signsetta.
                 </h1>
-                <h3 style={{ color: '#dddddd', textShadow: '2px 2px 10px black', fontSize: '30px' }}>
+                <h3 style={{ color: '#dddddd', textShadow: '2px 2px 10px black', fontSize: '25px' }}>
                     Utilize our innovative sign language game, flashcards and translator to learn American Sign Language
                     {/* style={{textShadow: '2px 2px 8px  #ffffffff',}} */}
                 </h3>

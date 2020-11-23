@@ -67,7 +67,10 @@ class CategorySearch extends React.Component {
                 </div>
             </div>
       
-         ) }
+         ) 
+
+         
+    }
 }
 
 
