@@ -15,7 +15,8 @@ import SplashComponent from './splash/splash';
 import FSGameContainer from './card/fs_game_container';
 
 import About from './about/about';
-import TranslatorContainer from './translator/translator_container'
+import TranslatorContainer from './translator/translator_container';
+import CardReviewContainer from './card_review/card_review_container';
 
 
 const App = () => (
@@ -37,6 +38,7 @@ const App = () => (
       <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
+      <ProtectedRoute exact path="/card-review" component={CardReviewContainer} />
       <Route exact path="/" component={SplashComponent} />
       <Redirect to="/" />
       {/* <Route render={() => <Redirect to="/" />} /> */}
