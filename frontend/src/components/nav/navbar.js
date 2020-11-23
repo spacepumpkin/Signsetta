@@ -43,7 +43,9 @@ class NavBar extends React.Component {
                         </Link>
                     </div>
 
-                   
+                    <div className="item" >
+                        <Link to={'/translator'}><div className="ui button green">Translator</div></Link>
+                    </div>
 
                     <div className="item" >
                         <Link to={'/profile'}>
@@ -76,6 +78,7 @@ class NavBar extends React.Component {
                     </div>
                     {/* <div class="ui divider"></div> */}
 
+
                     <div id="aboutus" className="ui compact menu" >
                         <Link to={'/about'} className="item">
                             <div>
@@ -83,6 +86,10 @@ class NavBar extends React.Component {
                                 About Us
                             </div>
                         </Link>
+                    </div>
+
+                    <div className="item" >
+                        <Link to={'/translator'}><div className="ui button green">Translator</div></Link>
                     </div>
 
                     <div className="item" >
