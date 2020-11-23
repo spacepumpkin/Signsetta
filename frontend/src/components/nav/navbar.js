@@ -101,7 +101,7 @@ class NavBar extends React.Component {
         return (
             <div className="ui stackable menu">
                 <Link to="/">
-                    <img src={logo} className="image" alt="logo" height="auto" />
+                    <img src={logo} className="image" alt="logo" />
                 </Link>
                 { this.getLinks()}
 
