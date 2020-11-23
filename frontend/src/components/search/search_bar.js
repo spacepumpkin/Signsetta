@@ -1,5 +1,5 @@
 import React from 'react';
-import CardBox from '../card/cardbox';
+import CardBox from './search_cardbox';
 import './search.css'
 
 
