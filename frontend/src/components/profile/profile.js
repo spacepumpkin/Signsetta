@@ -11,7 +11,8 @@ class Profile extends React.Component {
 
 
   componentDidMount() {
-    this.props.fetchCards()
+    document.title = "Signsetta";
+    this.props.fetchCards();
     this.props.fetchUserCards(this.props.currentUser.id);
   }
 
