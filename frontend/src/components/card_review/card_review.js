@@ -141,7 +141,7 @@ export default class CardReview extends React.Component {
 
           </div>
 
-          <div className="ui center aligned segment" style={{ height: "250px" }}>
+          <div className="ui center aligned segment" style={{ height: "290px" }}>
             <div style={{ height: "150px" }}>
               <div style={{ fontSize: "20px" }}>
                 {`Card ${currentCardIdx+1} of ${reviewCards.length}`}
@@ -162,10 +162,10 @@ export default class CardReview extends React.Component {
                 }
               </div>
               <div className="ui text container">
-                Here you can review your cards individually.
+                Here you can review your hand-picked cards individually.
               Navigate with the <span className="ui header teal small">Prev</span> or
              <span className="ui header teal small">Next</span> buttons, or use your
-             arrow keys. Click on the card or press spacebar to reveal the answer!
+             arrow keys <kbd> ← </kbd><kbd> → </kbd>. Click on the card or press <kbd>Space</kbd> to reveal the answer!
             </div>
             </div>
 
@@ -174,6 +174,7 @@ export default class CardReview extends React.Component {
             {
               currentCardIdx === reviewCards.length - 1 &&
               <div>
+                <h3> Congrats you made it to the end! </h3>
                 <button className="ui button blue"
                   type="button"
                   onClick={this.reviewMarkedCards}

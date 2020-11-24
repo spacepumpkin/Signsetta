@@ -4,7 +4,7 @@ import { fetchCategories }from '../../actions/categories_actions';
 
 const mapStateToProps = ({entities}) => {
     return {
-        categories: (entities.categories.data ) ? (Object.values(entities.categories.data)) : []
+        categories: entities.categories.all
     };
 };
 

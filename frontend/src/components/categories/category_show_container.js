@@ -6,11 +6,16 @@ import CategoryShow from './category_show';
 import { withRouter } from 'react-router-dom';
 
 const MSTP = (state, ownProps) => {
+    let category = {};
+    if (state.entities.categories.all.length !== 0) {
+        category = state.entities.categories.all
+        .find((category) => category._id === ownProps.match.params.catId);
+    }
     
     let categoryIconName = "";
     let categoryHeaderColor = "";
-    if (state.entities.categories.data) {
-        switch (state.entities.categories.data.name) {
+    if (category.name) {
+        switch (category.name) {
             case "Alphabet":
                 categoryIconName = "language";
                 categoryHeaderColor = "teal"
@@ -30,11 +35,11 @@ const MSTP = (state, ownProps) => {
 
     return {
         currentUser: state.session.user,
-        category: state.entities.categories.data ? state.entities.categories.data : [],
-        category_cards: Object.values(state.entities.cards.all),
+        category: category,
+        allCards: Object.values(state.entities.cards.all),
         categoryIconName: categoryIconName,
         categoryHeaderColor: categoryHeaderColor,
-        categories: Object.values(state.entities.categories)[0]
+        categories: state.entities.categories.all
     };
 };
 

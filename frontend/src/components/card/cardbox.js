@@ -88,7 +88,6 @@ class CardBox extends React.Component {
         </div>
         );
         let cardButton = this.props.hasCard ? deleteButton : addButton;
-        
         return (
 
             <Transition
