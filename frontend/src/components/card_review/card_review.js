@@ -17,7 +17,8 @@ export default class CardReview extends React.Component {
     this.goToNextCard = this.goToNextCard.bind(this);
     this.reviewMarkedCards = this.reviewMarkedCards.bind(this);
     this.reviewAllCards = this.reviewAllCards.bind(this);
-    this.arrowKeyHandler = this.arrowKeyHandler.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleCardMark = this.handleCardMark.bind(this);
   }
 
   componentDidMount() {
@@ -33,7 +34,7 @@ export default class CardReview extends React.Component {
       alert("Sorry you must be logged in to save and review cards")
     }
     // Listen for arrow keys to go to prev or next card
-    document.addEventListener('keydown', this.arrowKeyHandler)
+    document.addEventListener('keydown', this.handleKeyDown)
   }
 
   componentDidUpdate(prevProps) {
@@ -44,7 +45,7 @@ export default class CardReview extends React.Component {
   }
 
   componentWillUnmount() {
-    document.removeEventListener('keydown', this.arrowKeyHandler)
+    document.removeEventListener('keydown', this.handleKeyDown)
   }
 
   setUserCardsToReviewCards() {
@@ -83,9 +84,21 @@ export default class CardReview extends React.Component {
     }
   }
 
-  arrowKeyHandler(evt) {
+  handleKeyDown(evt) {
+    // console.log("evt code: ", evt.code)
     if (evt.code === "ArrowLeft") this.goToPrevCard()
     if (evt.code === "ArrowRight") this.goToNextCard()
+    if (evt.code === "KeyM") this.handleCardMark(this.state.reviewCards[this.state.currentCardIdx])
+  }
+
+  handleCardMark(card) {
+    // console.log("card: ", card)
+    if ((Object.prototype.toString.call(card) !== "[object Object]") || (Object.keys(card).length === 0)) return;
+    if (!this.state.markedCards.includes(card)) {
+      this.setState({ markedCards: this.state.markedCards.concat([card]) })
+    } else {
+      this.setState({ markedCards: this.state.markedCards.filter((value) => value !== card) })
+    }
   }
 
   reviewMarkedCards() {
@@ -109,10 +122,6 @@ export default class CardReview extends React.Component {
     return (
       <div>
         <div>
-
-        </div>
-
-        <div>
           <div>
             {
               userHasCards ? (
@@ -122,42 +131,46 @@ export default class CardReview extends React.Component {
           </div>
 
           <div className="ui center aligned segment">
-
-            <div className="ui buttons">
-              <button className="ui button teal large"
+            <div className="ui big buttons">
+              <button className="ui button teal"
                 type="button"
                 onClick={this.goToPrevCard}
                 onMouseDown={(e) => e.preventDefault()}
                 disabled={currentCardIdx === 0}
-              ><i className="angle left icon"></i>Prev</button>
+              ><i className="angle left icon"></i> Prev </button>
               <div className="or"></div>
-              <button className="ui button teal large"
+              <button className="ui button teal"
                 type="button"
                 onClick={this.goToNextCard}
                 onMouseDown={(e) => e.preventDefault()}
                 disabled={currentCardIdx === reviewCards.length - 1}
-              >Next<i className="angle right icon"></i></button>
+              > Next <i className="angle right icon"></i></button>
             </div>
-
           </div>
 
-          <div className="ui center aligned segment" style={{ height: "290px" }}>
-            <div style={{ height: "150px" }}>
+          <div className="ui center aligned segment" style={{ height: "320px" }}>
+            <div style={{ height: "170px" }}>
               <div style={{ fontSize: "20px" }}>
-                {`Card ${currentCardIdx+1} of ${reviewCards.length}`}
+                {`Card ${currentCardIdx + 1} of ${reviewCards.length}`}
               </div>
               <div style={{ margin: "20px 0 20px 0" }}>
                 {
                   markedCards.includes(card) ? (
-                    <button className="ui button grey"
-                      type="button"
-                      onClick={() => this.setState({ markedCards: markedCards.filter((value) => value !== card) })}
-                    >Unmark</button>
-                  ) : (
-                      <button className="ui button blue"
+                    <div>
+                      <button className="ui button basic blue"
                         type="button"
-                        onClick={() => this.setState({ markedCards: markedCards.concat([card]) })}
-                      >Mark to Review Again Later</button>
+                        onClick={() => this.handleCardMark(card)}
+                        onMouseDown={(e) => e.preventDefault()}
+                      >Unmark</button>
+                    </div>
+                  ) : (
+                      <div>
+                        <button className="ui button blue"
+                          type="button"
+                          onClick={() => this.handleCardMark(card)}
+                          onMouseDown={(e) => e.preventDefault()}
+                        >Mark to Review Again Later</button>
+                      </div>
                     )
                 }
               </div>
@@ -166,6 +179,7 @@ export default class CardReview extends React.Component {
               Navigate with the <span className="ui header teal small">Prev</span> or
              <span className="ui header teal small">Next</span> buttons, or use your
              arrow keys <kbd> ← </kbd><kbd> → </kbd>. Click on the card or press <kbd>Space</kbd> to reveal the answer!
+             You can also mark cards for another review with the button or by pressing <kbd>M</kbd>.
             </div>
             </div>
 
@@ -179,7 +193,7 @@ export default class CardReview extends React.Component {
                   type="button"
                   onClick={this.reviewMarkedCards}
                   disabled={this.state.markedCards.length === 0}
-                >Review Marked Cards</button>
+                >Review Marked Cards {`(${markedCards.length})`} </button>
                 <button className="ui button blue"
                   type="button"
                   onClick={this.reviewAllCards}
