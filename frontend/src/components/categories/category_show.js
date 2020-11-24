@@ -1,5 +1,6 @@
 import React from 'react';
 import CardBox from '../card/cardbox';
+import CategoryIndexContainer from '../categories/categories_index_container';
 
 class CategoryShow extends React.Component {
     // constructor(props) {
@@ -9,7 +10,8 @@ class CategoryShow extends React.Component {
     componentDidMount() {
         const catId = this.props.match.params.catId
         this.props.fetchCategory(catId);
-        this.props.fetchCards()
+        this.props.fetchCards();
+        this.props.fetchCategories();
         this.props.fetchUserCards(this.props.currentUser.id);
     }
 
@@ -29,6 +31,7 @@ class CategoryShow extends React.Component {
 
         return (
             <div>
+                <CategoryIndexContainer />
                 <h2 className={`ui centered header`}> Category: </h2>
                 <h1 className={`ui centered header ${categoryHeaderColor}`}>
                     <i className={`${categoryIconName} icon`}></i>
