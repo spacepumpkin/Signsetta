@@ -17,9 +17,9 @@ class CategoriesIndex extends React.Component {
         
         const { categories } = this.props;
         
-    
+        debugger;
         return (
-           
+            
                 <div className="ui grid segment center aligned">
                     {
                         categories.map((category,idx) => {
