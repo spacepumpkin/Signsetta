@@ -1,5 +1,5 @@
 import React from 'react';
-import CardBox from '../card/cardbox';
+import TranslatorCardBox from './translator_cardbox';
 
 export default function Translator(props) {
 
@@ -40,7 +40,7 @@ export default function Translator(props) {
         </div>
         <div className="ui center aligned grid" style={{ marginTop: '50px' }} >
 
-          <div className="">
+          <div className="ui row">
             {
               outputCards.map((char, idx) => {
                 if (char === " ") {
@@ -51,7 +51,9 @@ export default function Translator(props) {
                 } else {
                   // Return card that corresponds to current char
                   return (
-                    <CardBox key={`card-${idx}`} card={allCards.find((card) => card.backside === char.toUpperCase())} />
+                    <div>
+                      <TranslatorCardBox key={`card-${idx}`} card={allCards.find((card) => card.backside === char.toUpperCase())} />
+                    </div>
                   )
                 }
               })
