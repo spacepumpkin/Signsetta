@@ -75,19 +75,19 @@ class CardReviewBox extends React.Component {
 
   render() {
     let user = this.props.currentUser;
+    
     let addButton = (<div className="ui bottom attached button" onClick={this.addToUserCards} >
-      <i className="add icon"></i>
-                                            Add To Your Cards
+      <i className="add icon"></i> Add To Your Cards
     </div>
     );
 
     let deleteButton = (<div className="ui bottom attached button" onClick={this.deleteUserCards} >
-      <i className="minus icon"></i>
-                                            Delete From Your Cards
+      <i className="minus icon"></i> Delete From Your Cards
     </div>
     );
+
     let cardButton = this.props.hasCard ? deleteButton : addButton;
-    debugger
+
     return (
 
       <Transition
