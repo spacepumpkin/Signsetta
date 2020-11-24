@@ -6,18 +6,19 @@ import NavBarContainer from './nav/navbar_container.js';
 // import MainPage from './main/main_page';
 import CategoryShowContainer from './categories/category_show_container';
 import CategoryIndexContainer from './categories/categories_index_container';
-import CardIndexContainer from './card/card_index_container'
+import Category from './categories/category_container_container';
+import CardIndexContainer from './card/card_index_container';
 import LoginFormContainer from './session/login_form_container';
 import SignupFormContainer from './session/signup_form_container';
 import ProfileContainer from './profile/profile_container';
 
-import CategoriesIndex from './categories/categories_index_container';
 import CardShowContainer from './card/card_show_container';
 import SplashComponent from './splash/splash';
 import FSGameContainer from './card/fs_game_container';
 
 import About from './about/about';
-import TranslatorContainer from './translator/translator_container'
+import TranslatorContainer from './translator/translator_container';
+
 
 
 const App = () => (
@@ -31,7 +32,7 @@ const App = () => (
       <Route exact path="/translator" component={TranslatorContainer} />
 
       <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
-      <ProtectedRoute exact path="/categories/:catId" component={CategoryShowContainer} />
+      <ProtectedRoute exact path="/categories/:catId" component={Category} />
     
 
       <ProtectedRoute exact path="/fingerspelling-game" component={FSGameContainer} />

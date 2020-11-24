@@ -7,8 +7,8 @@ class CategoryShow extends React.Component {
     // }
 
     componentDidMount() {
-        const catId = this.props.match.params.catId
-        this.props.fetchCategory(catId);
+        // const catId = this.props.match.params.catId
+        this.props.fetchCategories();
         this.props.fetchCards()
         this.props.fetchUserCards(this.props.currentUser.id);
     }
