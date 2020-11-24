@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CardBox from '../card/cardbox';
+
+import "./card_review.css";
+import CardReviewBox from './card_review_box';
 
 export default class CardReview extends React.Component {
   constructor(props) {
@@ -15,11 +17,13 @@ export default class CardReview extends React.Component {
     this.goToNextCard = this.goToNextCard.bind(this);
     this.reviewMarkedCards = this.reviewMarkedCards.bind(this);
     this.reviewAllCards = this.reviewAllCards.bind(this);
+    this.arrowKeyHandler = this.arrowKeyHandler.bind(this);
   }
 
   componentDidMount() {
+    // debugger
     if (this.props.currentUser) {
-      if (this.props.userCardIds) {
+      if (this.props.userCardIds && this.props.userCardIds.length !== 0) {
         this.setUserCardsToReviewCards();
       } else {
         if (!this.props.allCards) this.props.fetchCards();
@@ -28,15 +32,19 @@ export default class CardReview extends React.Component {
     } else {
       alert("Sorry you must be logged in to save and review cards")
     }
+    // Listen for arrow keys to go to prev or next card
+    document.addEventListener('keydown', this.arrowKeyHandler)
   }
 
-  componentDidUpdate() {
-    // if (this.state.reviewCards.length === 0) {
-    //   // set reviewCards to randomized array of user's cards (shuffled + mapped)
-    //   let shuffledCards = this.shuffleCards(this.props.userCardIds.slice(0));
-    //   let mappedCards = this.mapCards(shuffledCards, this.props.allCards);
-    //   this.setState({ reviewCards: mappedCards })
-    // }
+  componentDidUpdate(prevProps) {
+    // Fixes cards not loading after refresh
+    if (prevProps.userCardIds !== this.props.userCardIds) {
+      this.setUserCardsToReviewCards();
+    }
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.arrowKeyHandler)
   }
 
   setUserCardsToReviewCards() {
@@ -75,6 +83,11 @@ export default class CardReview extends React.Component {
     }
   }
 
+  arrowKeyHandler(evt) {
+    if (evt.code === "ArrowLeft") this.goToPrevCard()
+    if (evt.code === "ArrowRight") this.goToNextCard()
+  }
+
   reviewMarkedCards() {
     let shuffledCards = this.shuffleCards(this.state.markedCards.slice(0));
     // let mappedCards = this.mapCards(shuffledCards, this.props.allCards);
@@ -95,57 +108,95 @@ export default class CardReview extends React.Component {
 
     return (
       <div>
-        {
-          userHasCards ? (
-            <CardBox key={`review-card-${currentCardIdx}`} card={card} />
-          ) : null
-        }
         <div>
-          {
-            markedCards.includes(card) ? (
-              <button className="ui button blue"
+
+        </div>
+
+        <div>
+          <div>
+            {
+              userHasCards ? (
+                <CardReviewBox key={`review-card-${currentCardIdx}`} card={card} />
+              ) : null
+            }
+          </div>
+
+          <div className="ui center aligned segment">
+
+            <div className="ui buttons">
+              <button className="ui button teal large"
                 type="button"
-                onClick={() => this.setState({ markedCards: markedCards.filter((value) => value !== card) })}
-              >Unmark</button>
-            ) : (
+                onClick={this.goToPrevCard}
+                onMouseDown={(e) => e.preventDefault()}
+                disabled={currentCardIdx === 0}
+              ><i className="angle left icon"></i>Prev</button>
+              <div className="or"></div>
+              <button className="ui button teal large"
+                type="button"
+                onClick={this.goToNextCard}
+                onMouseDown={(e) => e.preventDefault()}
+                disabled={currentCardIdx === reviewCards.length - 1}
+              >Next<i className="angle right icon"></i></button>
+            </div>
+
+          </div>
+
+          <div className="ui center aligned segment" style={{ height: "250px" }}>
+            <div style={{ height: "150px" }}>
+              <div style={{ fontSize: "20px" }}>
+                {`Card ${currentCardIdx+1} of ${reviewCards.length}`}
+              </div>
+              <div style={{ margin: "20px 0 20px 0" }}>
+                {
+                  markedCards.includes(card) ? (
+                    <button className="ui button grey"
+                      type="button"
+                      onClick={() => this.setState({ markedCards: markedCards.filter((value) => value !== card) })}
+                    >Unmark</button>
+                  ) : (
+                      <button className="ui button blue"
+                        type="button"
+                        onClick={() => this.setState({ markedCards: markedCards.concat([card]) })}
+                      >Mark to Review Again Later</button>
+                    )
+                }
+              </div>
+              <div className="ui text container">
+                Here you can review your cards individually.
+              Navigate with the <span className="ui header teal small">Prev</span> or
+             <span className="ui header teal small">Next</span> buttons, or use your
+             arrow keys. Click on the card or press spacebar to reveal the answer!
+            </div>
+            </div>
+
+            <div className="ui divider"></div>
+
+            {
+              currentCardIdx === reviewCards.length - 1 &&
+              <div>
                 <button className="ui button blue"
                   type="button"
-                  onClick={() => this.setState({ markedCards: markedCards.concat([card]) })}
-                >Mark to Review Again Later</button>
-              )
-          }
-        </div>
-        <div>
-          <button className="ui button teal"
-            type="button"
-            onClick={this.goToPrevCard}
-            disabled={currentCardIdx === 0}
-          >Prev</button>
-          <button className="ui button teal"
-            type="button"
-            onClick={this.goToNextCard}
-            disabled={currentCardIdx === reviewCards.length - 1}
-          >Next</button>
-          {
-            currentCardIdx === reviewCards.length - 1 &&
-            <div>
-              <button className="ui button blue"
-                type="button"
-                onClick={this.reviewMarkedCards}
-                disabled={this.state.markedCards.length === 0}
-              >Review Marked Cards</button>
-              <button className="ui button blue"
-                type="button"
-                onClick={this.reviewAllCards}
-              >Review All Cards Again</button>
-              or
-              <Link to="/profile">
-                <button className="ui button teal"
+                  onClick={this.reviewMarkedCards}
+                  disabled={this.state.markedCards.length === 0}
+                >Review Marked Cards</button>
+                <button className="ui button blue"
                   type="button"
-                >Finish</button>
-              </Link>
-            </div>
-          }
+                  onClick={this.reviewAllCards}
+                >Review All Cards Again</button>
+                <span style={{ padding: "0 5px" }}>or</span>
+                <Link to="/profile">
+                  <button className="ui button large bold teal"
+                    type="button"
+                    style={{ fontWeight: "bold" }}
+                  >Finish Review Session</button>
+                </Link>
+              </div>
+            }
+          </div>
+
+          {/* <div className="ui segment"> */}
+
+          {/* </div> */}
         </div>
       </div>
     )
