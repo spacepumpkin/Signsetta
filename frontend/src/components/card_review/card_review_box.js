@@ -87,7 +87,7 @@ class CardReviewBox extends React.Component {
     </div>
     );
     let cardButton = this.props.hasCard ? deleteButton : addButton;
-
+    debugger
     return (
 
       <Transition
