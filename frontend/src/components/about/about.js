@@ -15,7 +15,7 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE_pPYBSkbvsg/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=B7nVMKwNe4nfQDVQwrb8EY2UKMyNvQ6yn4Lw-lZNOK8" alt="profile pic" />
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE_pPYBSkbvsg/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=B7nVMKwNe4nfQDVQwrb8EY2UKMyNvQ6yn4Lw-lZNOK8" alt="profile pic" style={{ filter: 'grayscale(100%)' }} />
               </div>
               <div className="content">
                 <div className="ui header teal"> Brandon Leong </div>
@@ -39,7 +39,7 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src={profileBella} alt="profile pic" />
+                <img src={profileBella} alt="profile pic" style={{ filter: 'grayscale(100%)' }} />
               </div>
               <div className="content">
                 <div className="ui header teal"> Bella Sandoval </div>
@@ -88,7 +88,7 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src={profileGary} alt="profile pic" />
+                <img src={profileGary} alt="profile pic" style={{ filter: 'grayscale(100%)' }} />
               </div>
               <div className="content">
                 <div className="ui header teal"> Gary Wan </div>
