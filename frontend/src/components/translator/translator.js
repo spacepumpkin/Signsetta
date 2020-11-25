@@ -27,18 +27,35 @@ export default function Translator(props) {
   return (
     <div className="ui middle aligned center aligned grid">
       <div className="column twelve wide" style={{ marginTop: "50px" }}>
-        <h1 className="ui header teal"> Translate an English word to ASL </h1>
+        <h1 className="ui header teal"> Translate English to ASL Fingerspelling </h1>
 
         <div className="ui input">
           <input
             type="text"
-            placeholder="Type any letters..."
+            placeholder="Type your word(s)..."
             onChange={(e) => setUserInput(e.target.value)}
             value={userInput}
             style={{ height: '100px', border: '2px solid #03dac5', fontSize: '30px' }}
           />
         </div>
-        <div className="ui center aligned grid" style={{ marginTop: '50px' }} >
+        <div className="ui segment" style={{ overflowX: "scroll", whiteSpace: "initial" }}>
+          <div className="ui text container">
+            <span className="ui header teal tiny">Double letters:</span> sign the letter once, 
+            then "bounce" your hand to the side in a small arc.
+          </div>
+          <div className="ui text container">
+            <span className="ui header teal tiny">Multiple words:</span> sign each word 
+            at a consistent pace, while leaving a longer pause between words.
+          </div>
+          <div className="ui text container">
+            <span className="ui header teal tiny">Hyphenated words:</span> if it's important to
+            the word, draw a small dash with your index finger and thumb.
+          </div>
+          <h3 className="" style={{ marginTop: "10px"}}>
+            Now you can fingerspell any word! 😊
+          </h3>
+          </div>
+        <div className="ui center aligned grid" style={{ marginTop: '20px' }} >
 
           <div className="ui row">
             {
@@ -46,7 +63,7 @@ export default function Translator(props) {
                 if (char === " ") {
                   // Return a dividing empty div if char is a space
                   return (
-                    <div style={{ width: "50px", height: "50px" }}></div>
+                    <div style={{ width: "50px", height: "50px", flexBasis: "100%" }}></div>
                   )
                 } else {
                   // Return card that corresponds to current char

@@ -40,15 +40,15 @@ class TranslatorCardBox extends React.Component {
   }
 
   addUserCard = (e) => {
-    e.stopPropagation()
-    if (e.target.className === "ui bottom attached button") {
+    e.stopPropagation();
+    if (e.target.className.includes("button")) {
       this.props.addCards(this.props.currentUser.id, JSON.stringify([this.props.card._id]));
     }
   }
 
   deleteUserCard = (e) => {
-    e.stopPropagation()
-    if (e.target.className === "ui bottom attached button") {
+    e.stopPropagation();
+    if (e.target.className.includes("button")) {
       this.props.deleteCards(this.props.currentUser.id, JSON.stringify([this.props.card._id]));
     }
   }
@@ -61,14 +61,18 @@ class TranslatorCardBox extends React.Component {
   render() {
     let user = this.props.currentUser;
 
-    let addButton = (<div className="ui bottom attached button" onClick={this.addUserCard} >
-      <i className="add icon"></i> Add Card
-    </div>
+    let addButton = (
+      <div className="ui bottom attached button translator-cardbox-button"
+        onClick={this.addUserCard} style={{ padding: "5px 0" }} >
+        <i className="add icon"></i> Add Card
+      </div>
     );
 
-    let deleteButton = (<div className="ui bottom attached button" onClick={this.deleteUserCard} >
-      <i className="minus icon"></i> Delete Card
-    </div>
+    let deleteButton = (
+      <div className="ui bottom attached button translator-cardbox-button"
+        onClick={this.deleteUserCard} style={{ padding: "5px 0" }} >
+        <i className="minus icon"></i> Del. Card
+      </div>
     );
 
     let cardButton = this.props.hasCard ? deleteButton : addButton;
@@ -81,12 +85,14 @@ class TranslatorCardBox extends React.Component {
         duration={400}
         onHide={() => this.setState({ animation: !this.state.animation })}>
         <div className="ui teal card"
-          style={{ backgroundColor: '#000000', color: "white", textAlign: 'center', margin: "0 auto", width: "150px", minHeight: "100px" }}
+          style={{ backgroundColor: '#000000', color: "white", textAlign: 'center', margin: "0 auto", width: "100px", minHeight: "100px" }}
           onClick={() => this.flipAll()} >
+
           {
             (this.state.flip) ? (
               <div className="translator-cardbox-size">
                 <div className={`ui centered loader ${this.state.loaded ? '' : 'active'}`} ></div>
+                <div className="ui top left attached label grey" style={{ zIndex: 1, fontSize: "14px", padding: "4px 6px" }}>{this.props.card.backside}</div>
                 <img
                   className="ui centered image translator-image-size"
                   src={this.props.card.frontside}

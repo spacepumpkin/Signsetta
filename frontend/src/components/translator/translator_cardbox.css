@@ -1,6 +1,6 @@
 :root {
-  --translator-cardbox-width: 150px;
-  --translator-cardbox-height: 100px;
+  --translator-cardbox-width: 100px;
+  --translator-cardbox-height: 120px;
 }
 
 .translator-cardbox-size {
@@ -11,6 +11,8 @@
 .translator-image-size {
   /* height: 100%; */
   height       : var(--translator-cardbox-height);
+  width: 100px;
+  object-fit: cover;
   /* min-height: 500px;
   max-height   : 500px; */
   /* width     : 100%; */
@@ -20,4 +22,10 @@
   padding-top: calc( var(--translator-cardbox-height)/2 );
   font-size  : 50px;
   font-weight: bold;
+}
+
+.translator-cardbox-button {
+  height: 25px;
+  padding: 0px 0px;
+  font-size: 8px;
 }
