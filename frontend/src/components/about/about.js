@@ -1,5 +1,6 @@
 import React from 'react';
 import profileGary from "../../images/profilepic-gary.png";
+import profileBella from '../../images/profilepic-bella.png'
 
 export default function About() {
   return (
@@ -38,7 +39,7 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="https://media-exp1.licdn.com/dms/image/C5603AQEtbHNVEWimVQ/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=-UhnM20qoyoSLBxI7NfwXUIS0fuMTanbwOd1ouStpgA" alt="profile pic" />
+                <img src={profileBella} alt="profile pic" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Bella Sandoval </div>
