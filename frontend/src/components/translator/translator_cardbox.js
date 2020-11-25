@@ -84,7 +84,7 @@ class TranslatorCardBox extends React.Component {
         animation='horizontal flip'
         duration={400}
         onHide={() => this.setState({ animation: !this.state.animation })}>
-        <div className="ui teal card"
+        <div className="ui card"
           style={{ backgroundColor: '#000000', color: "white", textAlign: 'center', margin: "0 auto", width: "100px", minHeight: "100px" }}
           onClick={() => this.flipAll()} >
 
