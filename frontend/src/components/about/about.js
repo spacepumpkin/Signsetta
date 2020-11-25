@@ -62,7 +62,7 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQF1WMhFKFhFNQ/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=hUAAaE4llHT9F4TqcCF5OBtSunAzs81Ja0PWdeY7hBM" alt="team-member" />
+                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQFtFpi8YcPTKQ/profile-displayphoto-shrink_200_200/0?e=1611792000&v=beta&t=0bsNBD1npqZYzNPA7J-tTXkdyn_Ne9c7nbomjv_v-vE" alt="team-member" />
               </div>
               <div className="content">
                 <div className="ui header teal"> Malcolm Reyes</div>

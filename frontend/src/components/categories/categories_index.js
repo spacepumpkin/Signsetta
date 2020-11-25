@@ -6,22 +6,21 @@ import './categories_index.css';
 class CategoriesIndex extends React.Component {
 
     componentDidMount(){
-        this.props.getCategories();
+        // if (this.props.categories.length === 0) this.props.getCategories();
     }
 
     render(){
         
         const { categories } = this.props;
         
-    
         return (
-           
+            
                 <div className="ui grid segment center aligned">
                     {
                         categories.map((category,idx) => {
                            
                             return <CategoryBox 
-                                        key={category.id} 
+                                        key={category._id} 
                                         category={category} 
                                         idx={idx}
                                         
