@@ -1,13 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './categories_index.css';
-// import {Button} from 'semantic-ui-react';
 
 
 class CategoriesIndex extends React.Component {
-    // constructor(props){
-    //     super(props)
-    // }
 
     componentDidMount(){
         // if (this.props.categories.length === 0) this.props.getCategories();
