@@ -46,7 +46,8 @@ class CardReviewBox extends React.Component {
 
   handleKeyDown(evt) {
     // Flip card with spacebar
-    if (evt.code === "Space") this.flipAll()
+    // evt.preventDefault(); // Already added to CardReview to prevent spacebar scrolling
+    if (evt.code === "Space") this.flipAll();
   }
 
   flipAll = () => {

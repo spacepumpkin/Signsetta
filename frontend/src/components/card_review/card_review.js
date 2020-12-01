@@ -86,9 +86,13 @@ export default class CardReview extends React.Component {
 
   handleKeyDown(evt) {
     // console.log("evt code: ", evt.code)
-    if (evt.code === "ArrowLeft") this.goToPrevCard()
-    if (evt.code === "ArrowRight") this.goToNextCard()
-    if (evt.code === "KeyM") this.handleCardMark(this.state.reviewCards[this.state.currentCardIdx])
+    if (["Space", "ArrowLeft", "ArrowRight", "KeyM"].includes(evt.code)) evt.preventDefault();
+    switch (evt.code) {
+      case "ArrowLeft": this.goToPrevCard(); break;
+      case "ArrowRight": this.goToNextCard(); break;
+      case "KeyM": this.handleCardMark(this.state.reviewCards[this.state.currentCardIdx]); break;
+      default: break;
+    }
   }
 
   handleCardMark(card) {
