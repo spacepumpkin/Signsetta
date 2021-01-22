@@ -3,10 +3,8 @@
   display: block;
 } */
 
-<<<<<<< HEAD
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;800&display=swap');
 
-=======
-#splash-image{
-  filter: grayscale(100%);
+#splash-main-header {
+  font-family: 'Quicksand', sans-serif;
 }
->>>>>>> e5884998fb60a9646881086efa667b9a708fb9e7
