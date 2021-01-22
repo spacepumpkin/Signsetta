@@ -9,7 +9,8 @@ const Splash = (state) => {
         <div className="ui masthead center
          aligned segment"style={{ background: '#00000000', border: 'none', boxShadow: 'none' }}>
             <div className="ui text" style={{ background: '000000'}}>
-                <h1 id="splash-main-header" className="ui header teal huge" style={{ fontSize: '70px', fontWeight: 'bold', textShadow: '2px 2px 15px black', paddingTop: '20%'}} >
+                <h1 id="splash-main-header" className="ui header huge" style={{
+                    color: '#00dcd2', fontSize: '70px', fontWeight: 'bold', textShadow: '2px 2px 15px black', paddingTop: '20%'}} >
                     Start your ASL journey with Signsetta.
                 </h1>
                 <h3 style={{ color: '#dddddd', textShadow: '2px 2px 10px black', fontSize: '25px' }}>
