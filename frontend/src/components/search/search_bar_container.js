@@ -6,7 +6,8 @@ import {fetchCards} from '../../actions/card_actions'
 const mSTP= (state, ownProps) => {
     return{
         categories: state.entities.categories,
-        cards: state.entities.cards.all
+        cards: state.entities.cards.all,
+        loggedIn: state.session.isAuthenticated
     }
 }
 

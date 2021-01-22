@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import '../../index';
 import logo from '../../images/mern-logo-1.png';
 import './navbar.css';
+import SearchContainer from '../search/search_bar_container';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -21,8 +22,14 @@ class NavBar extends React.Component {
         if (this.props.loggedIn) {
             return (
                 <div className="right menu" >
-                    <div id="aboutus" className="ui compact menu">
-                        <Link to={'/about'} className="item">
+
+                    <div className="ui item category search" style={{ border:'none' }}>
+                        <div className="search-bar"><SearchContainer /> </div>
+                    </div>
+                        {/* <div class="ui divider"></div> */}
+
+                    <div id="aboutus" className="ui item">
+                        <Link to={'/about'} className="" style={{ color: 'black' }}>
                             <div>
                                 <i className="icon users"></i>
                                 About Us
@@ -32,14 +39,12 @@ class NavBar extends React.Component {
 
                     <div className="item" >
                         <Link to={'/fingerspelling-game'}>
-                            <div className="ui button olive">Fingerspelling Practice</div>
+                            <div className="ui button pink">Fingerspelling Practice</div>
                         </Link>
                     </div>
 
                     <div className="item" >
-                        <Link to={'/categories'}>
-                            <div className=" ui button pink">Learning Subjects</div>
-                        </Link>
+                        <Link to={'/translator'}><div className="ui button green">Translator</div></Link>
                     </div>
 
                     <div className="item" >
@@ -68,13 +73,23 @@ class NavBar extends React.Component {
 
                 <div className="right menu" >
 
+                    <div className="ui item category search" style={{ border: 'none' }}>
+                        <div className="search-bar"><SearchContainer /> </div>
+                    </div>
+                    {/* <div class="ui divider"></div> */}
+
+
                     <div id="aboutus" className="ui compact menu" >
-                        <Link to={'/about'} className="item">
+                        <Link to={'/about'} className="item" >
                             <div>
                                 <i className="icon users"></i>
                                 About Us
                             </div>
                         </Link>
+                    </div>
+
+                    <div className="item" >
+                        <Link to={'/translator'}><div className="ui button green">Translator</div></Link>
                     </div>
 
                     <div className="item" >
@@ -90,16 +105,15 @@ class NavBar extends React.Component {
 
     render() {
 
-
-
-
         return (
             <div className="ui stackable menu">
                 <Link to="/">
-                    <img src={logo} className="image" alt="logo" height="80" />
+                    <img src={logo} className="image" alt="logo" />
                 </Link>
                 { this.getLinks()}
+
             </div>
+
         )
 
 

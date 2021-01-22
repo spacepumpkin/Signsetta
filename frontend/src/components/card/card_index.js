@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 // import CategoryShow from '../categories/category_show';
 import CardBox from './cardbox';
+import CategoryIndexContainer from '../categories/categories_index_container';
 
 class CardIndex extends React.Component {
     // constructor(props) {
@@ -9,8 +10,8 @@ class CardIndex extends React.Component {
     // }
 
     componentDidMount() {
-        this.props.fetchCards();
-        this.props.fetchCategories();
+        if (this.props.cards.length === 0) this.props.fetchCards();
+        if (this.props.categories.length === 0) this.props.fetchCategories();
         this.props.fetchUserCards(this.props.currentUser.id);
     }
     // componentWillReceiveProps(newState) {
@@ -32,11 +33,16 @@ class CardIndex extends React.Component {
 
         return (
             <div className="ui segment center aligned grid">
-
-                <h2 className="ui header" style={{marginTop : "35px"}}>
-                    All the Cards
-                </h2>
                 <div className="ui stacked segment">
+                <CategoryIndexContainer/>
+                <h1 className="ui header" style={{marginTop : "35px"}}>
+                    All the Cards
+                </h1>
+                <h2>
+                    Here is where you can look at all the cards. Click on a card to see what the sign on it means. Add cards to your 
+                    list of cards by clicking the "Add To Your Cards" button, 
+                    and delete cards that are already in your list with the "Delete From Your Cards" button.
+                </h2>
                     <h1 className="ui header teal">
                         <i className="language icon"></i>
                         Alphabet

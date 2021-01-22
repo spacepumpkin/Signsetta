@@ -7,7 +7,7 @@ const MSTP = (state, ownProps) => {
     return {
         currentUser: state.session.user,
         cards: Object.values(state.entities.cards.all),
-        categories: Object.values(state.entities.categories)[0]
+        categories: state.entities.categories.all
     };
 };
 

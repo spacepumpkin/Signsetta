@@ -141,23 +141,37 @@ class FSGame extends React.Component {
       <div className="ui middle aligned center aligned grid">
         <div className="column seven wide">
           <h1 className="ui header teal"> Guess That Word! </h1>
+
+          {/* Card/Message Area */}
           <div className="simple-card-box">
             <SimpleCard card={currentCard} cardMessage={this.state.cardMessage} />
           </div>
+
           <div className="ui divider"></div>
+
+          {/* Generate Word and Replay Buttons */}
           <button className="ui button inverted pink" onClick={this.generateNewWord} type="button"
             disabled={this.cardDisplaying}> Generate New Word
           </button>
           <button className="ui button" onClick={this.replayWord} type="button"
             disabled={this.cardDisplaying || (this.currentWord === "")}> Replay </button>
 
+          {/* User Input and Check */}
           <div className="ui action input">
             <form onSubmit={this.checkMatch} className="ui action input">
-              <input type="text" placeholder="Type your answer here" onChange={this.update()} value={this.state.userGuess} />
-              <button className="ui button teal">Check</button>
+              <input type="text" placeholder="Type your answer here" 
+              onChange={this.update()} 
+              value={this.state.userGuess} 
+              disabled={ (this.currentWord === "") || (this.state.cardMessage.includes("answer"))}
+              />
+              <button className="ui button teal"
+                disabled={ (this.state.cardMessage.includes("answer"))}
+                >Check</button>
             </form>
           </div>
         </div>
+
+        {/* Speed Setting */}
         <div className="row five wide">
           <div className="ui form" onChange={this.speedSelect()}>
             <div className="inline fields">
@@ -200,6 +214,8 @@ class FSGame extends React.Component {
             </div>
           </div>
         </div>
+
+        {/* Number of Letters Setting */}
         <div className="row five wide">
           <div className="ui form" onChange={this.wordSelect()}>
             <div className="inline fields">
@@ -228,6 +244,8 @@ class FSGame extends React.Component {
             </div>
           </div>
         </div>
+
+        {/* Reveal Answer Button */}
         <div className="ui row">
           <button className="ui button teal" onClick={() => this.setState({ revealAnswerCheck: true })} type="button"
             disabled={this.cardDisplaying || (this.currentWord === "") || (this.state.cardMessage.includes("answer"))}>
@@ -247,6 +265,7 @@ class FSGame extends React.Component {
           }
         </div>
 
+        {/* Instructions */}
         <div className="ui segment">
           <div className="ui text container">
             Practice your fingerspelling comprehension by guessing words!

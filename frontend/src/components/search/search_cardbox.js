@@ -3,11 +3,11 @@ import { postCardsToUser, deleteCardsFromUser } from '../../actions/card_actions
 import { Transition } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
-import './cardbox.css';
+import '../card/cardbox.css';
 
 
 //this is an addition made to help with the creation of card indexes in the future
-export const CardBoxIndex = props => {
+export const SearchCardBoxIndex = props => {
 
     return (
         <div className="ui segment center aligned grid">
@@ -15,7 +15,7 @@ export const CardBoxIndex = props => {
 
                 {
                     props.cards.map(card => (
-                        <CardBox
+                        <SearchCardBox
                             key={card._id}
                             card={card}
                         />))
@@ -26,23 +26,23 @@ export const CardBoxIndex = props => {
 }
 
 // CardBox is the main export of the file; container is in the same file
-class CardBox extends React.Component {
+class SearchCardBox extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            flip: true,
+            flip: false,
             animation: true
         }
-        
+
         // debugger;
         this.addToUserCards = this.addToUserCards.bind(this);
         this.deleteUserCards = this.deleteUserCards.bind(this);
         this.handleLoad = this.handleLoad.bind(this);
 
     }
-   
+
     flipAll = () => {
 
         return (this.setState({ animation: !this.state.animation }),
@@ -53,7 +53,7 @@ class CardBox extends React.Component {
 
     addToUserCards = (e) => {
         e.stopPropagation()
-        if (e.target.className === "ui bottom attached button") { 
+        if (e.target.className === "ui bottom attached button") {
             // console.log("adding card id: ", JSON.stringify([this.props.card._id]));
             this.props.addCards(this.props.currentUser.id, JSON.stringify([this.props.card._id]));
         }
@@ -68,7 +68,7 @@ class CardBox extends React.Component {
         }
     }
 
-    
+
     handleLoad() {
         this.setState({ loaded: true });
     }
@@ -88,6 +88,7 @@ class CardBox extends React.Component {
         </div>
         );
         let cardButton = this.props.hasCard ? deleteButton : addButton;
+
         return (
 
             <Transition
@@ -95,34 +96,34 @@ class CardBox extends React.Component {
                 animation='horizontal flip'
                 duration={400}
                 onHide={() => this.setState({ animation: !this.state.animation })}>
-                <div className="ui teal card" 
-                     style={{backgroundColor: '#000000', color: "white", textAlign: 'center'}} 
-                     onClick={() => this.flipAll()} >
+                <div className="ui teal card"
+                    style={{ backgroundColor: '#000000', color: "white", textAlign: 'center' }}
+                    onClick={() => this.flipAll()} >
                     {
                         (this.state.flip) ? (
                             <div>
                                 <div className={`ui centered loader ${this.state.loaded ? '' : 'active'}`} ></div>
-                                <img 
-                                className="ui centered rounded image" 
-                                src={this.props.card.frontside} 
-                                height="150" 
-                                onLoad={this.handleLoad}
-                                alt="card"/>
+                                <img
+                                    className="ui centered rounded image"
+                                    src={this.props.card.frontside}
+                                    height="150"
+                                    onLoad={this.handleLoad}
+                                    alt="card" />
 
                                 {
-                                // Check if currentUser exists; if so, render the Add Card button
-                                (
-                                    (Object.prototype.toString.call(user) === "[object Object]") && (Object.keys(user).length !== 0)
-                                    &&
-                                    cardButton
-                                )}
+                                    // Check if currentUser exists; if so, render the Add Card button
+                                    (
+                                        (Object.prototype.toString.call(user) === "[object Object]") && (Object.keys(user).length !== 0)
+                                        &&
+                                        cardButton
+                                    )}
                             </div>
 
                         ) : (
                                 <div>
                                     <div className="card-backside" style={{ height: "150px" }}>
                                         {this.props.card.backside}
-                                        </div>
+                                    </div>
                                     {(
                                         (Object.prototype.toString.call(user) === "[object Object]") && (Object.keys(user).length !== 0)
                                         &&
@@ -140,7 +141,7 @@ class CardBox extends React.Component {
     }
 }
 const mSP = (state, ownProps) => {
-    
+
     return {
         currentUser: state.session.user,
         hasCard: state.entities.cards.userCards.includes(ownProps.card._id)
@@ -153,21 +154,4 @@ const mDP = dispatch => {
     }
 }
 
-export default connect(mSP, mDP)(CardBox);
-
-// const CardBox = props => {
-//     const [flip, setFlip] = React.useState(true)
-//     return (
-//         <li className="cardbox-card" onClick={() => setFlip(!flip)}>
-//             {
-//                 (flip) ? (
-//                     <img className="cardbox-image" src={props.frontside} />
-//                     // <img>{props.frontside}</img>
-//                 ) : (
-//                         <p className="cardbox-card-backside">{props.backside}</p>
-//                     )
-//             }
-//             <div>Add me to the list!</div>
-//         </li>
-//     );
-// }
+export default connect(mSP, mDP)(SearchCardBox);

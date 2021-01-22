@@ -1,5 +1,8 @@
 import React from 'react';
 import profileGary from "../../images/profilepic-gary.png";
+import profileBella from '../../images/profilepic-bella.png';
+import profileBrandon from '../../images/profilepic-brandon.jpg';
+import profileMalcolm from '../../images/profilepic-malcolm.jpg';
 
 export default function About() {
   return (
@@ -14,7 +17,11 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE_pPYBSkbvsg/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=B7nVMKwNe4nfQDVQwrb8EY2UKMyNvQ6yn4Lw-lZNOK8" alt="profile pic" />
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE_pPYBSkbvsg/profile-displayphoto-shrink_400_400/0/1544901637387?e=1616630400&v=beta&t=IvdEbV1P2Md_S42nQ9P4wlyVfhyXCTygFSTf8d9UFw4"
+                  onError={(evt) => { if (evt.currentTarget && evt.currentTarget.src !== profileBrandon) evt.currentTarget.src = profileBrandon; }}
+                  alt="profile pic"
+                  style={{ filter: 'grayscale(100%)' }}
+                />
               </div>
               <div className="content">
                 <div className="ui header teal"> Brandon Leong </div>
@@ -38,7 +45,7 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="https://media-exp1.licdn.com/dms/image/C5603AQEtbHNVEWimVQ/profile-displayphoto-shrink_200_200/0?e=1610582400&v=beta&t=-UhnM20qoyoSLBxI7NfwXUIS0fuMTanbwOd1ouStpgA" alt="profile pic" />
+                <img src={profileBella} alt="profile pic" style={{ filter: 'grayscale(100%)' }} />
               </div>
               <div className="content">
                 <div className="ui header teal"> Bella Sandoval </div>
@@ -62,11 +69,15 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQF1WMhFKFhFNQ/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=hUAAaE4llHT9F4TqcCF5OBtSunAzs81Ja0PWdeY7hBM" alt="team-member" />
+                <img src="https://media-exp1.licdn.com/dms/image/C4E03AQFtFpi8YcPTKQ/profile-displayphoto-shrink_200_200/0?e=1611792000&v=beta&t=0bsNBD1npqZYzNPA7J-tTXkdyn_Ne9c7nbomjv_v-vE"
+                  onError={(evt) => { if (evt.currentTarget && evt.currentTarget.src !== profileMalcolm) evt.currentTarget.src = profileMalcolm; }}
+                  alt="team-member"
+                  style={{ filter: 'grayscale(100%)' }}
+                />
               </div>
               <div className="content">
                 <div className="ui header teal"> Malcolm Reyes</div>
-                <div className="meta">Loves cats more than gary</div>
+                <div className="meta">Loves cats more than Gary</div>
 
                 <div className="description">
                   Malcolm is a software engineer: enthusiastic about design and finding ways to improve existing technology.
@@ -87,7 +98,7 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src={profileGary} alt="profile pic" />
+                <img src={profileGary} alt="profile pic" style={{ filter: 'grayscale(100%)' }} />
               </div>
               <div className="content">
                 <div className="ui header teal"> Gary Wan </div>

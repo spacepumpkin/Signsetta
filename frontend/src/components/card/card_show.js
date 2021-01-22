@@ -37,3 +37,6 @@ class CardShow extends React.Component{
 
 export default CardShow;
 
+
+
+

@@ -18,11 +18,19 @@ class LoginForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    // if (nextProps.isAuthenticated === true) {
-    //   this.props.history.push('/profile');
-    // }
-    this.setState({ errors: nextProps.errors })
+  // Swapped this out for cDUpdate
+  // componentWillReceiveProps(nextProps) {
+  //   // if (nextProps.isAuthenticated === true) {
+  //   //   this.props.history.push('/profile');
+  //   // }
+
+  //   this.setState({ errors: nextProps.errors })
+  // }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.errors !== this.props.errors) {
+      this.setState({ errors: this.props.errors })
+    }
   }
 
   componentDidMount() {
@@ -73,7 +81,7 @@ class LoginForm extends React.Component {
         <div className="column five wide">
           <div className="image">
             {/* <img src={logo} className="image" alt="logo" /> */}
-            
+
             <i className="loading american sign language interpreting teal icon huge" ></i>
 
           </div>

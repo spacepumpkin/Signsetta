@@ -21,11 +21,18 @@ class SignupForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    // if (nextProps.isAuthenticated === true) {
-    //   this.props.history.push("/profile");
-    // }
-    this.setState({ errors: nextProps.errors })
+  // Swapped this out for cDUpdate
+  // componentWillReceiveProps(nextProps) {
+  //   // if (nextProps.isAuthenticated === true) {
+  //   //   this.props.history.push("/profile");
+  //   // }
+  //   this.setState({ errors: nextProps.errors })
+  // }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.errors !== this.props.errors) {
+      this.setState({ errors: this.props.errors })
+    }
   }
 
   componentDidMount() {
