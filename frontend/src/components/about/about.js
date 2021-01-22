@@ -4,7 +4,6 @@ import profileBella from '../../images/profilepic-bella.png';
 import profileBrandon from '../../images/profilepic-brandon.jpg';
 import profileMalcolm from '../../images/profilepic-malcolm.jpg';
 
-
 export default function About() {
   return (
     <div className="ui vertical footer">
@@ -18,7 +17,7 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
-                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE_pPYBSkbvsg/profile-displayphoto-shrink_400_400/0?e=1610582400&v=beta&t=B7nVMKwNe4nfQDVQwrb8EY2UKMyNvQ6yn4Lw-lZNOK8"
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE_pPYBSkbvsg/profile-displayphoto-shrink_400_400/0/1544901637387?e=1616630400&v=beta&t=IvdEbV1P2Md_S42nQ9P4wlyVfhyXCTygFSTf8d9UFw4"
                   onError={(evt) => { if (evt.currentTarget && evt.currentTarget.src !== profileBrandon) evt.currentTarget.src = profileBrandon; }}
                   alt="profile pic"
                   style={{ filter: 'grayscale(100%)' }}
