@@ -3,7 +3,7 @@
   display: block;
 } */
 
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;800&display=swap'); imported in index*/
 
 #splash-main-header {
   font-family: 'Quicksand', sans-serif;
