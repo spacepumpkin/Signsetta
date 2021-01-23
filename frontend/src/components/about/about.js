@@ -45,6 +45,11 @@ export default function About() {
           <div className="four wide column">
             <div className="ui link card teal inverted">
               <div className="image">
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQEtbHNVEWimVQ/profile-displayphoto-shrink_200_200/0/1604962227644?e=1616630400&v=beta&t=ycKPrJq-un2hi80ZetmS_j6A8hCTexTj8gNzvgLfNsA"
+                  onError={(evt) => { if (evt.currentTarget && evt.currentTarget.src !== profileBella) evt.currentTarget.src = profileBella; }}
+                  alt="profile pic"
+                  style={{ filter: 'grayscale(100%)' }}
+                />
                 <img src={profileBella} alt="profile pic" style={{ filter: 'grayscale(100%)' }} />
               </div>
               <div className="content">
