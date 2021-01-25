@@ -50,7 +50,6 @@ export default function About() {
                   alt="profile pic"
                   style={{ filter: 'grayscale(100%)' }}
                 />
-                <img src={profileBella} alt="profile pic" style={{ filter: 'grayscale(100%)' }} />
               </div>
               <div className="content">
                 <div className="ui header teal"> Bella Sandoval </div>
