@@ -1,4 +1,4 @@
-<p align="center"> <img src="./frontend/src/images/mern-logo-1.png" /> </p>
+<p align="center"> <img src="./frontend/src/images/mern-logo-1-whitebackground.png" /> </p>
 
 [Link to the working site](https://signsetta.herokuapp.com/#/)
 
