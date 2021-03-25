@@ -24,7 +24,8 @@ const Splash = (state) => {
             </div> */}
 
             <div className="splash-img ui fluid image  " style={{ background: '#000000', boxShadow: 'none' }}>
-                <img src={image} className="image" alt="splash" style={{ position: 'fixed', zIndex: '-1000', top: '0', left: '0', filter: 'grayscale(30%) blur(0px)', minHeight: '100vh', minWidth: '100vw' }} />
+                <img src={image} className="image" alt="splash" style={{ position: 'fixed', zIndex: '-1000', top: '0', left: '0', filter: 'grayscale(30%) blur(0px)', minHeight: '100vh', minWidth: '100vw', objectFit: 'cover'}} />
+
             </div>
         </div>
 
