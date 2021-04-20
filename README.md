@@ -1,8 +1,9 @@
 <p align="center"> <a href="https://signsetta.herokuapp.com/#/" rel="noopener noreferrer nofollow" 
    target="_blank"><img src="./frontend/src/images/mern-logo-1-whitebackground.png" /></a> </p>
 
-[Link to the working site](https://signsetta.herokuapp.com/#/)
+[LIVE SITE](https://signsetta.herokuapp.com/#/)
 
+Documentation
 - [Functionality and MVP](https://github.com/spacepumpkin/Signsetta/wiki/Functionality-and-MVP)
 - [Background and overview](https://github.com/spacepumpkin/Signsetta/wiki/Background-and-Overview)
 	
