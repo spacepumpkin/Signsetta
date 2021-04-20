@@ -1,4 +1,5 @@
-<p align="center"> <img src="./frontend/src/images/mern-logo-1-whitebackground.png" /> </p>
+<p align="center"> <a href="https://signsetta.herokuapp.com/#/" rel="noopener noreferrer nofollow" 
+   target="_blank"><img src="./frontend/src/images/mern-logo-1-whitebackground.png" /></a> </p>
 
 [Link to the working site](https://signsetta.herokuapp.com/#/)
 
