@@ -93,10 +93,10 @@ class NavBar extends React.Component {
                     </div>
 
                     <div className="item" >
-                        <Link to={'/signup'}><div className="ui button pink">Signup</div></Link>
+                        <Link to={'/login'}><div className=" ui button teal">Login</div></Link>
                     </div>
                     <div className="item" >
-                        <Link to={'/login'}><div className=" ui button teal">Login</div></Link>
+                        <Link to={'/signup'}><div className="ui button pink">Get Started</div></Link>
                     </div>
                 </div>
             );
