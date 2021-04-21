@@ -130,7 +130,7 @@ class LoginForm extends React.Component {
             <div>
               New user?
             <Link to="/signup"> Sign Up </Link>
-            or log in with a &nbsp;
+            or try a &nbsp;
             <button
                 className="ui button small pink"
                 disabled={this.state.submitted}
