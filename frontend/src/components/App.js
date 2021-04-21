@@ -39,7 +39,7 @@ const App = () => (
 
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
       <ProtectedRoute exact path="/card-review" component={CardReviewContainer} />
-      <Route exact path="/" component={SplashComponent} />
+      <AuthRoute exact path="/" component={SplashComponent} />
       <Redirect to="/" />
       {/* <Route render={() => <Redirect to="/" />} /> */}
     </Switch>
