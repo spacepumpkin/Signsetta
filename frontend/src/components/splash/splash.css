@@ -8,3 +8,7 @@
 #splash-main-header {
   font-family: 'Quicksand', sans-serif;
 }
+
+#splash-get-started:hover {
+  border-radius: 20px !important;
+}
