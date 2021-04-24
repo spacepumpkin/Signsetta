@@ -27,19 +27,16 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <Route exact path="/translator" component={TranslatorContainer} />
+      <Route exact path="/cards" component={CardIndexContainer} />
 
-      <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
+
       <ProtectedRoute exact path="/categories/:catId" component={CategoryShowContainer} />
-    
-
       <ProtectedRoute exact path="/fingerspelling-game" component={FSGameContainer} />
-
       <ProtectedRoute exact path="/cards/:cardId" component={CardShowContainer} />
       <ProtectedRoute exact path="/cards" component={CardIndexContainer} />
-
       <ProtectedRoute exact path="/profile" component={ProfileContainer} />
       <ProtectedRoute exact path="/card-review" component={CardReviewContainer} />
-      <Route exact path="/" component={SplashComponent} />
+      <AuthRoute exact path="/" component={SplashComponent} />
       <Redirect to="/" />
       {/* <Route render={() => <Redirect to="/" />} /> */}
     </Switch>

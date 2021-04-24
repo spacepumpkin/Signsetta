@@ -58,6 +58,15 @@ class SignupForm extends React.Component {
     );
   }
 
+  demoLogin() {
+    return (evt) => {
+      this.props.login({
+        email: "test@test.com",
+        password: "password"
+      })
+    };
+  }
+
   handleSubmit(evt) {
     evt.preventDefault();
     let user = {
@@ -79,12 +88,12 @@ class SignupForm extends React.Component {
           <div className="image">
 
 
-              <i className="loading american sign language interpreting teal icon huge"></i>
-              {/* <i className="loading american sign language interpreting inverted icon huge"
+            <i className="loading american sign language interpreting teal icon huge"></i>
+            {/* <i className="loading american sign language interpreting inverted icon huge"
               style={{ "position": "absolute", "top": "65px", "left": "295px"}}></i> */}
-              {/* <img src={icon} alt="icon" style={{width: "150px"}} /> */}
-              {/* <img src={logo} alt="logo" /> */}
-          
+            {/* <img src={icon} alt="icon" style={{width: "150px"}} /> */}
+            {/* <img src={logo} alt="logo" /> */}
+
 
           </div>
           <div className="ui divider"></div>
@@ -149,6 +158,14 @@ class SignupForm extends React.Component {
           <div className="ui message ">
             Already have an account?
             <Link to="/login"> Log In </Link>
+              or try a &nbsp;
+              <button
+              className="ui button small pink"
+              disabled={this.state.submitted}
+              onClick={this.demoLogin()}
+              type="button">
+              DEMO
+              </button>
           </div>
         </div>
       </div >

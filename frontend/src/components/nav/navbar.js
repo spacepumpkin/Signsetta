@@ -31,8 +31,8 @@ class NavBar extends React.Component {
                     <div id="aboutus" className="ui item">
                         <Link to={'/about'} className="" style={{ color: 'black' }}>
                             <div>
-                                <i className="icon users"></i>
-                                About Us
+                                {/* <i className="icon users"></i> */}
+                                About Signsetta
                             </div>
                         </Link>
                     </div>
@@ -90,6 +90,14 @@ class NavBar extends React.Component {
 
                     <div className="item" >
                         <Link to={'/translator'}><div className="ui button green">Translator</div></Link>
+                    </div>
+
+                    <div className="item" >
+                        <Link to={'/cards'}>
+                            <div className=" ui button blue">
+                                Cards
+                            </div>
+                        </Link>
                     </div>
 
                     <div className="item" >
