@@ -28,11 +28,14 @@ export default function About() {
           <br />
 
             <div className="ui left aligned text container">
-              We at Signsetta have one goal: to make learning American Sign Language (ASL) easier and 
-              more accessible to those who wish to learn it. We have seen through our research, while 
-              there are many ways to learn ASL, there is not a great resource that contains a combination 
-              of pictures, definitions, lesson plans, and sign language learning games. We aim to provide 
-              ASL learners with easy to understand flashcards, games that enhance their comprehension of ASL, 
+              We at Signsetta have one goal: to make learning American Sign Language (ASL) 
+              easier and more accessible to those who wish to learn it. We have seen through 
+              our research that while there are many ways to learn ASL, there is not a great 
+              resource that contains a combination of pictures, definitions, lesson plans, 
+              and sign language learning games. We designed Signsetta primarily as a tool for 
+              preliminary learners, but we also strive to make Signsetta helpful to anyone 
+              learning ASL regardless of their learning level. We aim to provide ASL learners 
+              with easy to understand flashcards, games that enhance their comprehension of ASL, 
               and profiles that allow each user to customize their own learning.
             </div>
         </div>
