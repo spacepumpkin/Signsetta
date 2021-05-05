@@ -28,21 +28,15 @@ export default function About() {
           <br />
 
             <div className="ui left aligned text container">
-              Our goal when we created Tesla a decade ago was the same as it is today: to accelerate the advent of 
-              sustainable transport by bringing compelling mass market electric cars to market as soon as possible. 
-              If we could have done that with our first product, we would have, but that was simply impossible to 
-              achieve for a startup company that had never built a car and that had one technology iteration and no 
-              economies of scale. Our first product was going to be expensive no matter what it looked like, so we 
-              decided to build a sports car, as that seemed like it had the best chance of being competitive with its 
-              gasoline alternatives. I suspected that this could be misinterpreted as Tesla believing that there was 
-              a shortage of sports cars for rich people, so I described the three step “master plan” for getting to 
-              compelling and affordable electric vehicles in my first blog piece about our company. This was 
-              unfortunately almost entirely ignored. In order to get to that end goal, big leaps in technology are 
-              required, which naturally invites a high level of scrutiny. That is fair, as new technology should be 
-              held to a higher standard than what has come before. However, there should also be some reasonable limit 
-              to how high such a standard should be, and we believe that this has been vastly exceeded in recent media 
-              coverage.
-
+              We at Signsetta have one goal: to make learning American Sign Language (ASL) 
+              easier and more accessible to those who wish to learn it. We have seen through 
+              our research that while there are many ways to learn ASL, there is not a great 
+              resource that contains a combination of pictures, definitions, lesson plans, 
+              and sign language learning games. We designed Signsetta primarily as a tool for 
+              preliminary learners, but we also strive to make Signsetta helpful to anyone 
+              learning ASL regardless of their learning level. We aim to provide ASL learners 
+              with easy to understand flashcards, games that enhance their comprehension of ASL, 
+              and profiles that allow each user to customize their own learning.
             </div>
         </div>
         <br />
