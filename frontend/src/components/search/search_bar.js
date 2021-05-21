@@ -28,7 +28,7 @@ class CategorySearch extends React.Component {
         this.setState({ open: true })
     }
     handleBlur(){
-        this.setState({ open: false })
+        this.setState({ open: false})
     }
     // submitSearch(e) {
     //     e.preventDefault();
@@ -62,7 +62,7 @@ class CategorySearch extends React.Component {
                 </div>
                 <div className="search-result-cards">
                 {
-                    this.state.open ? (
+                    this.state.open && (
                     <div className="ui segment center aligned grid" style={{ background: '000000', border: 'none', boxShadow: 'none'}}>
                         <div className="ui centered cards" style={{ border: 'none', position: 'absolute', zIndex: '1'}}>
 
@@ -79,7 +79,7 @@ class CategorySearch extends React.Component {
                         </div>
                     </div>
 
-                    ) : null
+                    )
                 }        
                 </div>
             </div>
