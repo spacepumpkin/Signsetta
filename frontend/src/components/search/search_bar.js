@@ -61,9 +61,10 @@ class CategorySearch extends React.Component {
                     <i className="search icon"></i>
                 </div>
                 <div className="search-result-cards">
-                {
-                    this.state.open && (
+                
+                    
                     <div className="ui segment center aligned grid" style={{ background: '000000', border: 'none', boxShadow: 'none'}}>
+                    {this.state.open && (
                         <div className="ui centered cards" style={{ border: 'none', position: 'absolute', zIndex: '1'}}>
 
                             {(returnCard !== undefined) && returnCard.map(card => {
@@ -77,10 +78,8 @@ class CategorySearch extends React.Component {
                             }
 
                         </div>
+                        )}     
                     </div>
-
-                    )
-                }        
                 </div>
             </div>
       
