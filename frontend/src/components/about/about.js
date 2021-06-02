@@ -6,7 +6,7 @@ import profileBrandon from '../../images/profilepic-brandon.jpg';
 import profileMalcolm from '../../images/profilepic-malcolm.jpg';
 import aboutImage from '../../images/about-pic.png';
 
-import { Container } from 'semantic-ui-react';
+// import { Container } from 'semantic-ui-react';
 
 export default function About() {
   return (
