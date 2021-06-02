@@ -54,7 +54,7 @@ class CategorySearch extends React.Component {
 
 
            
-            <div className="ui category search" id="searchbar" tabindex="0" onBlur={this.handleBlur} onFocus={this.handleFocus}>
+            <div className="ui category search" id="searchbar" tabIndex="0" onBlur={this.handleBlur} onFocus={this.handleFocus}>
                 <div className="ui icon input">
                     <input className="prompt search" value={this.state.search} onChange={this.updateSearch} type="text" placeholder="Search cards..."></input>
                     
