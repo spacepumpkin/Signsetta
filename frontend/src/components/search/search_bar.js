@@ -6,10 +6,15 @@ import './search.css'
 class CategorySearch extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { search: "" }
+        this.state = {
+             search: "",
+             open: true
+            
+        }
         // this.submitSearch = this.submitSearch.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
-
+        this.handleFocus = this.handleFocus.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
     }
     componentDidMount() {
         this.props.fetchCards()
@@ -19,7 +24,12 @@ class CategorySearch extends React.Component {
     updateSearch(e) {
         this.setState({ search: e.currentTarget.value })
     }
-    
+    handleFocus(){
+        this.setState({ open: true })
+    }
+    handleBlur(){
+        this.setState({ open: false})
+    }
     // submitSearch(e) {
     //     e.preventDefault();
     //     this.setState({ search: e.currentTarget.value });
@@ -41,15 +51,20 @@ class CategorySearch extends React.Component {
         })
         
         return (
-            <div className="ui category search" id="searchbar">
+
+
+           
+            <div className="ui category search" id="searchbar" tabindex="0" onBlur={this.handleBlur} onFocus={this.handleFocus}>
                 <div className="ui icon input">
                     <input className="prompt search" value={this.state.search} onChange={this.updateSearch} type="text" placeholder="Search cards..."></input>
                     
                     <i className="search icon"></i>
                 </div>
-            <div>
-
+                <div className="search-result-cards">
+                
+                    
                     <div className="ui segment center aligned grid" style={{ background: '000000', border: 'none', boxShadow: 'none'}}>
+                    {this.state.open && (
                         <div className="ui centered cards" style={{ border: 'none', position: 'absolute', zIndex: '1'}}>
 
                             {(returnCard !== undefined) && returnCard.map(card => {
@@ -63,6 +78,7 @@ class CategorySearch extends React.Component {
                             }
 
                         </div>
+                        )}     
                     </div>
                 </div>
             </div>
