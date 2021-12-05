@@ -79,8 +79,8 @@ class NavBar extends React.Component {
                     {/* <div class="ui divider"></div> */}
 
 
-                    <div id="aboutus" className="ui compact menu" >
-                        <Link to={'/about'} className="item" >
+                    <div id="aboutus" className="ui compact item" >{/*remove ui compact menu*/}
+                        <Link to={'/about'} style={{ color: 'black' }}>
                             <div>
                                 <i className="icon users"></i>
                                 About Us
